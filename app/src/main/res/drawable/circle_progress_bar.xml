@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/progress_bar_background">
+
+        <shape
+               android:innerRadiusRatio="2.1"
+                android:thickness="4dp"
+                android:shape="ring"
+                android:useLevel="false">
+
+            <solid android:color="@color/progressBarBackground"/>
+
+        </shape>
+
+    </item>
+
+    <item android:id="@+id/progressBarLine">
+
+        <rotate android:fromDegrees="270"
+                android:pivotX="50%"
+                android:pivotY="50%"
+                android:toDegrees="270">
+
+            <shape
+                android:innerRadiusRatio="2.1"
+                android:thickness="4dp"
+                android:shape="ring"
+                android:useLevel="true">
+
+                <solid android:color="@color/colorAccent"/>
+            </shape>
+
+        </rotate>
+
+    </item>
+
+
+</layer-list>

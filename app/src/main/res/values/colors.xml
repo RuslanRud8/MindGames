@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D8371B</color>
+    <color name="mainMenuGradStartColor">#039BE5</color>
+    <color name="mainMenuGradEndColor">#00ACC1</color>
+    <color name="progressBarBackground">#DFDFDF</color>
+    <color name="progressBarStroke">#023B52</color>
+    <color name="white">#FFFFFF</color>
+    <color name="green">#81E23C</color>
+    <color name="dark_green">#42B11B</color>
+    <color name="blue">#48D8E6</color>
+    <color name="dark_blue">#29A1C0</color>
+    <color name="red">#FF4E4E</color>
+    <color name="dark_red">#C93A3A</color>
+    <color name="orange">#FF9800</color>
+    <color name="dark_orange">#BE7B18</color>
+    <color name="orange_game">#FF6E40</color>
+    <color name="dark_orange_game">#B84A28</color>
+    <color name="black">#1A1817</color>
+    <color name="pink">#CE00CE</color>
+    <color name="dark_pink">#850485</color>
+    <color name="yellow">#F8D005</color>
+    <color name="dark_yellow">#B87A04</color>
+    <color name="gray">#B8B8B8</color>
+    <color name="dark_gray">#575757</color>
+    <color name="lamps_back">#08ec57</color>
+    <color name="purple">#8208EC</color>
+    <color name="colors_game_back">#F0B785</color>
+
+
+</resources>

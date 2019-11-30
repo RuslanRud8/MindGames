@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="heading">85dp</dimen>
+    <dimen name="level_bar_dimen">145dp</dimen>
+    <dimen name="level_num_sp">24sp</dimen>
+    <dimen name="user_name_sp">40sp</dimen>
+    <dimen name="main_btn_sp">30sp</dimen>
+    <dimen name="btn_rad">30dp</dimen>
+    <dimen name="gear_size_b">80dp</dimen>
+    <dimen name="gear_size_s">70dp</dimen>
+    <dimen name="margin_st_lr_b">-40dp</dimen>
+    <dimen name="margin_lr_st_green">-15dp</dimen>
+    <dimen name="margin_lr_top_green">5dp</dimen>
+    <dimen name="margin_lr_st_blue">-40dp</dimen>
+
+
+</resources>

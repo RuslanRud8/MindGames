@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:background="@drawable/main_background_gradient"
+        tools:context=".NameChooser">
+
+    <ImageView android:layout_width="@dimen/gear_size_b" android:layout_height="@dimen/gear_size_b"
+               android:src="@drawable/gear4"
+               android:layout_alignParentStart="true"
+               android:layout_alignParentTop="true"
+               android:layout_marginTop="@dimen/margin_st_lr_b"
+               android:layout_marginStart="@dimen/margin_st_lr_b"
+               android:id="@+id/left_orange_gear"
+               android:rotation="15"
+               android:contentDescription="@string/gear_descrip"
+    />
+
+    <ImageView android:layout_width="@dimen/gear_size_s" android:layout_height="@dimen/gear_size_s"
+               android:src="@drawable/setting"
+               android:layout_toEndOf="@+id/left_orange_gear"
+               android:layout_marginStart="@dimen/margin_lr_st_green"
+               android:layout_marginTop="@dimen/margin_lr_top_green"
+               android:rotation="40"
+               android:contentDescription="@string/gear_descrip"
+               android:id="@+id/left_green_gear"
+
+    />
+
+    <ImageView android:layout_width="@dimen/gear_size_b" android:layout_height="@dimen/gear_size_b"
+               android:src="@drawable/gear2"
+               android:layout_below="@+id/left_orange_gear"
+               android:layout_marginStart="@dimen/margin_lr_st_blue"
+               android:contentDescription="@string/gear_descrip"
+               android:id="@+id/left_blue_gear"
+
+    />
+
+
+    <ImageView android:layout_width="@dimen/gear_size_b" android:layout_height="@dimen/gear_size_b"
+               android:layout_alignParentEnd="true"
+               android:src="@drawable/gear3"
+               android:layout_marginTop="@dimen/margin_top_r_up"
+               android:layout_marginEnd="@dimen/margin_end_r_up"
+               android:id="@+id/right_blue_gear"
+               android:contentDescription="@string/gear_descrip"
+
+    />
+
+    <ImageView android:layout_width="@dimen/gear_size_b" android:layout_height="@dimen/gear_size_b"
+               android:layout_below="@+id/right_blue_gear"
+               android:src="@drawable/gear4"
+               android:layout_alignParentEnd="true"
+               android:layout_marginTop="@dimen/margin_top_r_up_orange"
+               android:rotation="19"
+               android:id="@+id/right_orange_gear"
+               android:contentDescription="@string/gear_descrip"
+
+    />
+
+    <ImageView android:layout_width="@dimen/gear_size_bgren" android:layout_height="@dimen/gear_size_bgren"
+               android:layout_alignParentTop="true"
+               android:layout_alignParentEnd="true"
+               android:src="@drawable/setting"
+               android:id="@+id/right_green_gear"
+               android:layout_marginStart="@dimen/margin_top_r_up"
+               android:layout_marginTop="@dimen/margin_top_r_up_green"
+               android:contentDescription="@string/gear_descrip"
+
+    />
+
+
+    <ImageView android:layout_width="wrap_content" android:layout_height="@dimen/heading"
+               android:src="@drawable/heading_main_menu"
+               android:layout_marginTop="8dp"
+               android:id="@+id/menu_heading"
+               android:layout_centerHorizontal="true"
+               android:contentDescription="@string/main_heading_str"
+               android:layout_toEndOf="@id/left_green_gear"
+               android:layout_toStartOf="@id/right_blue_gear"
+    />
+
+    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:gravity="center"
+                  android:layout_centerHorizontal="true"
+                  android:layout_centerVertical="true"
+                  android:orientation="vertical"
+    >
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+
+                  android:text="@string/choose_name_str"
+                  android:textSize="@dimen/name_chooser_sp"
+                  android:fontFamily="@font/autour_one"
+                  android:shadowColor="#868383" android:shadowDx="5" android:shadowDy="5"
+                  android:shadowRadius="8"
+                  android:layout_marginTop="15dp"
+                  android:textColor="@color/white"/>
+
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/height_btn_main"
+                android:inputType="textPersonName"
+                android:hint="@string/name_str"
+                android:ems="10"
+                android:textSize="@dimen/main_btn_sp"
+                android:id="@+id/editPersonName"
+                android:background="@drawable/edit_name_dr"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:shadowColor="#868383" android:shadowDx="5" android:shadowDy="5"
+                android:shadowRadius="8"
+                android:layout_marginTop="15dp"
+        />
+
+        <Button
+                android:layout_marginTop="10dp"
+                android:text="@string/okBtnName"
+                android:ems="5"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/height_btn_main" android:id="@+id/play_btn"
+                android:background="@drawable/btn_name_dr"
+                android:fontFamily="@font/autour_one" android:textColor="@color/white"
+                android:textSize="@dimen/main_btn_sp"
+                android:textAllCaps="false" android:singleLine="true"
+                android:shadowColor="#868383" android:shadowDx="5" android:shadowDy="5"
+                android:shadowRadius="8"
+                android:onClick="createPerson"
+        />
+    </LinearLayout>
+
+</RelativeLayout>

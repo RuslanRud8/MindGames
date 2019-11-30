@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/main_background_gradient"
+        android:orientation="horizontal"
+        tools:context=".Settings">
+
+
+    <ImageView android:layout_width="@dimen/gear_size_b" android:layout_height="@dimen/gear_size_b"
+               android:src="@drawable/gear4"
+               android:layout_alignParentStart="true"
+               android:layout_alignParentTop="true"
+               android:layout_marginTop="@dimen/margin_st_lr_b"
+               android:layout_marginStart="@dimen/margin_st_lr_b"
+               android:id="@+id/left_orange_gear"
+               android:rotation="15"
+               android:contentDescription="@string/gear_descrip"
+    />
+
+    <ImageView android:layout_width="@dimen/gear_size_s" android:layout_height="@dimen/gear_size_s"
+               android:src="@drawable/setting"
+               android:layout_toEndOf="@+id/left_orange_gear"
+               android:layout_marginStart="@dimen/margin_lr_st_green"
+               android:layout_marginTop="@dimen/margin_lr_top_green"
+               android:rotation="40"
+               android:contentDescription="@string/gear_descrip"
+               android:id="@+id/left_green_gear"
+
+    />
+
+    <ImageView android:layout_width="@dimen/gear_size_b" android:layout_height="@dimen/gear_size_b"
+               android:src="@drawable/gear2"
+               android:layout_below="@+id/left_orange_gear"
+               android:layout_marginStart="@dimen/margin_lr_st_blue"
+               android:contentDescription="@string/gear_descrip"
+               android:id="@+id/left_blue_gear"
+
+    />
+
+
+    <ImageView android:layout_width="@dimen/gear_size_b" android:layout_height="@dimen/gear_size_b"
+               android:layout_alignParentEnd="true"
+               android:src="@drawable/gear3"
+               android:layout_marginTop="@dimen/margin_top_r_up"
+               android:layout_marginEnd="@dimen/margin_end_r_up"
+               android:id="@+id/right_blue_gear"
+               android:contentDescription="@string/gear_descrip"
+
+    />
+
+    <ImageView android:layout_width="@dimen/gear_size_b" android:layout_height="@dimen/gear_size_b"
+               android:layout_below="@+id/right_blue_gear"
+               android:src="@drawable/gear4"
+               android:layout_alignParentEnd="true"
+               android:layout_marginTop="@dimen/margin_top_r_up_orange"
+               android:rotation="19"
+               android:id="@+id/right_orange_gear"
+               android:contentDescription="@string/gear_descrip"
+
+    />
+
+    <ImageView android:layout_width="@dimen/gear_size_bgren" android:layout_height="@dimen/gear_size_bgren"
+               android:layout_alignParentTop="true"
+               android:layout_alignParentEnd="true"
+               android:src="@drawable/setting"
+               android:id="@+id/right_green_gear"
+               android:layout_marginStart="@dimen/margin_top_r_up"
+               android:layout_marginTop="@dimen/margin_top_r_up_green"
+               android:contentDescription="@string/gear_descrip"
+
+    />
+
+
+    <ImageView android:layout_width="wrap_content" android:layout_height="@dimen/heading"
+               android:src="@drawable/settings_heading"
+               android:layout_marginTop="8dp"
+               android:id="@+id/settings_heading"
+               android:layout_centerHorizontal="true"
+               android:contentDescription="@string/main_heading_str"
+               android:layout_toEndOf="@id/left_green_gear"
+               android:layout_toStartOf="@id/right_blue_gear"
+    />
+
+    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:layout_below="@+id/settings_heading"
+                  android:layout_above="@+id/btn_layout"
+                  android:layout_centerHorizontal="true"
+                  android:layout_centerVertical="true"
+                  android:gravity="center"
+                  android:orientation="vertical">
+
+
+        <androidx.appcompat.widget.SwitchCompat android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                                android:text="@string/buttons_animations_str"
+                                                android:fontFamily="@font/autour_one"
+                                                android:textSize="@dimen/prem_sp"
+                                                android:textColor="@color/white"
+                                                android:shadowColor="#868383" android:shadowDx="5" android:shadowDy="5"
+                                                android:shadowRadius="8"
+                                                android:layout_marginBottom="4dp"
+                                                android:theme="@style/MySwitch"
+                                                android:checked="true"
+                                                android:id="@+id/buttons_animation_sw"
+        />
+
+        <androidx.appcompat.widget.SwitchCompat android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="@string/every_day_training_alert_str"
+                                                android:fontFamily="@font/autour_one"
+                                                android:textSize="@dimen/prem_sp"
+                                                android:textColor="@color/white"
+                                                android:shadowColor="#868383" android:shadowDx="5"
+                                                android:shadowDy="5"
+                                                android:shadowRadius="8"
+                                                android:layout_marginStart="8dp"
+                                                android:layout_marginTop="8dp"
+                                                android:theme="@style/MySwitch"
+                                                android:id="@+id/alert_sw"
+        />
+
+        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+        >
+
+            <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="@string/select_time_str"
+                    android:ems="6"
+                    android:background="@drawable/f_n_game_btn_dr_4"
+                    android:textAllCaps="false"
+                    android:fontFamily="@font/autour_one"
+                    android:textSize="@dimen/prem_sp"
+                    android:textColor="@color/gray"
+                    android:shadowColor="#868383" android:shadowDx="5" android:shadowDy="5"
+                    android:shadowRadius="8"
+                    android:layout_marginStart="8dp"
+                    android:id="@+id/select_time_btn"
+                    android:enabled="false"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                      android:text="19:50"
+                      android:id="@+id/time_str"
+                      android:textAllCaps="false"
+                      android:fontFamily="@font/autour_one"
+                      android:textSize="@dimen/prem_sp"
+                      android:textColor="@color/gray"
+                      android:shadowColor="#868383" android:shadowDx="5" android:shadowDy="5"
+                      android:shadowRadius="8"
+                      android:layout_marginStart="8dp"
+                      android:enabled="false"/>
+
+
+        </LinearLayout>
+
+        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="@string/change_user_name"
+                android:textAllCaps="false"
+                android:ems="10"
+                android:id="@+id/change_name_btn"
+                android:background="@drawable/f_n_game_btn_dr_3"
+                android:fontFamily="@font/autour_one"
+                android:textSize="@dimen/prem_sp"
+                android:textColor="@color/white"
+                android:shadowColor="#868383" android:shadowDx="5"
+                android:shadowDy="5"
+                android:shadowRadius="8"
+                android:layout_marginTop="4dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+                  android:layout_gravity="center"
+                  android:layout_alignParentBottom="true"
+                  android:layout_centerHorizontal="true"
+                  android:id="@+id/btn_layout"
+                  android:layout_marginBottom="5dp">
+
+        <Button
+                android:layout_marginTop="10dp"
+                android:text="@string/cancelBtnName"
+                android:ems="5"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/height_btn_main" android:id="@+id/cancel_btn"
+                android:background="@drawable/btn_cancel_dr"
+                android:fontFamily="@font/autour_one" android:textColor="@color/white"
+                android:textSize="@dimen/main_btn_sp"
+                android:textAllCaps="false" android:singleLine="true"
+                android:elevation="10dp"
+                android:layout_marginEnd="10dp"
+                android:onClick="cancel"
+        />
+
+        <Button
+                android:layout_marginTop="10dp"
+                android:text="@string/okBtnName"
+                android:ems="5"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/height_btn_main" android:id="@+id/ok_btn"
+                android:background="@drawable/btn_name_dr"
+                android:fontFamily="@font/autour_one" android:textColor="@color/white"
+                android:textSize="@dimen/main_btn_sp"
+                android:textAllCaps="false" android:singleLine="true"
+                android:elevation="10dp"
+                android:onClick="saveSettings"
+        />
+    </LinearLayout>
+
+
+</RelativeLayout>

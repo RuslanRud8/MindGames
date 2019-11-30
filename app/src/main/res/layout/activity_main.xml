@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="horizontal"
+        tools:context=".MainActivity"
+        android:background="@drawable/main_background_gradient"
+        android:id="@+id/rel_main">
+
+
+    <ImageView android:layout_width="@dimen/gear_size_b" android:layout_height="@dimen/gear_size_b"
+               android:src="@drawable/gear4"
+               android:layout_alignParentStart="true"
+               android:layout_alignParentTop="true"
+               android:layout_marginTop="@dimen/margin_st_lr_b"
+               android:layout_marginStart="@dimen/margin_st_lr_b"
+               android:id="@+id/left_orange_gear"
+               android:rotation="15"
+               android:contentDescription="@string/gear_descrip"
+    />
+
+    <ImageView android:layout_width="@dimen/gear_size_s" android:layout_height="@dimen/gear_size_s"
+               android:src="@drawable/setting"
+               android:layout_toEndOf="@+id/left_orange_gear"
+               android:layout_marginStart="@dimen/margin_lr_st_green"
+               android:layout_marginTop="@dimen/margin_lr_top_green"
+               android:rotation="40"
+               android:contentDescription="@string/gear_descrip"
+               android:id="@+id/left_green_gear"
+
+    />
+
+    <ImageView android:layout_width="@dimen/gear_size_b" android:layout_height="@dimen/gear_size_b"
+               android:src="@drawable/gear2"
+               android:layout_below="@+id/left_orange_gear"
+               android:layout_marginStart="@dimen/margin_lr_st_blue"
+               android:contentDescription="@string/gear_descrip"
+               android:id="@+id/left_blue_gear"
+
+    />
+
+
+    <ImageView android:layout_width="@dimen/gear_size_b" android:layout_height="@dimen/gear_size_b"
+               android:layout_alignParentEnd="true"
+               android:src="@drawable/gear3"
+               android:layout_marginTop="@dimen/margin_top_r_up"
+               android:layout_marginEnd="@dimen/margin_end_r_up"
+               android:id="@+id/right_blue_gear"
+               android:contentDescription="@string/gear_descrip"
+
+    />
+
+    <ImageView android:layout_width="@dimen/gear_size_b" android:layout_height="@dimen/gear_size_b"
+               android:layout_below="@+id/right_blue_gear"
+               android:src="@drawable/gear4"
+               android:layout_alignParentEnd="true"
+               android:layout_marginTop="@dimen/margin_top_r_up_orange"
+               android:rotation="19"
+               android:id="@+id/right_orange_gear"
+               android:contentDescription="@string/gear_descrip"
+
+    />
+
+    <ImageView android:layout_width="@dimen/gear_size_bgren" android:layout_height="@dimen/gear_size_bgren"
+               android:layout_alignParentTop="true"
+               android:layout_alignParentEnd="true"
+               android:src="@drawable/setting"
+               android:id="@+id/right_green_gear"
+               android:layout_marginStart="@dimen/margin_top_r_up"
+               android:layout_marginTop="@dimen/margin_top_r_up_green"
+               android:contentDescription="@string/gear_descrip"
+
+    />
+
+
+    <ImageView android:layout_width="wrap_content" android:layout_height="@dimen/heading"
+               android:src="@drawable/heading_main_menu"
+               android:layout_marginTop="8dp"
+               android:id="@+id/menu_heading"
+               android:layout_centerHorizontal="true"
+               android:contentDescription="@string/main_heading_str"
+               android:layout_toEndOf="@id/left_green_gear"
+               android:layout_toStartOf="@id/right_blue_gear"
+    />
+
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                  android:layout_below="@+id/menu_heading"
+                  android:orientation="horizontal"
+                  android:weightSum="100"
+                  android:baselineAligned="false"
+
+
+    >
+
+        <RelativeLayout android:layout_width="0dp" android:layout_height="match_parent"
+                        android:layout_weight="40">
+
+
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                          android:orientation="vertical"
+                          android:layout_centerHorizontal="true"
+                          android:layout_centerVertical="true"
+            >
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                          android:textSize="@dimen/level_num_sp"
+                          android:id="@+id/main_level_text"
+                          android:layout_gravity="center"
+                          android:fontFamily="@font/cherry_cream_soda" android:textColor="#FFFDFD"
+                          android:shadowColor="#868383" android:shadowDx="5" android:shadowDy="5"
+                          android:shadowRadius="8"/>
+
+                <ProgressBar android:layout_width="@dimen/level_bar_dimen"
+                             android:layout_height="@dimen/level_bar_dimen"
+                             style="?android:progressBarStyleHorizontal"
+                             android:indeterminate="false"
+                             android:progressDrawable="@drawable/circle_progress_bar"
+                             android:progress="0"
+                             android:background="@drawable/icon_2"
+                             android:id="@+id/main_level_bar"
+                             android:max="10000"
+                             android:layout_gravity="center"
+                             android:shadowColor="#686666" android:shadowDx="15" android:shadowDy="15"
+                             android:shadowRadius="15"
+                             android:onClick="goToProfile"
+                />
+
+                <TextView android:layout_width="250dp" android:layout_height="40dp"
+                          android:id="@+id/user_name_text"
+                          android:layout_gravity="center"
+                          android:fontFamily="@font/cherry_cream_soda" android:textColor="#FFFFFF"
+                          android:shadowColor="#868383" android:shadowDx="5" android:shadowDy="5"
+                          android:shadowRadius="8"
+                          app:autoSizeTextType="uniform"
+                          app:autoSizeMinTextSize="12sp"
+                          app:autoSizeMaxTextSize="100sp"
+                          android:textAlignment="center"
+                          app:autoSizeStepGranularity="2sp"
+                         />
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout android:layout_width="0dp" android:layout_height="match_parent"
+                        android:layout_weight="60">
+
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                          android:orientation="vertical"
+                          android:layout_centerVertical="true"
+                          android:layout_centerHorizontal="true"
+
+            >
+
+
+                <Button
+                        android:text="@string/playBtnName"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height_btn_main" android:id="@+id/play_btn"
+                        android:layout_gravity="end"
+                        android:background="@drawable/button_play_dr"
+                        android:fontFamily="@font/autour_one" android:textColor="@color/white"
+                        android:textSize="@dimen/main_btn_sp"
+                        android:textAllCaps="false" android:singleLine="true"
+                        android:shadowColor="#868383" android:shadowDx="5" android:shadowDy="5"
+                        android:shadowRadius="8"
+                        android:onClick="goToGames"
+                />
+
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                              android:orientation="horizontal" android:weightSum="100"
+                              android:gravity="end"
+                              android:layout_marginTop="5dp">
+                    <Button
+                            android:text="@string/statisticsBtnName"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/height_btn_main" android:id="@+id/stat_btn"
+                            android:layout_gravity="end"
+                            android:background="@drawable/button_stat_dr"
+                            android:layout_weight="94"
+                            android:fontFamily="@font/autour_one" android:textColor="@color/white"
+                            android:textSize="@dimen/main_btn_sp"
+                            android:onClick="goToStatistics"
+                            android:textAllCaps="false" android:singleLine="true"
+                            android:shadowColor="#868383" android:shadowDx="5" android:shadowDy="5"
+                            android:shadowRadius="8"/>
+                </LinearLayout>
+
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                              android:orientation="horizontal" android:weightSum="100"
+                              android:gravity="end"
+                              android:layout_marginTop="5dp">
+
+                    <Button
+                            android:text="@string/settingsBtnName"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/height_btn_main" android:id="@+id/settings_btn"
+                            android:layout_gravity="end"
+                            android:layout_weight="88"
+                            android:background="@drawable/button_set_dr"
+                            android:fontFamily="@font/autour_one" android:textColor="@color/white"
+                            android:textSize="@dimen/main_btn_sp"
+                            android:textAllCaps="false" android:singleLine="true"
+                            android:shadowColor="#868383" android:shadowDx="5" android:shadowDy="5"
+                            android:shadowRadius="8"
+                            android:onClick="openSettings"/>
+
+                </LinearLayout>
+
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                              android:orientation="horizontal" android:weightSum="100"
+                              android:gravity="end"
+                              android:layout_marginTop="5dp">
+
+                    <Button
+                            android:text="@string/exitBtnName"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/height_btn_main" android:id="@+id/exit_btn"
+                            android:layout_gravity="end"
+                            android:layout_weight="82"
+                            android:background="@drawable/button_ext_dr"
+                            android:fontFamily="@font/autour_one" android:textColor="@color/white"
+                            android:textSize="@dimen/main_btn_sp"
+                            android:onClick="exitGame"
+                            android:textAllCaps="false" android:singleLine="true"
+                            android:shadowColor="#868383" android:shadowDx="5" android:shadowDy="5"
+                            android:shadowRadius="8"
+
+                    />
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

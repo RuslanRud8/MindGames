@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+          package="com.developer.rrd_projects.mindgames">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.SET_ALARM"/>
+
+    <application
+            android:allowBackup="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:orientation="horizontal"
+            android:roundIcon="@mipmap/ic_launcher_round"
+            android:screenOrientation="landscape"
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:uiOptions="none"
+            tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".games.GamesActivity">
+        </activity>
+        <activity
+                android:name=".games.anagramsGame.AnagramGame"
+                android:screenOrientation="userLandscape">
+        </activity>
+        <activity
+                android:name=".games.colorsGame.ColorsGame"
+                android:screenOrientation="landscape">
+        </activity>
+        <activity
+                android:name=".games.sortGame.SortGame"
+                android:screenOrientation="landscape">
+        </activity>
+        <activity
+                android:name=".games.lampsGame.LampsGame"
+                android:screenOrientation="landscape">
+        </activity>
+
+        <meta-data
+                android:name="com.google.android.gms.ads.APPLICATION_ID"
+                android:value="ca-app-pub-9050823804847454~4025869179"/>
+
+        <activity
+                android:name=".PremShow"
+                android:screenOrientation="landscape">
+        </activity>
+        <activity
+                android:name=".games.end_game_screen.EndGameScreen"
+                android:screenOrientation="landscape">
+        </activity>
+        <activity
+                android:name=".Attention"
+                android:screenOrientation="landscape">
+        </activity>
+        <activity
+                android:name=".games.fNGame.FindNumGame"
+                android:screenOrientation="landscape">
+        </activity>
+        <activity
+                android:name=".Games"
+                android:screenOrientation="landscape">
+        </activity>
+        <activity
+                android:name=".StatisticsController"
+                android:screenOrientation="landscape">
+        </activity>
+        <activity
+                android:name=".Settings"
+                android:screenOrientation="landscape">
+        </activity>
+        <activity
+                android:name=".NameChooser"
+                android:screenOrientation="landscape">
+        </activity>
+        <activity
+                android:name=".Icons"
+                android:screenOrientation="landscape">
+        </activity>
+        <activity
+                android:name=".ProfileActivity"
+                android:screenOrientation="landscape">
+        </activity>
+        <activity
+                android:name=".MainActivity"
+                android:screenOrientation="userLandscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <receiver android:name=".NotificationReceiver"/>
+
+        <meta-data
+                android:name="preloaded_fonts"
+                android:resource="@array/preloaded_fonts"/>
+    </application>
+
+</manifest>

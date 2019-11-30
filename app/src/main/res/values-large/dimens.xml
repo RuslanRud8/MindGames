@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="heading">110dp</dimen>
+    <dimen name="level_bar_dimen">200dp</dimen>
+    <dimen name="level_num_sp">25sp</dimen>
+    <dimen name="user_name_sp">45sp</dimen>
+    <dimen name="main_btn_sp">35sp</dimen>
+    <dimen name="btn_rad">45dp</dimen>
+
+
+    <dimen name="gear_size_b">120dp</dimen>
+    <dimen name="gear_size_bgren">60dp</dimen>
+    <dimen name="gear_size_s">100dp</dimen>
+    <dimen name="margin_st_lr_b">-50dp</dimen>
+    <dimen name="margin_lr_st_green">-25dp</dimen>
+    <dimen name="margin_lr_top_green">20dp</dimen>
+    <dimen name="margin_lr_st_blue">-50dp</dimen>
+
+    <dimen name="margin_top_r_up">-60dp</dimen>
+    <dimen name="margin_top_r_up_green">-10dp</dimen>
+    <dimen name="margin_end_r_up">60dp</dimen>
+    <dimen name="margin_top_r_up_orange">-20dp</dimen>
+
+    <dimen name="btn_stroke_main">5dp</dimen>
+    <dimen name="height_btn_main">65dp</dimen>
+    <dimen name="hor_bar_height">30dp</dimen>
+    <dimen name="stats_sp">30sp</dimen>
+    <dimen name="level_prog_sp">16sp</dimen>
+
+    <dimen name="name_chooser_sp">65sp</dimen>
+    <dimen name="end_game_sp">55sp</dimen>
+    <dimen name="end_game_bar">60sp</dimen>
+    <dimen name="fngame_height">120dp</dimen>
+    <dimen name="fngame_width">240dp</dimen>
+
+    <dimen name="fngame_height_main">140dp</dimen>
+    <dimen name="fngame_width_main">260dp</dimen>
+
+    <dimen name="fngame_sp">70sp</dimen>
+
+    <dimen name="games_height">140dp</dimen>
+    <dimen name="games_width">210dp</dimen>
+
+    <dimen name="prem_view_dp">250dp</dimen>
+    <dimen name="prem_sp">45sp</dimen>
+
+    <dimen name="lamps_height">128dp</dimen>
+    <dimen name="lamps_width">103dp</dimen>
+
+    <dimen name="label_for_game_sp">25sp</dimen>
+
+    <dimen name="dimen_sort">280dp</dimen>
+    <dimen name="margin_circle">-30dp</dimen>
+    <dimen name="margin_triangle">-30dp</dimen>
+    <dimen name="margin_rect_1">-30dp</dimen>
+    <dimen name="margin_rect_2">-20dp</dimen>
+
+</resources>

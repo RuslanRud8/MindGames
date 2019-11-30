@@ -1,0 +1,771 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        tools:context=".Icons"
+        android:orientation="horizontal"
+        android:background="@drawable/main_background_gradient">
+
+
+    <ImageView android:layout_width="@dimen/gear_size_b" android:layout_height="@dimen/gear_size_b"
+               android:src="@drawable/gear4"
+               android:layout_alignParentStart="true"
+               android:layout_alignParentTop="true"
+               android:layout_marginTop="@dimen/margin_st_lr_b"
+               android:layout_marginStart="@dimen/margin_st_lr_b"
+               android:id="@+id/left_orange_gear"
+               android:rotation="15"
+               android:contentDescription="@string/gear_descrip"/>
+
+    <ImageView android:layout_width="@dimen/gear_size_s" android:layout_height="@dimen/gear_size_s"
+               android:src="@drawable/setting"
+               android:layout_toEndOf="@+id/left_orange_gear"
+               android:layout_marginStart="@dimen/margin_lr_st_green"
+               android:layout_marginTop="@dimen/margin_lr_top_green"
+               android:rotation="40"
+               android:contentDescription="@string/gear_descrip"
+               android:id="@+id/left_green_gear"
+    />
+
+    <ImageView android:layout_width="@dimen/gear_size_b" android:layout_height="@dimen/gear_size_b"
+               android:src="@drawable/gear2"
+               android:layout_below="@+id/left_orange_gear"
+               android:layout_marginStart="@dimen/margin_lr_st_blue"
+               android:contentDescription="@string/gear_descrip"
+               android:id="@+id/left_blue_gear"
+    />
+
+
+    <ImageView android:layout_width="@dimen/gear_size_b" android:layout_height="@dimen/gear_size_b"
+               android:layout_alignParentEnd="true"
+               android:src="@drawable/gear3"
+               android:layout_marginTop="@dimen/margin_top_r_up"
+               android:layout_marginEnd="@dimen/margin_end_r_up"
+               android:id="@+id/right_blue_gear"
+               android:contentDescription="@string/gear_descrip"
+    />
+
+    <ImageView android:layout_width="@dimen/gear_size_b" android:layout_height="@dimen/gear_size_b"
+               android:layout_below="@+id/right_blue_gear"
+               android:src="@drawable/gear4"
+               android:layout_alignParentEnd="true"
+               android:layout_marginTop="@dimen/margin_top_r_up_orange"
+               android:rotation="19"
+               android:id="@+id/right_orange_gear"
+
+               android:contentDescription="@string/gear_descrip"
+    />
+
+    <ImageView android:layout_width="@dimen/gear_size_bgren" android:layout_height="@dimen/gear_size_bgren"
+               android:layout_alignParentTop="true"
+               android:layout_alignParentEnd="true"
+               android:src="@drawable/setting"
+               android:id="@+id/right_green_gear"
+               android:layout_marginStart="@dimen/margin_top_r_up"
+               android:layout_marginTop="@dimen/margin_top_r_up_green"
+               android:contentDescription="@string/gear_descrip"
+    />
+
+
+    <ImageView android:layout_width="wrap_content" android:layout_height="@dimen/heading"
+               android:src="@drawable/icons_heading"
+               android:layout_marginTop="8dp"
+               android:id="@+id/icons_heading"
+               android:layout_centerHorizontal="true"
+               android:contentDescription="@string/main_heading_str"
+               android:layout_toEndOf="@id/left_green_gear"
+               android:layout_toStartOf="@id/right_blue_gear"
+    />
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                  android:layout_below="@+id/icons_heading"
+                  android:orientation="horizontal"
+                  android:weightSum="100"
+                  android:baselineAligned="false"
+
+
+    >
+        <RelativeLayout android:layout_width="0dp" android:layout_height="match_parent"
+                        android:layout_weight="35">
+
+
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                          android:orientation="vertical"
+                          android:layout_centerHorizontal="true"
+                          android:layout_centerVertical="true"
+                          android:id="@+id/linear_preview"
+                          android:layout_marginBottom="8dp"
+                          android:weightSum="100"
+            >
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                          android:text="@string/selected_str"
+                          android:textSize="@dimen/level_num_sp"
+                          android:id="@+id/profile_level_text"
+                          android:layout_gravity="center"
+                          android:fontFamily="@font/cherry_cream_soda" android:textColor="#FFFDFD"
+                          android:shadowColor="#868383" android:shadowDx="5" android:shadowDy="5"
+                          android:shadowRadius="8"
+                          android:layout_weight="20"/>
+
+
+                <ImageView android:layout_width="@dimen/level_bar_dimen" android:layout_height="@dimen/level_bar_dimen"
+                           android:src="@drawable/icon_2"
+                           android:id="@+id/icon_preview"
+                           android:layout_gravity="center" android:shadowColor="#868383" android:shadowDx="5"
+                           android:shadowDy="5"
+                           android:shadowRadius="8"
+                           android:contentDescription="@string/image_description"
+                           android:layout_marginBottom="10dp"
+                           android:layout_weight="60"
+                />
+
+
+                <Button
+                        android:text="@string/select_btn_str"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height_btn_main" android:id="@+id/back_btn_icon"
+                        android:layout_gravity="start"
+                        android:background="@drawable/btn_name_dr"
+                        android:fontFamily="@font/autour_one" android:textColor="@color/white"
+                        android:textSize="@dimen/main_btn_sp"
+                        android:textAllCaps="false" android:singleLine="true"
+                        android:shadowColor="#868383" android:shadowDx="5" android:shadowDy="5"
+                        android:shadowRadius="8"
+                        android:onClick="goBackToProfile"
+                        android:layout_marginBottom="8dp"
+                        android:layout_weight="20"
+                />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+        <ScrollView android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="65"
+
+
+        >
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+
+                <GridLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+
+                            android:columnCount="5"
+                            android:rowCount="5"
+                            android:orientation="horizontal"
+                            android:layout_gravity="center"
+
+
+                >
+
+
+                    <ImageView android:src="@drawable/icon_0"
+                               android:layout_width="100dp"
+                               android:layout_height="100dp"
+                               android:contentDescription="@string/image_description"
+                               android:id="@+id/icon_1_view"
+                               android:layout_column="0"
+                               android:layout_row="0"
+                    />
+
+
+                    <TextView android:layout_width="100dp" android:layout_height="100dp"
+                              android:layout_column="0"
+                              android:layout_row="0"
+                              android:text="1"
+                              android:onClick="selectIcon"
+                              android:id="@+id/icon_1_view_set"
+                              android:textSize="20sp"
+                              android:background="@drawable/icon_locked"
+                              android:gravity="bottom"
+                              android:textAlignment="center"
+                              android:fontFamily="@font/autour_one"
+                              android:shadowColor="#868383" android:shadowDx="5" android:shadowDy="5"
+                              android:shadowRadius="8"
+                    />
+
+
+                    <ImageView android:src="@drawable/icon_1"
+                               android:layout_column="1"
+                               android:layout_row="0"
+                               android:layout_width="100dp"
+                               android:layout_height="100dp"
+                               android:contentDescription="@string/image_description"
+                               android:id="@+id/icon_2_view"
+
+                    />
+
+                    <TextView android:layout_width="100dp" android:layout_height="100dp"
+                              android:layout_column="1"
+                              android:layout_row="0"
+                              android:text="2"
+                              android:onClick="selectIcon"
+                              android:id="@+id/icon_2_view_set"
+                              android:textSize="20sp"
+                              android:background="@drawable/icon_locked"
+                              android:gravity="bottom"
+                              android:textAlignment="center"
+                              android:fontFamily="@font/autour_one"
+                              android:shadowColor="#868383" android:shadowDx="5" android:shadowDy="5"
+                              android:shadowRadius="8"
+                    />
+
+
+                    <ImageView android:src="@drawable/icon_2"
+                               android:layout_width="100dp"
+                               android:layout_height="100dp"
+                               android:contentDescription="@string/image_description"
+                               android:id="@+id/icon_3_view"
+                               android:layout_column="2"
+                               android:layout_row="0"
+                    />
+
+                    <TextView android:layout_width="100dp" android:layout_height="100dp"
+                              android:layout_column="2"
+                              android:layout_row="0"
+                              android:text="3"
+                              android:onClick="selectIcon"
+                              android:id="@+id/icon_3_view_set"
+                              android:textSize="20sp"
+                              android:background="@drawable/icon_locked"
+                              android:gravity="bottom"
+                              android:textAlignment="center"
+                              android:fontFamily="@font/autour_one"
+                              android:shadowColor="#868383" android:shadowDx="5" android:shadowDy="5"
+                              android:shadowRadius="8"
+                    />
+
+
+                    <ImageView android:src="@drawable/icon_3"
+
+                               android:layout_width="100dp"
+                               android:layout_height="100dp"
+                               android:contentDescription="@string/image_description"
+                               android:id="@+id/icon_4_view"
+                               android:layout_column="3"
+                               android:layout_row="0"
+                    />
+
+                    <TextView android:layout_width="100dp" android:layout_height="100dp"
+                              android:layout_column="3"
+                              android:layout_row="0"
+                              android:text="4"
+                              android:onClick="selectIcon"
+                              android:id="@+id/icon_4_view_set"
+                              android:textSize="20sp"
+                              android:background="@drawable/icon_locked"
+                              android:gravity="bottom"
+                              android:textAlignment="center"
+                              android:fontFamily="@font/autour_one"
+                              android:shadowColor="#868383" android:shadowDx="5" android:shadowDy="5"
+                              android:shadowRadius="8"
+                    />
+
+                    <ImageView android:src="@drawable/icon_4"
+                               android:layout_width="100dp"
+                               android:layout_height="100dp"
+                               android:contentDescription="@string/image_description"
+                               android:id="@+id/icon_5_view"
+                               android:layout_column="4"
+                               android:layout_row="0"
+                    />
+
+                    <TextView android:layout_width="100dp" android:layout_height="100dp"
+                              android:layout_column="4"
+                              android:layout_row="0"
+                              android:text="5"
+                              android:onClick="selectIcon"
+                              android:id="@+id/icon_5_view_set"
+                              android:textSize="20sp"
+                              android:background="@drawable/icon_locked"
+                              android:gravity="bottom"
+                              android:textAlignment="center"
+                              android:fontFamily="@font/autour_one"
+                              android:shadowColor="#868383" android:shadowDx="5" android:shadowDy="5"
+                              android:shadowRadius="8"
+                    />
+
+
+                    <ImageView android:src="@drawable/icon_5"
+
+                               android:layout_column="0"
+                               android:layout_row="1"
+                               android:layout_width="100dp"
+                               android:layout_height="100dp"
+                               android:contentDescription="@string/image_description"
+                               android:id="@+id/icon_6_view"
+                    />
+
+                    <TextView android:layout_width="100dp" android:layout_height="100dp"
+                              android:layout_column="0"
+                              android:layout_row="1"
+                              android:text="7"
+                              android:onClick="selectIcon"
+                              android:id="@+id/icon_6_view_set"
+                              android:textSize="20sp"
+                              android:background="@drawable/icon_locked"
+                              android:gravity="bottom"
+                              android:textAlignment="center"
+                              android:fontFamily="@font/autour_one"
+                              android:shadowColor="#868383" android:shadowDx="5" android:shadowDy="5"
+                              android:shadowRadius="8"
+                    />
+
+                    <ImageView android:src="@drawable/icon_6"
+                               android:layout_width="100dp"
+                               android:layout_height="100dp"
+                               android:contentDescription="@string/image_description"
+                               android:id="@+id/icon_7_view"
+                               android:layout_column="1"
+                               android:layout_row="1"
+                    />
+
+                    <TextView android:layout_width="100dp" android:layout_height="100dp"
+                              android:layout_column="1"
+                              android:layout_row="1"
+                              android:text="8"
+                              android:onClick="selectIcon"
+                              android:id="@+id/icon_7_view_set"
+                              android:textSize="20sp"
+                              android:background="@drawable/icon_locked"
+                              android:gravity="bottom"
+                              android:textAlignment="center"
+                              android:fontFamily="@font/autour_one"
+                              android:shadowColor="#868383" android:shadowDx="5" android:shadowDy="5"
+                              android:shadowRadius="8"
+                    />
+
+                    <ImageView android:src="@drawable/icon_7"
+                               android:layout_width="100dp"
+                               android:layout_height="100dp"
+                               android:contentDescription="@string/image_description"
+                               android:id="@+id/icon_8_view"
+                               android:layout_column="2"
+                               android:layout_row="1"
+                    />
+
+                    <TextView android:layout_width="100dp" android:layout_height="100dp"
+                              android:layout_column="2"
+                              android:layout_row="1"
+                              android:text="9"
+                              android:onClick="selectIcon"
+                              android:id="@+id/icon_8_view_set"
+                              android:textSize="20sp"
+                              android:background="@drawable/icon_locked"
+                              android:gravity="bottom"
+                              android:textAlignment="center"
+                              android:fontFamily="@font/autour_one"
+                              android:shadowColor="#868383" android:shadowDx="5" android:shadowDy="5"
+                              android:shadowRadius="8"
+                    />
+
+
+                    <ImageView android:src="@drawable/icon_8"
+                               android:layout_column="3"
+                               android:layout_row="1"
+                               android:layout_width="100dp"
+                               android:layout_height="100dp"
+                               android:contentDescription="@string/image_description"
+                               android:id="@+id/icon_9_view"
+                    />
+
+                    <TextView android:layout_width="100dp" android:layout_height="100dp"
+                              android:layout_column="3"
+                              android:layout_row="1"
+                              android:text="10"
+                              android:onClick="selectIcon"
+                              android:id="@+id/icon_9_view_set"
+                              android:textSize="20sp"
+                              android:background="@drawable/icon_locked"
+                              android:gravity="bottom"
+                              android:textAlignment="center"
+                              android:fontFamily="@font/autour_one"
+                              android:shadowColor="#868383" android:shadowDx="5" android:shadowDy="5"
+                              android:shadowRadius="8"
+                    />
+
+
+                    <ImageView android:src="@drawable/icon_9"
+                               android:layout_column="4"
+                               android:layout_row="1"
+                               android:layout_width="100dp"
+                               android:layout_height="100dp"
+                               android:contentDescription="@string/image_description"
+                               android:id="@+id/icon_10_view"
+                    />
+
+                    <TextView android:layout_width="100dp" android:layout_height="100dp"
+                              android:layout_column="4"
+                              android:layout_row="1"
+                              android:text="11"
+                              android:onClick="selectIcon"
+                              android:id="@+id/icon_10_view_set"
+                              android:textSize="20sp"
+                              android:background="@drawable/icon_locked"
+                              android:gravity="bottom"
+                              android:textAlignment="center"
+                              android:fontFamily="@font/autour_one"
+                              android:shadowColor="#868383" android:shadowDx="5" android:shadowDy="5"
+                              android:shadowRadius="8"
+                    />
+
+
+                    <ImageView android:src="@drawable/icon_10"
+                               android:layout_column="0"
+                               android:layout_row="2"
+                               android:layout_width="100dp"
+                               android:layout_height="100dp"
+                               android:contentDescription="@string/image_description"
+                               android:id="@+id/icon_11_view"
+                    />
+
+                    <TextView android:layout_width="100dp" android:layout_height="100dp"
+                              android:layout_column="0"
+                              android:layout_row="2"
+                              android:text="13"
+                              android:onClick="selectIcon"
+                              android:id="@+id/icon_11_view_set"
+                              android:textSize="20sp"
+                              android:background="@drawable/icon_locked"
+                              android:gravity="bottom"
+                              android:textAlignment="center"
+                              android:fontFamily="@font/autour_one"
+                              android:shadowColor="#868383" android:shadowDx="5" android:shadowDy="5"
+                              android:shadowRadius="8"
+                    />
+
+
+                    <ImageView android:src="@drawable/icon_11"
+                               android:layout_column="1"
+                               android:layout_row="2"
+                               android:layout_width="100dp"
+                               android:layout_height="100dp"
+                               android:contentDescription="@string/image_description"
+                               android:id="@+id/icon_12_view"
+                    />
+
+                    <TextView android:layout_width="100dp" android:layout_height="100dp"
+                              android:layout_column="1"
+                              android:layout_row="2"
+                              android:text="14"
+                              android:onClick="selectIcon"
+                              android:id="@+id/icon_12_view_set"
+                              android:textSize="20sp"
+                              android:background="@drawable/icon_locked"
+                              android:gravity="bottom"
+                              android:textAlignment="center"
+                              android:fontFamily="@font/autour_one"
+                              android:shadowColor="#868383" android:shadowDx="5" android:shadowDy="5"
+                              android:shadowRadius="8"
+                    />
+
+
+                    <ImageView android:src="@drawable/icon_12"
+                               android:layout_width="100dp"
+                               android:layout_height="100dp"
+                               android:contentDescription="@string/image_description"
+                               android:id="@+id/icon_13_view"
+                               android:layout_column="2"
+                               android:layout_row="2"
+                    />
+
+                    <TextView android:layout_width="100dp" android:layout_height="100dp"
+                              android:layout_column="2"
+                              android:layout_row="2"
+                              android:text="15"
+                              android:onClick="selectIcon"
+                              android:id="@+id/icon_13_view_set"
+                              android:textSize="20sp"
+                              android:background="@drawable/icon_locked"
+                              android:gravity="bottom"
+                              android:textAlignment="center"
+                              android:fontFamily="@font/autour_one"
+                              android:shadowColor="#868383" android:shadowDx="5" android:shadowDy="5"
+                              android:shadowRadius="8"
+                    />
+
+
+                    <ImageView android:src="@drawable/icon_13"
+                               android:layout_column="3"
+                               android:layout_row="2"
+                               android:layout_width="100dp"
+                               android:layout_height="100dp"
+                               android:contentDescription="@string/image_description"
+                               android:id="@+id/icon_14_view"
+                    />
+
+                    <TextView android:layout_width="100dp" android:layout_height="100dp"
+                              android:layout_column="3"
+                              android:layout_row="2"
+                              android:text="16"
+                              android:onClick="selectIcon"
+                              android:id="@+id/icon_14_view_set"
+                              android:textSize="20sp"
+                              android:background="@drawable/icon_locked"
+                              android:gravity="bottom"
+                              android:textAlignment="center"
+                              android:fontFamily="@font/autour_one"
+                              android:shadowColor="#868383" android:shadowDx="5" android:shadowDy="5"
+                              android:shadowRadius="8"
+                    />
+
+                    <ImageView android:src="@drawable/icon_14"
+                               android:layout_width="100dp"
+                               android:layout_column="4"
+                               android:layout_row="2"
+                               android:layout_height="100dp"
+                               android:contentDescription="@string/image_description"
+                               android:id="@+id/icon_15_view"
+                    />
+
+                    <TextView android:layout_width="100dp" android:layout_height="100dp"
+                              android:layout_column="4"
+                              android:layout_row="2"
+                              android:text="17"
+                              android:onClick="selectIcon"
+                              android:id="@+id/icon_15_view_set"
+                              android:textSize="20sp"
+                              android:background="@drawable/icon_locked"
+                              android:gravity="bottom"
+                              android:textAlignment="center"
+                              android:fontFamily="@font/autour_one"
+                              android:shadowColor="#868383" android:shadowDx="5" android:shadowDy="5"
+                              android:shadowRadius="8"
+                    />
+
+
+                    <ImageView android:src="@drawable/icon_15"
+                               android:layout_column="0"
+                               android:layout_row="3"
+                               android:layout_width="100dp"
+                               android:layout_height="100dp"
+                               android:contentDescription="@string/image_description"
+                               android:id="@+id/icon_16_view"
+                    />
+
+                    <TextView android:layout_width="100dp" android:layout_height="100dp"
+                              android:layout_column="0"
+                              android:layout_row="3"
+                              android:text="20"
+                              android:onClick="selectIcon"
+                              android:id="@+id/icon_16_view_set"
+                              android:textSize="20sp"
+                              android:background="@drawable/icon_locked"
+                              android:gravity="bottom"
+                              android:textAlignment="center"
+                              android:fontFamily="@font/autour_one"
+                              android:shadowColor="#868383" android:shadowDx="5" android:shadowDy="5"
+                              android:shadowRadius="8"
+                    />
+
+                    <ImageView android:src="@drawable/icon_16"
+                               android:layout_column="1"
+                               android:layout_row="3"
+                               android:layout_width="100dp"
+                               android:layout_height="100dp"
+                               android:contentDescription="@string/image_description"
+                               android:id="@+id/icon_17_view"
+
+                    />
+
+                    <TextView android:layout_width="100dp" android:layout_height="100dp"
+                              android:layout_column="1"
+                              android:layout_row="3"
+                              android:text="21"
+                              android:onClick="selectIcon"
+                              android:id="@+id/icon_17_view_set"
+                              android:textSize="20sp"
+                              android:background="@drawable/icon_locked"
+                              android:gravity="bottom"
+                              android:textAlignment="center"
+                              android:fontFamily="@font/autour_one"
+                              android:shadowColor="#868383" android:shadowDx="5" android:shadowDy="5"
+                              android:shadowRadius="8"
+                    />
+
+                    <ImageView android:src="@drawable/icon_17"
+                               android:layout_column="2"
+                               android:layout_row="3"
+                               android:layout_width="100dp"
+                               android:layout_height="100dp"
+                               android:contentDescription="@string/image_description"
+                               android:id="@+id/icon_18_view"
+                    />
+
+                    <TextView android:layout_width="100dp" android:layout_height="100dp"
+                              android:layout_column="2"
+                              android:layout_row="3"
+                              android:text="22"
+                              android:onClick="selectIcon"
+                              android:id="@+id/icon_18_view_set"
+                              android:textSize="20sp"
+                              android:background="@drawable/icon_locked"
+                              android:gravity="bottom"
+                              android:textAlignment="center"
+                              android:fontFamily="@font/autour_one"
+                              android:shadowColor="#868383" android:shadowDx="5" android:shadowDy="5"
+                              android:shadowRadius="8"
+                    />
+
+                    <ImageView android:src="@drawable/icon_18"
+                               android:layout_column="3"
+                               android:layout_row="3"
+                               android:layout_width="100dp"
+                               android:layout_height="100dp"
+                               android:contentDescription="@string/image_description"
+                               android:id="@+id/icon_19_view"
+                    />
+
+                    <TextView android:layout_width="100dp" android:layout_height="100dp"
+                              android:layout_column="3"
+                              android:layout_row="3"
+                              android:text="23"
+                              android:onClick="selectIcon"
+                              android:id="@+id/icon_19_view_set"
+                              android:textSize="20sp"
+                              android:background="@drawable/icon_locked"
+                              android:gravity="bottom"
+                              android:textAlignment="center"
+                              android:fontFamily="@font/autour_one"
+                              android:shadowColor="#868383" android:shadowDx="5" android:shadowDy="5"
+                              android:shadowRadius="8"
+                    />
+
+                    <ImageView android:src="@drawable/icon_19"
+                               android:layout_column="4"
+                               android:layout_row="3"
+                               android:layout_width="100dp"
+                               android:layout_height="100dp"
+                               android:contentDescription="@string/image_description"
+                               android:id="@+id/icon_20_view"
+                    />
+
+                    <TextView android:layout_width="100dp" android:layout_height="100dp"
+                              android:layout_column="4"
+                              android:layout_row="3"
+                              android:text="24"
+                              android:onClick="selectIcon"
+                              android:id="@+id/icon_20_view_set"
+                              android:textSize="20sp"
+                              android:background="@drawable/icon_locked"
+                              android:gravity="bottom"
+                              android:textAlignment="center"
+                              android:fontFamily="@font/autour_one"
+                              android:shadowColor="#868383" android:shadowDx="5" android:shadowDy="5"
+                              android:shadowRadius="8"
+                    />
+
+                    <ImageView android:src="@drawable/icon_20"
+                               android:layout_column="0"
+                               android:layout_row="4"
+                               android:layout_width="100dp"
+                               android:layout_height="100dp"
+                               android:contentDescription="@string/image_description"
+                               android:id="@+id/icon_21_view"
+                    />
+
+                    <TextView android:layout_width="100dp" android:layout_height="100dp"
+                              android:layout_column="0"
+                              android:layout_row="4"
+                              android:text="28"
+                              android:onClick="selectIcon"
+                              android:id="@+id/icon_21_view_set"
+                              android:textSize="20sp"
+                              android:background="@drawable/icon_locked"
+                              android:gravity="bottom"
+                              android:textAlignment="center"
+                              android:fontFamily="@font/autour_one"
+                              android:shadowColor="#868383" android:shadowDx="5" android:shadowDy="5"
+                              android:shadowRadius="8"
+                    />
+
+                    <ImageView android:src="@drawable/icon_21"
+                               android:layout_column="1"
+                               android:layout_row="4"
+                               android:layout_width="100dp"
+                               android:layout_height="100dp"
+                               android:contentDescription="@string/image_description"
+                               android:id="@+id/icon_22_view"
+                    />
+
+                    <TextView android:layout_width="100dp" android:layout_height="100dp"
+                              android:layout_column="1"
+                              android:layout_row="4"
+                              android:text="31"
+                              android:onClick="selectIcon"
+                              android:id="@+id/icon_22_view_set"
+                              android:textSize="20sp"
+                              android:background="@drawable/icon_locked"
+                              android:gravity="bottom"
+                              android:textAlignment="center"
+                              android:fontFamily="@font/autour_one"
+                              android:shadowColor="#868383" android:shadowDx="5" android:shadowDy="5"
+                              android:shadowRadius="8"
+                    />
+
+
+                    <ImageView android:src="@drawable/icon_22"
+                               android:layout_column="2"
+                               android:layout_row="4"
+                               android:layout_width="100dp"
+                               android:layout_height="100dp"
+                               android:contentDescription="@string/image_description"
+                               android:id="@+id/icon_23_view"
+                    />
+
+
+                    <TextView android:layout_width="100dp" android:layout_height="100dp"
+                              android:layout_column="2"
+                              android:layout_row="4"
+                              android:text="34"
+                              android:onClick="selectIcon"
+                              android:id="@+id/icon_23_view_set"
+                              android:textSize="20sp"
+                              android:background="@drawable/icon_locked"
+                              android:gravity="bottom"
+                              android:textAlignment="center"
+                              android:fontFamily="@font/autour_one"
+                              android:shadowColor="#868383" android:shadowDx="5" android:shadowDy="5"
+                              android:shadowRadius="8"
+                    />
+
+
+                    <ImageView android:src="@drawable/icon_prem_1"
+                               android:layout_column="3"
+                               android:layout_row="4"
+                               android:layout_width="100dp"
+                               android:layout_height="100dp"
+                               android:contentDescription="@string/image_description"
+                               android:id="@+id/icon_prem_1_view"
+                               android:visibility="gone"
+                    />
+
+
+                    <TextView android:layout_width="100dp" android:layout_height="100dp"
+                              android:layout_column="3"
+                              android:layout_row="4"
+                              android:onClick="selectIcon"
+                              android:id="@+id/icon_prem_1_view_set"
+                              android:textSize="20sp"
+                              android:background="@drawable/icon_locked_prem"
+                              android:gravity="bottom"
+                              android:textAlignment="center"
+                              android:fontFamily="@font/autour_one"
+                              android:shadowColor="#868383" android:shadowDx="5" android:shadowDy="5"
+                              android:shadowRadius="8"
+                              android:visibility="gone"
+                    />
+
+
+                </GridLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

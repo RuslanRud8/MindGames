@@ -1,0 +1,139 @@
+<resources>
+    <string name="app_name">MindGames</string>
+    <string name="mind_games_heading">Mind Games</string>
+    <string name="playBtnName">play</string>
+    <string name="okBtnName">OK</string>
+    <string name="cancelBtnName">cancel</string>
+    <string name="statisticsBtnName">statistics</string>
+    <string name="settingsBtnName">settings</string>
+    <string name="exitBtnName">exit</string>
+    <string name="gear_descrip">gear</string>
+    <string name="main_heading_str">main_heading</string>
+    <string name="title_activity_profile">profile</string>
+
+    <string name="games_played_str">games played: %1d</string>
+    <string name="favourite_game_str">favourite game: %1s</string>
+    <string name="max_exp_str">max experience: %1d</string>
+    <string name="time_play_str">time into game: %1dh : %1dm</string>
+    <string name="level_text">%1d lv</string>
+
+    <string name="back_btn_str">back</string>
+    <string name="change_icon_str">chose icon</string>
+    <string name="select_btn_str">select</string>
+    <string name="selected_str">selected</string>
+    <string name="image_description">image</string>
+    <string name="choose_name_str">Choose name:</string>
+    <string name="name_str">Name</string>
+    <string name="profile">profile</string>
+    <string name="menu_str">menu</string>
+    <string name="game_descip">game</string>
+
+    <string name="tutorial">%1s \n %1s \n \n Warning: \n you will
+        not be able to leave the game after the start.
+    </string>
+    <string name="continue_str">continue</string>
+    <string name="don_t_show_again_str">Don\'t show again</string>
+    <string name="timer_str">%1s</string>
+    <string name="games_str">games</string>
+    <string name="restart_str">restart</string>
+    <string name="score_str">Score: %1d</string>
+    <string name="max_score_str">Max score: %1d</string>
+    <string name="day_average_str">Day average: %1d</string>
+    <string name="exp_str">+ %1d exp</string>
+    <string name="profile_level_progress">%1d / %1d</string>
+    <string name="premium_account_btn_str">premium account</string>
+    <string name="you_did_not_play_this_game_str">You did not play this game</string>
+    <string name="buttons_animations_str">Buttons animations</string>
+    <string name="every_day_training_alert_str">Every day training alert</string>
+    <string name="change_user_name">change user name</string>
+    <string name="select_time_str">select time</string>
+    <string name="time">%1d:%1d</string>
+    <string name="CHANNEL_ID">news</string>
+    <string name="CHANNEL_NEWS">News</string>
+    <string name="CHANNEL_DESCRIPTION">get informed with new information</string>
+    <string name="remove_all_ads">* remove all ads</string>
+    <string name="unlock_special_icons">* unlock special icons</string>
+    <string name="price_1d">price : %1d</string>
+
+    <string-array name="anagram_words_4_letters">
+        <item>away</item>
+        <item>able</item>
+        <item>adam</item>
+        <item>aloe</item>
+        <item>also</item>
+
+        <item>back</item>
+        <item>bake</item>
+        <item>band</item>
+        <item>bear</item>
+        <item>bell</item>
+
+        <item>cafe</item>
+        <item>cake</item>
+        <item>call</item>
+        <item>calm</item>
+        <item>camp</item>
+
+        <item>dark</item>
+        <item>data</item>
+        <item>dear</item>
+        <item>debt</item>
+        <item>deep</item>
+
+    </string-array>
+
+    <string-array name="anagram_words_5_letters">
+        <item>about</item>
+        <item>above</item>
+        <item>admit</item>
+        <item>actor</item>
+        <item>again</item>
+
+        <item>banks</item>
+        <item>basic</item>
+        <item>beach</item>
+        <item>bread</item>
+        <item>bench</item>
+
+        <item>cabin</item>
+        <item>cameo</item>
+        <item>canoe</item>
+        <item>catch</item>
+        <item>cover</item>
+
+        <item>daddy</item>
+        <item>daily</item>
+        <item>dance</item>
+        <item>delay</item>
+        <item>diary</item>
+
+    </string-array>
+
+    <string-array name="anagram_words_6_letters">
+        <item>accord</item>
+        <item>across</item>
+        <item>action</item>
+        <item>addict</item>
+        <item>afford</item>
+
+        <item>backup</item>
+        <item>baking</item>
+        <item>ballet</item>
+        <item>banana</item>
+        <item>beacon</item>
+
+        <item>camera</item>
+        <item>canada</item>
+        <item>cancel</item>
+        <item>cannon</item>
+        <item>canvas</item>
+
+        <item>dating</item>
+        <item>debate</item>
+        <item>decide</item>
+        <item>decode</item>
+        <item>degree</item>
+
+    </string-array>
+
+</resources>

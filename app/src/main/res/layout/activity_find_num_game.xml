@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".games.fNGame.FindNumGame"
+        android:orientation="horizontal"
+        android:id="@+id/rl_game"
+        android:background="@drawable/main_background_gradient">
+
+
+
+    <TextView android:layout_width="@dimen/fngame_width" android:layout_height="@dimen/fngame_height"
+              android:text="0000"
+              android:background="@drawable/time_and_score_dr"
+              android:fontFamily="@font/autour_one"
+              android:textColor="@color/dark_blue"
+              android:gravity="bottom|center_horizontal"
+              android:textSize="@dimen/fngame_sp"
+              android:id="@+id/score_text"
+              android:layout_alignParentStart="true"
+    />
+
+    <TextView android:layout_width="@dimen/fngame_height" android:layout_height="wrap_content"
+              android:text="score"
+              android:fontFamily="@font/autour_one"
+              android:textColor="@color/dark_blue"
+              android:textSize="@dimen/label_for_game_sp"
+              android:layout_alignTop="@+id/score_text"
+              android:layout_marginStart="20dp"
+    />
+
+    <TextView android:layout_width="@dimen/fngame_width" android:layout_height="@dimen/fngame_height"
+              android:text="@string/timer_str"
+              android:background="@drawable/time_and_score_dr"
+              android:fontFamily="@font/autour_one"
+              android:textColor="@color/dark_blue"
+              android:id="@+id/game_timer"
+              android:gravity="bottom|center_horizontal"
+              android:textSize="@dimen/fngame_sp"
+              android:layout_alignParentEnd="true"
+    />
+
+    <TextView android:layout_width="@dimen/fngame_height" android:layout_height="wrap_content"
+              android:text="time"
+              android:fontFamily="@font/autour_one"
+              android:textColor="@color/dark_blue"
+              android:textSize="@dimen/label_for_game_sp"
+              android:layout_alignTop="@+id/game_timer"
+              android:layout_alignStart="@+id/game_timer"
+              android:layout_marginStart="20dp"
+    />
+
+
+    <TextView android:layout_width="@dimen/fngame_width_main" android:layout_height="@dimen/fngame_height_main"
+              android:text="00"
+              android:background="@drawable/time_and_score_dr"
+              android:fontFamily="@font/autour_one"
+              android:textColor="@color/dark_green"
+              android:id="@+id/num_text"
+              android:gravity="center"
+              android:textSize="@dimen/fngame_sp"
+              android:layout_centerHorizontal="true"
+    />
+
+
+
+    <ImageView android:layout_width="match_parent" android:layout_height="match_parent"
+               android:background="@drawable/dark_screen_png"
+               android:id="@+id/dark_screen"
+              />
+
+
+    <TextView android:layout_width="100dp" android:layout_height="100dp"
+              android:text="@string/timer_str"
+              android:background="@drawable/start_timer_dr"
+              android:fontFamily="@font/autour_one"
+              android:textColor="@color/green"
+              android:gravity="center"
+              android:textSize="50sp"
+              android:layout_centerHorizontal="true"
+              android:layout_centerVertical="true"
+              android:visibility="invisible"
+              android:id="@+id/timer"
+
+    />
+
+
+
+
+    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:orientation="vertical"
+                  android:layout_gravity="center"
+                  android:layout_centerHorizontal="true"
+                  android:layout_centerVertical="true">
+
+        <Button
+                android:layout_marginTop="10dp"
+                android:text="start!"
+                android:ems="8"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/height_btn_main" android:id="@+id/start_btn"
+                android:background="@drawable/btn_name_dr"
+                android:fontFamily="@font/autour_one" android:textColor="@color/white"
+                android:textSize="@dimen/main_btn_sp"
+                android:textAllCaps="false" android:singleLine="true"
+                android:elevation="10dp"
+
+        />
+        <Button
+                android:layout_marginTop="10dp"
+                android:text="leave"
+                android:ems="5"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/height_btn_main" android:id="@+id/cancel_btn"
+                android:background="@drawable/btn_cancel_dr"
+                android:fontFamily="@font/autour_one" android:textColor="@color/white"
+                android:textSize="@dimen/main_btn_sp"
+                android:textAllCaps="false" android:singleLine="true"
+                android:elevation="10dp"
+                android:layout_gravity="center"
+        />
+
+    </LinearLayout>
+
+</RelativeLayout>

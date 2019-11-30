@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="heading">150dp</dimen>
+    <dimen name="level_bar_dimen">300dp</dimen>
+    <dimen name="level_num_sp">35sp</dimen>
+    <dimen name="user_name_sp">65sp</dimen>
+    <dimen name="main_btn_sp">50sp</dimen>
+    <dimen name="btn_rad">75dp</dimen>
+
+    <dimen name="gear_size_b">160dp</dimen>
+    <dimen name="gear_size_bgren">80dp</dimen>
+    <dimen name="gear_size_s">120dp</dimen>
+    <dimen name="margin_st_lr_b">-80dp</dimen>
+    <dimen name="margin_lr_st_green">-25dp</dimen>
+    <dimen name="margin_lr_top_green">20dp</dimen>
+    <dimen name="margin_lr_st_blue">-80dp</dimen>
+
+    <dimen name="margin_top_r_up">-80dp</dimen>
+    <dimen name="margin_top_r_up_green">-15dp</dimen>
+    <dimen name="margin_end_r_up">80dp</dimen>
+    <dimen name="margin_top_r_up_orange">-20dp</dimen>
+
+    <dimen name="btn_stroke_main">8dp</dimen>
+    <dimen name="height_btn_main">90dp</dimen>
+    <dimen name="hor_bar_height">40dp</dimen>
+    <dimen name="stats_sp">40sp</dimen>
+    <dimen name="level_prog_sp">25sp</dimen>
+
+    <dimen name="name_chooser_sp">75sp</dimen>
+    <dimen name="end_game_sp">75sp</dimen>
+    <dimen name="end_game_bar">80sp</dimen>
+
+    <dimen name="fngame_height">170</dimen>
+    <dimen name="fngame_width">300</dimen>
+
+    <dimen name="fngame_height_main">190dp</dimen>
+    <dimen name="fngame_width_main">320dp</dimen>
+
+    <dimen name="fngame_sp">90sp</dimen>
+
+    <dimen name="games_height">150dp</dimen>
+    <dimen name="games_width">225dp</dimen>
+
+    <dimen name="prem_view_dp">400dp</dimen>
+    <dimen name="prem_sp">60sp</dimen>
+
+    <dimen name="lamps_height">180dp</dimen>
+    <dimen name="lamps_width">140dp</dimen>
+
+    <dimen name="label_for_game_sp">35sp</dimen>
+
+    <dimen name="dimen_sort">360dp</dimen>
+    <dimen name="margin_circle">-30dp</dimen>
+    <dimen name="margin_triangle">-30dp</dimen>
+    <dimen name="margin_rect_1">-30dp</dimen>
+    <dimen name="margin_rect_2">-20dp</dimen>
+
+
+</resources>
