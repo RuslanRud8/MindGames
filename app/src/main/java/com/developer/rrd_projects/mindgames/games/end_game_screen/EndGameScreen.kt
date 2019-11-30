@@ -62,7 +62,6 @@ class EndGameScreen : AppCompatActivity() {
 
         //loadAndShowAdd()
         contin()
-
     }
 
     private fun loadAndShowAdd() {

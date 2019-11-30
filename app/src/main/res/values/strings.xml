@@ -54,6 +54,7 @@
     <string name="remove_all_ads">* remove all ads</string>
     <string name="unlock_special_icons">* unlock special icons</string>
     <string name="price_1d">price : %1d</string>
+    <string name="reclam_attention">This ad makes game free</string>
 
     <string-array name="anagram_words_4_letters">
         <item>away</item>
