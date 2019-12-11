@@ -2,17 +2,6 @@ package com.developer.rrd_projects.mindgames.games_statistics
 
 import android.content.Context
 import android.content.SharedPreferences
-import android.util.Xml
-import com.developer.rrd_projects.mindgames.codeIn
-import com.developer.rrd_projects.mindgames.codeOut
-import com.developer.rrd_projects.mindgames.writeToFile
-import org.xmlpull.v1.XmlPullParser
-import org.xmlpull.v1.XmlPullParserFactory
-import org.xmlpull.v1.XmlSerializer
-import java.io.FileInputStream
-import java.io.FileNotFoundException
-import java.io.StringWriter
-import java.lang.Exception
 
 fun writeStatistics(stat: Statistics, context: Context, filename: String) {
 

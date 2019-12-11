@@ -3,18 +3,6 @@ package com.developer.rrd_projects.mindgames.person
 import android.content.Context
 import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
-import android.util.Log
-import android.util.Xml
-import com.developer.rrd_projects.mindgames.codeIn
-import com.developer.rrd_projects.mindgames.codeOut
-import org.xmlpull.v1.XmlSerializer
-import java.io.*
-import java.io.FileInputStream
-import java.lang.Exception
-import com.developer.rrd_projects.mindgames.writeToFile
-import org.xmlpull.v1.XmlPullParser
-import org.xmlpull.v1.XmlPullParserFactory
-
 
 fun writePerson(person: Person, context: Context) {
 
