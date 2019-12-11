@@ -13,6 +13,7 @@ import android.widget.TextView
 import com.developer.rrd_projects.mindgames.Attention
 import com.developer.rrd_projects.mindgames.Games
 import com.developer.rrd_projects.mindgames.R
+import com.developer.rrd_projects.mindgames.Reclam
 import com.developer.rrd_projects.mindgames.games.end_game_screen.EndGameScreen
 
 open class GamesActivity : AppCompatActivity() {
@@ -113,7 +114,7 @@ open class GamesActivity : AppCompatActivity() {
     }
 
     private fun leaveGame() {
-        val intent = Intent(context, EndGameScreen::class.java)
+        val intent = Intent(context, Reclam::class.java)
         intent.putExtra("game_ended", gameName)
         intent.putExtra("game_score",  score)
         startActivity(intent)

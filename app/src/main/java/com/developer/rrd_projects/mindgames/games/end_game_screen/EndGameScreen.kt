@@ -31,7 +31,6 @@ class EndGameScreen : AppCompatActivity() {
 
     var person = Person(0, "-", 0, 0, 1, 0, 0, "-1")
 
-    private lateinit var mInterstitialAd: InterstitialAd
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
@@ -60,33 +59,10 @@ class EndGameScreen : AppCompatActivity() {
 
         setContentView(R.layout.activity_end_game_screen)
 
-        //loadAndShowAdd()
         contin()
     }
 
-    private fun loadAndShowAdd() {
-        mInterstitialAd = InterstitialAd(this)
-        mInterstitialAd.adUnitId = "ca-app-pub-3940256099942544/1033173712"
-        mInterstitialAd.loadAd(AdRequest.Builder().build())
-        if (mInterstitialAd.isLoaded) {
-            mInterstitialAd.show()
-        } else {
-            Log.d("TAG", "The interstitial wasn't loaded yet.")
-            contin()
-        }
 
-        mInterstitialAd.adListener = object : AdListener() {
-            override fun onAdClosed() {
-                contin()
-            }
-
-            override fun onAdFailedToLoad(errorCode: Int) {
-                contin()
-            }
-
-        }
-
-    }
 
     private fun contin() {
         val score: Int = intent.getIntExtra("game_score", 0)
