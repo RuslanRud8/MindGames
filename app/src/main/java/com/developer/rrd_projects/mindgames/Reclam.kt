@@ -3,7 +3,6 @@ package com.developer.rrd_projects.mindgames
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import com.developer.rrd_projects.mindgames.games.end_game_screen.EndGameScreen
 import com.google.android.gms.ads.AdListener
@@ -36,19 +35,21 @@ class Reclam : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reclam)
+
+        loadAndShowAdd()
     }
 
     private fun loadAndShowAdd() {
         mInterstitialAd = InterstitialAd(this)
         mInterstitialAd.adUnitId = "ca-app-pub-9050823804847454/7198827424"
         mInterstitialAd.loadAd(AdRequest.Builder().build())
-        if (mInterstitialAd.isLoaded) {
-            mInterstitialAd.show()
-        } else {
-            Log.d("TAG", "The interstitial wasn't loaded yet.")
-        }
+
 
         mInterstitialAd.adListener = object : AdListener() {
+            override fun onAdLoaded() {
+                mInterstitialAd.show()
+            }
+
             override fun onAdClosed() {
                 loadEndGameScreen()
             }
@@ -64,7 +65,7 @@ class Reclam : AppCompatActivity() {
     private fun loadEndGameScreen(){
         val i = Intent(this,EndGameScreen::class.java)
 
-        val gameEnded:String = intent.getStringExtra("game_ended")
+        val gameEnded:String? = intent.getStringExtra("game_ended")
         val gameScore:Int = intent.getIntExtra("game_score",0)
 
         i.putExtra("game_ended", gameEnded)

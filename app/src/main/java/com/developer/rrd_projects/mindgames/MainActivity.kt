@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
 
-        MobileAds.initialize(applicationContext)
+        MobileAds.initialize(this)
 
         val playBtn: Button = findViewById(R.id.play_btn)
         val statBtn: Button = findViewById(R.id.stat_btn)
