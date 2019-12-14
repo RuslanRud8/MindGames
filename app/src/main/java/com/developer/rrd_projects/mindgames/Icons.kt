@@ -11,7 +11,7 @@ import android.widget.TextView
 import com.developer.rrd_projects.mindgames.animators.animateGear
 import com.developer.rrd_projects.mindgames.person.*
 
-class Icons : AppCompatActivity() {
+class Icons : MyGameActivity() {
 
     private var iconsView: ArrayList<ImageView> = ArrayList()
     private var iconsSet: ArrayList<TextView> = ArrayList()

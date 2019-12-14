@@ -14,7 +14,7 @@ import com.developer.rrd_projects.mindgames.games.readGameSet
 import com.developer.rrd_projects.mindgames.games.sortGame.SortGame
 import com.developer.rrd_projects.mindgames.games.writeGameSet
 
-class Attention : AppCompatActivity() {
+class Attention : MyGameActivity() {
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)

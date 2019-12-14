@@ -2,7 +2,6 @@ package com.developer.rrd_projects.mindgames
 
 import android.content.Intent
 import android.graphics.Point
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Display
 import android.view.View
@@ -12,15 +11,21 @@ import android.widget.TextView
 import com.developer.rrd_projects.mindgames.animators.animateButtons
 import com.developer.rrd_projects.mindgames.animators.animateGear
 import com.developer.rrd_projects.mindgames.games.readGameSet
-import com.developer.rrd_projects.mindgames.person.*
+import com.developer.rrd_projects.mindgames.person.Person
+import com.developer.rrd_projects.mindgames.person.getExpForLevel
+import com.developer.rrd_projects.mindgames.person.getImageId
+import com.developer.rrd_projects.mindgames.person.readPerson
 import com.google.android.gms.ads.MobileAds
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : MyGameActivity() {
 
-
-    init {
-        loadImages()
-    }
+    private lateinit var playBtn:Button
+    private lateinit var statBtn:Button
+    private lateinit var setBtn:Button
+    private lateinit var extBtn:Button
+    private lateinit var levelBar: ProgressBar
+    private lateinit var userNameText: TextView
+    private lateinit var userLevelText: TextView
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
@@ -52,16 +57,13 @@ class MainActivity : AppCompatActivity() {
 
         MobileAds.initialize(this)
 
-        val playBtn: Button = findViewById(R.id.play_btn)
-        val statBtn: Button = findViewById(R.id.stat_btn)
-        val setBtn: Button = findViewById(R.id.settings_btn)
-        val extBtn: Button = findViewById(R.id.exit_btn)
-        val levelBar: ProgressBar = findViewById(R.id.main_level_bar)
-        val userNameText: TextView = findViewById(R.id.user_name_text)
-        val userLevelText: TextView = findViewById(R.id.main_level_text)
+        initUiElements()
 
+        initPersonsData()
+    }
+
+    private fun initPersonsData() {
         val gamesSet = readGameSet(applicationContext)
-
 
         val person = readPerson(applicationContext)
         if (person.userName == "-1") {
@@ -69,7 +71,6 @@ class MainActivity : AppCompatActivity() {
         } else {
             setUpMainScreen(levelBar, userNameText, userLevelText, person)
         }
-
 
         startGears()
 
@@ -79,7 +80,23 @@ class MainActivity : AppCompatActivity() {
 
         val percent = ((person.exp * 100) / getExpForLevel(person.level)) * 100
         levelBar.progress = percent
-        //animateProgressBar(levelBar, percent,0)
+    }
+
+    private fun initUiElements() {
+        playBtn  = findViewById(R.id.play_btn)
+        statBtn = findViewById(R.id.stat_btn)
+        setBtn = findViewById(R.id.settings_btn)
+        extBtn = findViewById(R.id.exit_btn)
+        levelBar = findViewById(R.id.main_level_bar)
+        userNameText = findViewById(R.id.user_name_text)
+        userLevelText = findViewById(R.id.main_level_text)
+
+        playBtn.setOnClickListener { openNewActivity(Games::class.java)}
+        statBtn.setOnClickListener { openNewActivity(StatisticsController::class.java) }
+        setBtn.setOnClickListener { openNewActivity(Settings::class.java)}
+        extBtn.setOnClickListener { exitGame() }
+
+        levelBar.setOnClickListener { goToProfile() }
     }
 
     private fun setUpMainScreen(
@@ -88,6 +105,7 @@ class MainActivity : AppCompatActivity() {
         userLevelText: TextView,
         person: Person
     ) {
+
         levelBar.background = getDrawable(getImageId(person.icon))
         userNameText.text = person.userName
         userLevelText.text = getString(R.string.level_text, person.level)
@@ -97,17 +115,16 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, NameChooser::class.java)
         startActivity(intent)
         finish()
-        return
     }
 
-    fun exitGame(view: View) {
+    private fun exitGame() {
+        playSound(this, R.raw.menu_button_sound)
         val i = Intent(Intent.ACTION_MAIN)
         i.addCategory(Intent.CATEGORY_HOME)
         i.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
         startActivity(i)
-
+        finish()
     }
-
 
     private fun getScreenWidth(): Float {
         val display: Display = windowManager.defaultDisplay
@@ -125,7 +142,6 @@ class MainActivity : AppCompatActivity() {
         animateButtons(extBtn, width, 1500, 350)
     }
 
-
     private fun startGears() {
         animateGear(findViewById(R.id.left_blue_gear))
         animateGear(findViewById(R.id.left_green_gear))
@@ -135,7 +151,8 @@ class MainActivity : AppCompatActivity() {
         animateGear(findViewById(R.id.right_orange_gear))
     }
 
-    fun goToProfile(view: View) {
+    private fun goToProfile() {
+        playSound(this, R.raw.menu_button_sound)
         val intent = Intent(this, ProfileActivity::class.java)
         intent.putExtra("comesFrom", "mainMenu")
         startActivity(intent)
@@ -143,24 +160,10 @@ class MainActivity : AppCompatActivity() {
         return
     }
 
-    fun openSettings(view: View) {
-        val intent = Intent(this, Settings::class.java)
+    private fun openNewActivity(targetActivity:Class<*>){
+        playSound(this, R.raw.menu_button_sound)
+        val intent = Intent(this, targetActivity)
         startActivity(intent)
         finish()
-        return
-    }
-
-    fun goToGames(view: View) {
-        val intent = Intent(this, Games::class.java)
-        startActivity(intent)
-        finish()
-        return
-    }
-
-    fun goToStatistics(view: View) {
-        val intent = Intent(this, StatisticsController::class.java)
-        startActivity(intent)
-        finish()
-        return
     }
 }

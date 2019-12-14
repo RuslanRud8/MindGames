@@ -169,7 +169,6 @@
                         android:textAllCaps="false" android:singleLine="true"
                         android:shadowColor="#868383" android:shadowDx="5" android:shadowDy="5"
                         android:shadowRadius="8"
-                        android:onClick="goToGames"
                 />
 
 
@@ -186,7 +185,6 @@
                             android:layout_weight="94"
                             android:fontFamily="@font/autour_one" android:textColor="@color/white"
                             android:textSize="@dimen/main_btn_sp"
-                            android:onClick="goToStatistics"
                             android:textAllCaps="false" android:singleLine="true"
                             android:shadowColor="#868383" android:shadowDx="5" android:shadowDy="5"
                             android:shadowRadius="8"/>
@@ -209,8 +207,7 @@
                             android:textSize="@dimen/main_btn_sp"
                             android:textAllCaps="false" android:singleLine="true"
                             android:shadowColor="#868383" android:shadowDx="5" android:shadowDy="5"
-                            android:shadowRadius="8"
-                            android:onClick="openSettings"/>
+                            android:shadowRadius="8" />
 
                 </LinearLayout>
 
@@ -229,7 +226,6 @@
                             android:background="@drawable/button_ext_dr"
                             android:fontFamily="@font/autour_one" android:textColor="@color/white"
                             android:textSize="@dimen/main_btn_sp"
-                            android:onClick="exitGame"
                             android:textAllCaps="false" android:singleLine="true"
                             android:shadowColor="#868383" android:shadowDx="5" android:shadowDy="5"
                             android:shadowRadius="8"

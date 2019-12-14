@@ -19,7 +19,7 @@ import com.developer.rrd_projects.mindgames.games.writeGameSet
 import org.w3c.dom.Text
 import java.util.*
 
-class Settings : AppCompatActivity() {
+class Settings : MyGameActivity() {
 
     var totalMin = 0
     var gamesSet = GamesSet()

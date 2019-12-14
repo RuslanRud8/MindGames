@@ -13,7 +13,7 @@ import com.developer.rrd_projects.mindgames.games.fNGame.FindNumGame
 import com.developer.rrd_projects.mindgames.games.lampsGame.LampsGame
 import com.developer.rrd_projects.mindgames.games.sortGame.SortGame
 
-class Games : AppCompatActivity() {
+class Games : MyGameActivity() {
 
     var previews: ArrayList<ImageView> = ArrayList()
 

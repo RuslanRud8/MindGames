@@ -19,7 +19,12 @@
             tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".Reclam"
                 android:screenOrientation="userLandscape"/>
+
         <activity android:name=".games.GamesActivity" />
+
+        <activity android:name=".MyGameActivity"
+                android:screenOrientation="userLandscape"/>
+
         <activity
                 android:name=".games.anagramsGame.AnagramGame"
                 android:screenOrientation="userLandscape" />

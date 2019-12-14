@@ -12,13 +12,12 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import com.developer.rrd_projects.mindgames.animators.animateButtons
 import com.developer.rrd_projects.mindgames.animators.animateGear
-import com.developer.rrd_projects.mindgames.animators.animateProgressBar
 import com.developer.rrd_projects.mindgames.games.readGameSet
 import com.developer.rrd_projects.mindgames.person.getExpForLevel
 import com.developer.rrd_projects.mindgames.person.getImageId
 import com.developer.rrd_projects.mindgames.person.readPerson
 
-class ProfileActivity : AppCompatActivity() {
+class ProfileActivity : MyGameActivity() {
 
     var comeFr: String = ""
 
@@ -69,7 +68,6 @@ class ProfileActivity : AppCompatActivity() {
         val intent = Intent(this, PremShow::class.java)
         startActivity(intent)
         finish()
-        return
     }
 
     private fun setUpProfileScreen() {

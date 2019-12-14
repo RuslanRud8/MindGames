@@ -11,7 +11,7 @@ import com.developer.rrd_projects.mindgames.person.Person
 import com.developer.rrd_projects.mindgames.person.readPerson
 import com.developer.rrd_projects.mindgames.person.writePerson
 
-class NameChooser : AppCompatActivity() {
+class NameChooser : MyGameActivity() {
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
