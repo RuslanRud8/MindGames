@@ -10,13 +10,10 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import com.developer.rrd_projects.mindgames.Attention
-import com.developer.rrd_projects.mindgames.Games
-import com.developer.rrd_projects.mindgames.R
-import com.developer.rrd_projects.mindgames.Reclam
+import com.developer.rrd_projects.mindgames.*
 import com.developer.rrd_projects.mindgames.games.end_game_screen.EndGameScreen
 
-open class GamesActivity : AppCompatActivity() {
+open class GamesActivity : MyGameActivity() {
 
     private lateinit var preStartTimer:CountDownTimer
     protected lateinit var gameTimer:CountDownTimer
@@ -29,18 +26,6 @@ open class GamesActivity : AppCompatActivity() {
     private lateinit var startBtn: Button
     private lateinit var leaveBtn: Button
     protected var gameStarted:Boolean = false
-
-
-    protected fun hideSystemUi() {
-        window.decorView.systemUiVisibility = (
-                View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                        or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                        or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                        or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                        or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                        or View.SYSTEM_UI_FLAG_FULLSCREEN
-                )
-    }
 
     protected fun initGame(context: Context, gameName: String, startBtn:Button, leaveBtn:Button, timerTextView:TextView){
         this.context = context
@@ -75,6 +60,7 @@ open class GamesActivity : AppCompatActivity() {
             }
 
             override fun onFinish() {
+                playSound(applicationContext,R.raw.startlevel_sound)
                 timerTextView.visibility = View.GONE
                 darkScreenView.visibility = View.GONE
                 gameTimer.start()
@@ -82,7 +68,6 @@ open class GamesActivity : AppCompatActivity() {
                 gameStarted = true
             }
         }
-
     }
 
     protected fun createGameTimer(time:Long, gameTimerText: TextView){
@@ -91,16 +76,22 @@ open class GamesActivity : AppCompatActivity() {
             override fun onTick(millisUntilFinished: Long) {
                 gameTimerText.text =
                     getString(R.string.timer_str, (millisUntilFinished / 1000 + 1).toString())
+
+                if(gameTimerText.text == "3"){
+                    playSound(applicationContext,R.raw.timer_sound)
+                }
             }
 
             override fun onFinish() {
                leaveGame()
             }
         }
-
     }
 
     private fun startGame() {
+        playSound(this,R.raw.menu_button_sound)
+        playSound(this,R.raw.timer_sound)
+
         startBtn.visibility = View.GONE
         leaveBtn.visibility = View.GONE
 
@@ -110,6 +101,7 @@ open class GamesActivity : AppCompatActivity() {
     }
 
     private fun leaveFromStart(){
+        playSound(this,R.raw.menu_button_sound)
         startActivity(Intent(context, Games::class.java))
     }
 

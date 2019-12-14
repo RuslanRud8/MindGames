@@ -4,7 +4,6 @@ import android.content.Context
 import android.media.MediaPlayer
 
 private var mediaPlayerBackMusic:MediaPlayer? = null
-private var length:Int = 0
 
 fun playSound(context: Context, _id: Int) {
     val mediaPlayerEffects = MediaPlayer.create(context, _id)

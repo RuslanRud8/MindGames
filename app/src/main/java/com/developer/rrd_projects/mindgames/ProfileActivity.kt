@@ -21,25 +21,6 @@ class ProfileActivity : MyGameActivity() {
 
     var comeFr: String = ""
 
-    override fun onWindowFocusChanged(hasFocus: Boolean) {
-        super.onWindowFocusChanged(hasFocus)
-
-        if (hasFocus) {
-            hideSystemUi()
-        }
-    }
-
-    private fun hideSystemUi() {
-        window.decorView.systemUiVisibility = (
-                View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                        or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                        or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                        or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                        or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                        or View.SYSTEM_UI_FLAG_FULLSCREEN
-                )
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
@@ -90,7 +71,7 @@ class ProfileActivity : MyGameActivity() {
     }
 
     fun goBackToMain(view: View) {
-
+        playSound(this,R.raw.menu_button_sound)
         var inten = Intent()
         if (comeFr == "mainMenu" || comeFr == "prem") {
             inten = Intent(this, MainActivity::class.java)
@@ -99,7 +80,6 @@ class ProfileActivity : MyGameActivity() {
         }
         startActivity(inten)
         finish()
-        return
     }
 
 
@@ -119,7 +99,6 @@ class ProfileActivity : MyGameActivity() {
         animateButtons(premBtn, width, 1500, 50)
         animateButtons(changeBtn, width, 1500, 100)
         animateButtons(backBtn, width, 1500, 150)
-
     }
 
     private fun getScreenWidth(): Float {
@@ -130,6 +109,7 @@ class ProfileActivity : MyGameActivity() {
     }
 
     fun goToIcons(view: View) {
+        playSound(this,R.raw.menu_button_sound)
         val intent = Intent(this, Icons::class.java)
         intent.putExtra("comesFrom", comeFr)
         startActivity(intent)

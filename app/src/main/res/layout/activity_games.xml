@@ -23,7 +23,6 @@
                 android:shadowRadius="8"
                 android:layout_gravity="center"
                 android:layout_weight="25"
-                android:onClick="goToProfile"
         />
 
 
@@ -49,8 +48,6 @@
                 android:shadowRadius="8"
                 android:layout_gravity="center"
                 android:layout_weight="25"
-                android:onClick="goToMenu"
-
         />
 
     </LinearLayout>
@@ -81,7 +78,7 @@
                            android:elevation="10dp"
                            android:clickable="true"
                            android:focusable="true"
-                           android:onClick="goToFNGame"/>
+                           />
 
                 <ImageView android:src="@drawable/lamps_game_prev"
                            android:layout_height="@dimen/games_height"
@@ -94,7 +91,7 @@
                            android:elevation="10dp"
                            android:clickable="true"
                            android:focusable="true"
-                android:onClick="goToLamps"/>
+                />
 
                 <ImageView android:src="@drawable/sort_game_prev"
                            android:layout_height="@dimen/games_height"
@@ -106,7 +103,6 @@
                            android:elevation="10dp"
                            android:clickable="true"
                            android:focusable="true"
-                           android:onClick="goToSortGame"
                 />
 
                 <ImageView android:src="@drawable/colors_game_prev"
@@ -116,7 +112,6 @@
                            android:id="@+id/pr_3"
                            android:layout_column="3"
                            android:layout_row="0"
-                           android:onClick="goToColorsGame"
                            android:clickable="true"
                            android:focusable="true"
                            android:elevation="10dp"
@@ -185,7 +180,7 @@
                            android:elevation="10dp"
                            android:clickable="true"
                            android:focusable="true"
-                           android:onClick="goToAnagramGame"/>
+                        />
 
                 <ImageView android:src="@drawable/math_game_prev"
                            android:layout_height="@dimen/games_height"
@@ -200,7 +195,6 @@
                            android:elevation="10dp"
                            android:clickable="true"
                            android:focusable="true"
-                           android:onClick="goToFNGame"
                             android:visibility="gone"/>
 
                 <ImageView android:src="@drawable/find_item_game_prev"
@@ -216,8 +210,7 @@
                            android:elevation="10dp"
                            android:clickable="true"
                            android:focusable="true"
-                           android:onClick="goToFNGame"
-                android:visibility="invisible"/>
+                        android:visibility="invisible"/>
 
                 <ImageView android:src="@drawable/nums_game_prev"
                            android:layout_height="@dimen/games_height"
@@ -232,7 +225,7 @@
                            android:elevation="10dp"
                            android:clickable="true"
                            android:focusable="true"
-                           android:onClick="goToFNGame"
+
                 android:visibility="invisible"/>
 
 

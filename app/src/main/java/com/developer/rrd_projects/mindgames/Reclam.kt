@@ -3,34 +3,14 @@ package com.developer.rrd_projects.mindgames
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import com.developer.rrd_projects.mindgames.games.end_game_screen.EndGameScreen
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.InterstitialAd
 
-class Reclam : AppCompatActivity() {
+class Reclam : MyGameActivity() {
 
     private lateinit var mInterstitialAd: InterstitialAd
-
-    override fun onWindowFocusChanged(hasFocus: Boolean) {
-        super.onWindowFocusChanged(hasFocus)
-
-        if (hasFocus) {
-            hideSystemUi()
-        }
-    }
-
-    private fun hideSystemUi() {
-        window.decorView.systemUiVisibility = (
-                View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                        or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                        or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                        or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                        or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                        or View.SYSTEM_UI_FLAG_FULLSCREEN
-                )
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,7 +39,6 @@ class Reclam : AppCompatActivity() {
             }
 
         }
-
     }
 
     private fun loadEndGameScreen(){
@@ -72,5 +51,7 @@ class Reclam : AppCompatActivity() {
         i.putExtra("game_score", gameScore)
 
         startActivity(i)
+
+        finish()
     }
 }

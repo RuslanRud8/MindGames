@@ -10,6 +10,7 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import com.developer.rrd_projects.mindgames.Games
+import com.developer.rrd_projects.mindgames.MyGameActivity
 import com.developer.rrd_projects.mindgames.games.lampsGame.LampsGame
 import com.developer.rrd_projects.mindgames.R
 import com.developer.rrd_projects.mindgames.animators.animateProgressBar
@@ -27,29 +28,9 @@ import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.InterstitialAd
 
-class EndGameScreen : AppCompatActivity() {
+class EndGameScreen : MyGameActivity() {
 
     var person = Person(0, "-", 0, 0, 1, 0, 0, "-1")
-
-
-    override fun onWindowFocusChanged(hasFocus: Boolean) {
-        super.onWindowFocusChanged(hasFocus)
-
-        if (hasFocus) {
-            hideSystemUi()
-        }
-    }
-
-    private fun hideSystemUi() {
-        window.decorView.systemUiVisibility = (
-                View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                        or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                        or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                        or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                        or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                        or View.SYSTEM_UI_FLAG_FULLSCREEN
-                )
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,8 +42,6 @@ class EndGameScreen : AppCompatActivity() {
 
         contin()
     }
-
-
 
     private fun contin() {
         val score: Int = intent.getIntExtra("game_score", 0)

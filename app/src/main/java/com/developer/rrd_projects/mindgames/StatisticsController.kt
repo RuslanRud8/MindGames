@@ -20,25 +20,6 @@ import com.github.mikephil.charting.data.LineDataSet
 
 class StatisticsController : MyGameActivity() {
 
-    override fun onWindowFocusChanged(hasFocus: Boolean) {
-        super.onWindowFocusChanged(hasFocus)
-
-        if (hasFocus) {
-            hideSystemUi()
-        }
-    }
-
-    private fun hideSystemUi() {
-        window.decorView.systemUiVisibility = (
-                View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                        or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                        or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                        or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                        or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                        or View.SYSTEM_UI_FLAG_FULLSCREEN
-                )
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
@@ -76,12 +57,13 @@ class StatisticsController : MyGameActivity() {
     }
 
     private fun goToGames() {
+        playSound(this,R.raw.menu_button_sound)
         startActivity(Intent(this, Games::class.java))
         finish()
-        return
     }
 
     private fun chooseGame() {
+        playSound(this,R.raw.menu_button_sound)
         hideStatChart()
         showGamesView()
         val gamesBtn: Button = findViewById(R.id.choose_game_btn)
@@ -111,13 +93,14 @@ class StatisticsController : MyGameActivity() {
 
 
     private fun goToMainMenu() {
+        playSound(this,R.raw.menu_button_sound)
         startActivity(Intent(this, MainActivity::class.java))
         finish()
-        return
     }
 
 
     private fun openStat(filename:String){
+        playSound(this,R.raw.menu_button_sound)
         hideGamesView()
         openStatChart()
         val chooseBtn : Button = findViewById(R.id.choose_game_btn)

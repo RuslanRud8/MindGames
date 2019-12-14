@@ -157,7 +157,6 @@ class MainActivity : MyGameActivity() {
         intent.putExtra("comesFrom", "mainMenu")
         startActivity(intent)
         finish()
-        return
     }
 
     private fun openNewActivity(targetActivity:Class<*>){

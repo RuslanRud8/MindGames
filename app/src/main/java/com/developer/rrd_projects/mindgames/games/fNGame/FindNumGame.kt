@@ -6,6 +6,7 @@ import android.widget.*
 import com.developer.rrd_projects.mindgames.R
 import com.developer.rrd_projects.mindgames.games.GamesActivity
 import com.developer.rrd_projects.mindgames.games.readGameSet
+import com.developer.rrd_projects.mindgames.playSound
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -13,14 +14,6 @@ class FindNumGame : GamesActivity() {
 
     private val buttons: ArrayList<GameButton> = ArrayList()
     private var numToFind: Int = -1
-
-    override fun onWindowFocusChanged(hasFocus: Boolean) {
-        super.onWindowFocusChanged(hasFocus)
-
-        if (hasFocus) {
-            hideSystemUi()
-        }
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -102,7 +95,10 @@ class FindNumGame : GamesActivity() {
             val btn = GameButton(x1, marginTop, btnHeight, btnWidth, applicationContext, numToSearch(), textSize)
             buttons.add(btn)
             btn.btn.setOnClickListener {
+
                 if(btn.btn.text == numToFind.toString()){
+                    playSound(this,R.raw.menu_button_sound)
+
                     if(level < 17) {
                         level++
                     }
@@ -112,6 +108,7 @@ class FindNumGame : GamesActivity() {
 
                     scoreText.text = score.toString()
                 }else {
+                    playSound(this,R.raw.error_sound)
                     if(level > 1){
                         level--
                     }

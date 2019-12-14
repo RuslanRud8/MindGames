@@ -3,11 +3,7 @@ package com.developer.rrd_projects.mindgames
 import android.app.*
 import android.content.Context
 import android.content.Intent
-import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.core.app.NotificationCompat
-import androidx.core.app.NotificationManagerCompat
 import androidx.appcompat.widget.SwitchCompat
 import android.view.View
 import android.widget.Button
@@ -16,32 +12,12 @@ import com.developer.rrd_projects.mindgames.animators.animateGear
 import com.developer.rrd_projects.mindgames.games.GamesSet
 import com.developer.rrd_projects.mindgames.games.readGameSet
 import com.developer.rrd_projects.mindgames.games.writeGameSet
-import org.w3c.dom.Text
 import java.util.*
 
 class Settings : MyGameActivity() {
 
     var totalMin = 0
     var gamesSet = GamesSet()
-
-    override fun onWindowFocusChanged(hasFocus: Boolean) {
-        super.onWindowFocusChanged(hasFocus)
-
-        if (hasFocus) {
-            hideSystemUi()
-        }
-    }
-
-    private fun hideSystemUi() {
-        window.decorView.systemUiVisibility = (
-                View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                        or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                        or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                        or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                        or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                        or View.SYSTEM_UI_FLAG_FULLSCREEN
-                )
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,10 +32,12 @@ class Settings : MyGameActivity() {
 
         val btnAnimSw : SwitchCompat = findViewById(R.id.buttons_animation_sw)
         btnAnimSw.isChecked = gamesSet.buttonsAnimation
+        btnAnimSw.setOnClickListener { playSound(this,R.raw.settings_button_sound) }
 
         val alertSw : SwitchCompat = findViewById(R.id.alert_sw)
         alertSw.setOnCheckedChangeListener { buttonView, isChecked -> changeMode(isChecked) }
         alertSw.isChecked = gamesSet.alarmMode
+        alertSw.setOnClickListener {  playSound(this,R.raw.settings_button_sound) }
 
        setTime(gamesSet.time/60, gamesSet.time%60)
 
@@ -73,11 +51,14 @@ class Settings : MyGameActivity() {
     }
 
     private fun changeN() {
-        val intent: Intent = Intent(this, NameChooser::class.java)
+        playSound(this,R.raw.settings_button_sound)
+        val intent = Intent(this, NameChooser::class.java)
         startActivity(intent)
+        finish()
     }
 
     private fun chooseTime() {
+        playSound(this,R.raw.settings_button_sound)
         TimePickerDialog(this, t , gamesSet.time/60,gamesSet.time%60,true).show()
     }
 
@@ -117,11 +98,14 @@ class Settings : MyGameActivity() {
     }
 
     fun cancel(view: View){
+        playSound(this,R.raw.menu_button_sound)
         val intent: Intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
+        finish()
     }
 
     fun saveSettings(view: View){
+        playSound(this,R.raw.menu_button_sound)
         val gamesSet = readGameSet(applicationContext)
         gamesSet.buttonsAnimation = findViewById<SwitchCompat>(R.id.buttons_animation_sw).isChecked
 
@@ -135,6 +119,7 @@ class Settings : MyGameActivity() {
 
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
+        finish()
     }
 
     private fun createNotification(b:Boolean) {
@@ -151,7 +136,6 @@ class Settings : MyGameActivity() {
         if(b) {
             alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, AlarmManager.INTERVAL_DAY, pI)
         }else alarmManager.cancel(pI)
-
     }
 
     private fun startGears() {
@@ -162,5 +146,4 @@ class Settings : MyGameActivity() {
         animateGear(findViewById(R.id.right_green_gear))
         animateGear(findViewById(R.id.right_orange_gear))
     }
-
 }

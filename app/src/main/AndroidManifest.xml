@@ -12,11 +12,12 @@
             android:label="@string/app_name"
             android:orientation="horizontal"
             android:roundIcon="@mipmap/ic_launcher_round"
-            android:screenOrientation="landscape"
+            android:screenOrientation="userLandscape"
             android:supportsRtl="true"
             android:theme="@style/AppTheme.NoActionBar"
             android:uiOptions="none"
             tools:ignore="GoogleAppIndexingWarning">
+
         <activity android:name=".Reclam"
                 android:screenOrientation="userLandscape"/>
 
@@ -30,13 +31,13 @@
                 android:screenOrientation="userLandscape" />
         <activity
                 android:name=".games.colorsGame.ColorsGame"
-                android:screenOrientation="landscape" />
+                android:screenOrientation="userLandscape" />
         <activity
                 android:name=".games.sortGame.SortGame"
-                android:screenOrientation="landscape" />
+                android:screenOrientation="userLandscape" />
         <activity
                 android:name=".games.lampsGame.LampsGame"
-                android:screenOrientation="landscape" />
+                android:screenOrientation="userLandscape" />
 
         <meta-data
                 android:name="com.google.android.gms.ads.APPLICATION_ID"
@@ -44,34 +45,34 @@
 
         <activity
                 android:name=".PremShow"
-                android:screenOrientation="landscape" />
+                android:screenOrientation="userLandscape" />
         <activity
                 android:name=".games.end_game_screen.EndGameScreen"
-                android:screenOrientation="landscape" />
+                android:screenOrientation="userLandscape" />
         <activity
                 android:name=".Attention"
-                android:screenOrientation="landscape" />
+                android:screenOrientation="userLandscape" />
         <activity
                 android:name=".games.fNGame.FindNumGame"
-                android:screenOrientation="landscape" />
+                android:screenOrientation="userLandscape" />
         <activity
                 android:name=".Games"
-                android:screenOrientation="landscape" />
+                android:screenOrientation="userLandscape" />
         <activity
                 android:name=".StatisticsController"
-                android:screenOrientation="landscape" />
+                android:screenOrientation="userLandscape" />
         <activity
                 android:name=".Settings"
-                android:screenOrientation="landscape" />
+                android:screenOrientation="userLandscape" />
         <activity
                 android:name=".NameChooser"
-                android:screenOrientation="landscape" />
+                android:screenOrientation="userLandscape" />
         <activity
                 android:name=".Icons"
-                android:screenOrientation="landscape" />
+                android:screenOrientation="userLandscape" />
         <activity
                 android:name=".ProfileActivity"
-                android:screenOrientation="landscape" />
+                android:screenOrientation="userLandscape" />
         <activity
                 android:name=".MainActivity"
                 android:screenOrientation="userLandscape">

@@ -22,14 +22,6 @@ class ColorsGame : GamesActivity() {
     private val arrNameColors: ArrayList<String> =
         arrayListOf("red", "blue", "green", "yellow", "orange", "purple", "pink", "white")
 
-    override fun onWindowFocusChanged(hasFocus: Boolean) {
-        super.onWindowFocusChanged(hasFocus)
-
-        if (hasFocus) {
-            hideSystemUi()
-        }
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_HIDE_NAVIGATION

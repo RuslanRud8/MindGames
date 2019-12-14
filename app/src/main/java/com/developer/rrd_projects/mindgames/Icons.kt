@@ -1,15 +1,20 @@
 package com.developer.rrd_projects.mindgames
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Point
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Display
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import com.developer.rrd_projects.mindgames.animators.animateGear
 import com.developer.rrd_projects.mindgames.person.*
+import io.reactivex.Single
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
+
 
 class Icons : MyGameActivity() {
 
@@ -21,27 +26,7 @@ class Icons : MyGameActivity() {
 
     var prevIcon: Int = -1
     var iconLast: Int = -1
-    private var person: Person = Person(0, "-", 0, 0, 1, 0, 0, "-1")
-
-
-    override fun onWindowFocusChanged(hasFocus: Boolean) {
-        super.onWindowFocusChanged(hasFocus)
-
-        if (hasFocus) {
-            hideSystemUi()
-        }
-    }
-
-    private fun hideSystemUi() {
-        window.decorView.systemUiVisibility = (
-                View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                        or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                        or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                        or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                        or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                        or View.SYSTEM_UI_FLAG_FULLSCREEN
-                )
-    }
+    private lateinit var person:Person
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,42 +38,60 @@ class Icons : MyGameActivity() {
         setContentView(R.layout.activity_icons)
 
 
-        iconsView.add(findViewById(R.id.icon_1_view))
         iconsSet.add(findViewById(R.id.icon_1_view_set))
-        iconsView.add(findViewById(R.id.icon_2_view))
+        iconsView.add(findViewById(R.id.icon_1_view))
+
         iconsSet.add(findViewById(R.id.icon_2_view_set))
-        iconsView.add(findViewById(R.id.icon_3_view))
+        iconsView.add(findViewById(R.id.icon_2_view))
+
         iconsSet.add(findViewById(R.id.icon_3_view_set))
-        iconsView.add(findViewById(R.id.icon_4_view))
+        iconsView.add(findViewById(R.id.icon_3_view))
+
         iconsSet.add(findViewById(R.id.icon_4_view_set))
-        iconsView.add(findViewById(R.id.icon_5_view))
+        iconsView.add(findViewById(R.id.icon_4_view))
+
         iconsSet.add(findViewById(R.id.icon_5_view_set))
-        iconsView.add(findViewById(R.id.icon_6_view))
+        iconsView.add(findViewById(R.id.icon_5_view))
+
         iconsSet.add(findViewById(R.id.icon_6_view_set))
-        iconsView.add(findViewById(R.id.icon_7_view))
+        iconsView.add(findViewById(R.id.icon_6_view))
+
         iconsSet.add(findViewById(R.id.icon_7_view_set))
-        iconsView.add(findViewById(R.id.icon_8_view))
+        iconsView.add(findViewById(R.id.icon_7_view))
+
         iconsSet.add(findViewById(R.id.icon_8_view_set))
-        iconsView.add(findViewById(R.id.icon_9_view))
+        iconsView.add(findViewById(R.id.icon_8_view))
+
         iconsSet.add(findViewById(R.id.icon_9_view_set))
-        iconsView.add(findViewById(R.id.icon_10_view))
+        iconsView.add(findViewById(R.id.icon_9_view))
+
         iconsSet.add(findViewById(R.id.icon_10_view_set))
-        iconsView.add(findViewById(R.id.icon_11_view))
+        iconsView.add(findViewById(R.id.icon_10_view))
+
         iconsSet.add(findViewById(R.id.icon_11_view_set))
-        iconsView.add(findViewById(R.id.icon_12_view))
+        iconsView.add(findViewById(R.id.icon_11_view))
+
         iconsSet.add(findViewById(R.id.icon_12_view_set))
-        iconsView.add(findViewById(R.id.icon_13_view))
+        iconsView.add(findViewById(R.id.icon_12_view))
+
         iconsSet.add(findViewById(R.id.icon_13_view_set))
-        iconsView.add(findViewById(R.id.icon_14_view))
+        iconsView.add(findViewById(R.id.icon_13_view))
+
         iconsSet.add(findViewById(R.id.icon_14_view_set))
-        iconsView.add(findViewById(R.id.icon_15_view))
+        iconsView.add(findViewById(R.id.icon_14_view))
+
         iconsSet.add(findViewById(R.id.icon_15_view_set))
-        iconsView.add(findViewById(R.id.icon_16_view))
+        iconsView.add(findViewById(R.id.icon_15_view))
+
         iconsSet.add(findViewById(R.id.icon_16_view_set))
-        iconsView.add(findViewById(R.id.icon_17_view))
+        iconsView.add(findViewById(R.id.icon_16_view))
+
         iconsSet.add(findViewById(R.id.icon_17_view_set))
-        iconsView.add(findViewById(R.id.icon_18_view))
+        iconsView.add(findViewById(R.id.icon_17_view))
+
         iconsSet.add(findViewById(R.id.icon_18_view_set))
+        iconsView.add(findViewById(R.id.icon_18_view))
+
         iconsView.add(findViewById(R.id.icon_19_view))
         iconsSet.add(findViewById(R.id.icon_19_view_set))
         iconsView.add(findViewById(R.id.icon_20_view))
@@ -105,20 +108,26 @@ class Icons : MyGameActivity() {
 
         setWidthForImages()
 
-
-        person = readPerson(applicationContext)
-
+        person = readPerson(this)
 
         unlockIcons(person.level)
+
+        Log.i("My","${person.level}")
         prevIcon = person.icon
+
         val preview: ImageView = findViewById(R.id.icon_preview)
 
         preview.setImageDrawable(getDrawable(getImageId(person.icon)))
 
         iconsSet[prevIcon].background = getDrawable(getImageId(24))
 
-
         startGears()
+    }
+
+    private fun getPerson(context: Context): Single<Person> {
+        return Single.create { s ->
+            s.onSuccess(readPerson(context))
+        }
     }
 
     private fun startGears() {
@@ -144,6 +153,7 @@ class Icons : MyGameActivity() {
 
     fun goBackToProfile(view: View) {
 
+        playSound(this,R.raw.menu_button_sound)
         if (iconLast != -1) {
             person.icon = iconLast
             writePerson(person, applicationContext)
@@ -169,7 +179,7 @@ class Icons : MyGameActivity() {
             i++
         }
 
-        for (l in iconsViewPrem.indices){
+        for (l in iconsViewPrem.indices) {
             iconsViewPrem[l].layoutParams.width = width
             iconsViewPrem[l].layoutParams.height = width
             iconsSetPrem[l].layoutParams.width = width
@@ -192,11 +202,12 @@ class Icons : MyGameActivity() {
 
         println(ind)
         if (iconsSet[ind].background == null) {
+            playSound(this,R.raw.settings_button_sound)
             iconsSet[ind].background = getDrawable(getImageId(24))
             preview.setImageDrawable(iconsView[ind].drawable)
             iconsSet[prevIcon].background = null
             prevIcon = ind
             iconLast = ind
-        }
+        }else playSound(this,R.raw.error_sound)
     }
 }
