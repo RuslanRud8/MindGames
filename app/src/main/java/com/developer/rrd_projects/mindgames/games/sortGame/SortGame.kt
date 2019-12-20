@@ -7,6 +7,7 @@ import com.developer.rrd_projects.mindgames.R
 import com.developer.rrd_projects.mindgames.animators.animateShapeToSort
 import com.developer.rrd_projects.mindgames.games.GamesActivity
 import com.developer.rrd_projects.mindgames.games.readGameSet
+import com.developer.rrd_projects.mindgames.playSound
 import java.util.*
 
 class SortGame : GamesActivity() {
@@ -35,27 +36,26 @@ class SortGame : GamesActivity() {
         val rectangleBtn: ImageView = findViewById(R.id.rectangle_view)
         rectangleBtn.setOnClickListener { chooseRectangle() }
 
-
-
         createPreStartTimer(findViewById(R.id.dark_screen), ::generateShapeToSort)
         createGameTimer(60000,findViewById(R.id.game_timer))
-
     }
 
     private fun chooseRectangle() {
+
         if (currentType == "rectangle" && gameStarted) {
             scoreUp()
-        }
+        }else scoreDown()
         animateShapeToSort(
             img,
-            (getScreenWidth() + img.width).toFloat(),
-            (getScreenHeight() + img.width).toFloat(),
+            (getScreenWidth() + img.width*1.5).toFloat(),
+            (getScreenHeight()-img.translationY + (img.width*1.3)).toFloat(),
             800
         )
         generateShapeToSort()
     }
 
     private fun scoreUp() {
+        playSound(this,R.raw.menu_button_sound)
         score += 25
         findViewById<TextView>(R.id.score_text).text = score.toString()
     }
@@ -63,17 +63,24 @@ class SortGame : GamesActivity() {
     private fun chooseTriangle() {
         if (currentType == "triangle" && gameStarted) {
             scoreUp()
-        }
+        }else scoreDown()
         animateShapeToSort(img, img.x, (getScreenHeight() + img.width).toFloat(), 800)
         generateShapeToSort()
+    }
 
+    private fun scoreDown() {
+        playSound(this,R.raw.error_sound)
+        if(score > 30){
+            score -= 30
+        }else score = 0
+        findViewById<TextView>(R.id.score_text).text = score.toString()
     }
 
     private fun chooseCircle() {
         if (currentType == "circle" && gameStarted) {
             scoreUp()
-        }
-        animateShapeToSort(img, (-1 * img.width).toFloat(), (getScreenHeight() + img.width).toFloat(), 800)
+        }else scoreDown()
+        animateShapeToSort(img, (-1 * img.width*1.5.toFloat()), (getScreenHeight()-img.translationY + (img.width*1.3)).toFloat(), 800)
         generateShapeToSort()
     }
 
@@ -105,13 +112,13 @@ class SortGame : GamesActivity() {
         img.layoutParams.width = width
         img.layoutParams.height = width
 
-        img.translationX = (getScreenWidth() / 2).toFloat()
+        img.translationX = ((getScreenWidth() / 2)-(width/3)).toFloat()
         img.translationY = (-1 * width).toFloat()
 
         animateShapeToSort(
             img,
-            (getScreenWidth() / 2.0f),
-            resources.getDimension(R.dimen.fngame_height_main) + 10,
+            ((getScreenWidth() / 2.0f)-(width/3)),
+            resources.getDimension(R.dimen.fngame_height_main) + 5,
             500
         )
     }

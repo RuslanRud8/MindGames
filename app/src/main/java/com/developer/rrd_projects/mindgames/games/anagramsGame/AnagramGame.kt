@@ -8,6 +8,7 @@ import com.developer.rrd_projects.mindgames.R
 import com.developer.rrd_projects.mindgames.games.GamesActivity
 import com.developer.rrd_projects.mindgames.games.fNGame.GameButton
 import com.developer.rrd_projects.mindgames.games.readGameSet
+import com.developer.rrd_projects.mindgames.playSound
 import java.lang.StringBuilder
 import java.util.*
 
@@ -129,6 +130,8 @@ class AnagramGame : GamesActivity() {
     }
 
     private fun trueAnsListner() {
+        playSound(this, R.raw.menu_button_sound)
+
         val scoreText: TextView = findViewById(R.id.score_text)
         score += 50
         scoreText.text = score.toString()
@@ -139,6 +142,7 @@ class AnagramGame : GamesActivity() {
     }
 
     private fun falseAnsListner() {
+        playSound(this, R.raw.error_sound)
         val scoreText: TextView = findViewById(R.id.score_text)
         if (score > 60) score -= 50 else score = 0
         scoreText.text = score.toString()

@@ -35,7 +35,7 @@
     <dimen name="fngame_width">180dp</dimen>
 
     <dimen name="fngame_height_main">100dp</dimen>
-    <dimen name="fngame_width_main">220dp</dimen>
+    <dimen name="fngame_width_main">230dp</dimen>
     <dimen name="fngame_sp">50sp</dimen>
 
     <dimen name="games_height">100dp</dimen>

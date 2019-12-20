@@ -6,6 +6,7 @@ import android.widget.TextView
 import com.developer.rrd_projects.mindgames.R
 import com.developer.rrd_projects.mindgames.games.GamesActivity
 import com.developer.rrd_projects.mindgames.games.readGameSet
+import com.developer.rrd_projects.mindgames.playSound
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -71,6 +72,7 @@ class ColorsGame : GamesActivity() {
     }
 
     private fun minusScore() {
+        playSound(this, R.raw.error_sound)
         if (score >= 60)
             score -= 60
         else score = 0
@@ -79,6 +81,7 @@ class ColorsGame : GamesActivity() {
     }
 
     private fun addScore() {
+        playSound(this, R.raw.menu_button_sound)
         score += 50
         scoreText.text = score.toString()
     }

@@ -55,7 +55,7 @@ class MainActivity : MyGameActivity() {
 
         setContentView(R.layout.activity_main)
 
-        MobileAds.initialize(this)
+        MobileAds.initialize(this) {}
 
         initUiElements()
 

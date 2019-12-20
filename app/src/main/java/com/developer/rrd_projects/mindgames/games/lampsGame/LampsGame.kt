@@ -9,6 +9,10 @@ import android.widget.TextView
 import com.developer.rrd_projects.mindgames.R
 import com.developer.rrd_projects.mindgames.games.GamesActivity
 import com.developer.rrd_projects.mindgames.games.readGameSet
+import com.developer.rrd_projects.mindgames.playSound
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -17,7 +21,6 @@ class LampsGame : GamesActivity() {
     private val lampsArray: ArrayList<ImageView> = ArrayList()
     private val arrToShow: ArrayList<Int> = ArrayList()
     private var showing: Boolean = false
-    private var numToShow: Int = 0
     private var numCurrent: Int = 0
     private  val scoreM = 123.4567
     private var  wrongAns : Boolean = false
@@ -76,7 +79,7 @@ class LampsGame : GamesActivity() {
     }
 
     private fun checkLamp(lamp: ImageView) {
-        if (!showing && gameStarted && !wrongAns) {
+        if (!wrongAns && !showing && gameStarted) {
 
             if (arrToShow[numCurrent] == lampsArray.indexOf(lamp)) {
                 trueAns(lamp)
@@ -93,20 +96,28 @@ class LampsGame : GamesActivity() {
 
             } else falseAns(lamp)
 
-
         }
     }
 
     private fun falseAns(lamp: ImageView) {
+        playSound(this,R.raw.error_sound)
+        wrongAns = true
         if (level > 1) {
             level--
         }
         lamp.setImageDrawable(getDrawable(R.drawable.lamp_red))
-        wrongAns = true
-        wrongTimer.start()
+
+        GlobalScope.launch { delayWrongAns() }
+    }
+
+     private suspend fun delayWrongAns(){
+        delay(1000L)
+        wrongAns = false
+        generateLamps()
     }
 
     private fun trueAns(lamp: ImageView) {
+        playSound(this, R.raw.menu_button_sound)
         lamp.setImageDrawable(getDrawable(R.drawable.lamp_green))
     }
 
@@ -114,53 +125,19 @@ class LampsGame : GamesActivity() {
         findViewById<TextView>(R.id.score_text).text = score.toString()
     }
 
-    private val wrongTimer = object  : CountDownTimer(1000,1000){
-        override fun onFinish() {
-            wrongAns = false
-            generateLamps()
-        }
-
-        override fun onTick(millisUntilFinished: Long) {
-        }
-
-    }
-
-    private val lampsTimer = object  : CountDownTimer(1000,1000){
-        override fun onFinish() {
-            if(numToShow < arrToShow.size){
-                this.start()
-            }else {
-                showing = false
-                lampsArray[arrToShow[numToShow - 1]].setImageDrawable(getDrawable(R.drawable.lamp_gray))
-            }
-        }
-
-        override fun onTick(millisUntilFinished: Long) {
-            if (numToShow < arrToShow.size) {
-
-                lampsArray[arrToShow[numToShow]].setImageDrawable(getDrawable(R.drawable.lamp_yellow))
-
-                if (numToShow > 0) {
-                    lampsArray[arrToShow[numToShow - 1]].setImageDrawable(getDrawable(R.drawable.lamp_gray))
-                }
-
-                numToShow++
-            }
-        }
-    }
-
     private fun updateLamp() {
         for (i in lampsArray) i.setImageDrawable(getDrawable(R.drawable.lamp_gray))
     }
 
     private fun generateLamps() {
+        updateLamp()
+
+        numCurrent = 0
+        showing = true
 
         if(arrToShow.isNotEmpty()) {
             arrToShow.clear()
         }
-
-
-        updateLamp()
 
         val rnd = Random()
 
@@ -176,14 +153,19 @@ class LampsGame : GamesActivity() {
             i++
         }
 
-        lampsTimer.start()
+        GlobalScope.launch { showLamps() }
 
         Log.i("AAAAAAAAAA", "start")
+    }
 
-        showing = true
-        numToShow = 0
-        numCurrent = 0
+    private suspend fun showLamps(){
 
+        for (i in  arrToShow) {
+            lampsArray[i].setImageDrawable(getDrawable(R.drawable.lamp_yellow))
+            delay(1000L)
+            lampsArray[i].setImageDrawable(getDrawable(R.drawable.lamp_gray))
+        }
 
+        showing = false
     }
 }

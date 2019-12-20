@@ -1,10 +1,8 @@
 package com.developer.rrd_projects.mindgames.games.end_game_screen
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.ProgressBar
@@ -24,9 +22,7 @@ import com.developer.rrd_projects.mindgames.person.Person
 import com.developer.rrd_projects.mindgames.person.getExpForLevel
 import com.developer.rrd_projects.mindgames.person.readPerson
 import com.developer.rrd_projects.mindgames.person.writePerson
-import com.google.android.gms.ads.AdListener
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.InterstitialAd
+import com.developer.rrd_projects.mindgames.playSound
 
 class EndGameScreen : MyGameActivity() {
 
@@ -40,12 +36,11 @@ class EndGameScreen : MyGameActivity() {
 
         setContentView(R.layout.activity_end_game_screen)
 
-        contin()
+        showScore()
     }
 
-    private fun contin() {
+    private fun showScore() {
         val score: Int = intent.getIntExtra("game_score", 0)
-
 
         findViewById<TextView>(R.id.score).text = getString(R.string.score_str, score)
 
@@ -253,11 +248,13 @@ class EndGameScreen : MyGameActivity() {
     }
 
     fun goToGames(view: View) {
+        playSound(this,R.raw.menu_button_sound)
         val intent = Intent(this, Games::class.java)
         startActivity(intent)
     }
 
     fun restartGame(view: View) {
+        playSound(this,R.raw.menu_button_sound)
         var i: Intent? = null
 
         when (intent.getStringExtra("game_ended")) {

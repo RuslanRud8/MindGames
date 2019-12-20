@@ -21,7 +21,8 @@ class Reclam : MyGameActivity() {
 
     private fun loadAndShowAdd() {
         mInterstitialAd = InterstitialAd(this)
-        mInterstitialAd.adUnitId = "ca-app-pub-9050823804847454/7198827424"
+       // mInterstitialAd.adUnitId = "ca-app-pub-9050823804847454/7198827424"
+        mInterstitialAd.adUnitId = "ca-app-pub-3940256099942544/1033173712"
         mInterstitialAd.loadAd(AdRequest.Builder().build())
 
 

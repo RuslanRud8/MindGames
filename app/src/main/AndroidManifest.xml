@@ -18,6 +18,10 @@
             android:uiOptions="none"
             tools:ignore="GoogleAppIndexingWarning">
 
+        <meta-data
+                android:name="com.google.android.gms.ads.APPLICATION_ID"
+                android:value="ca-app-pub-9050823804847454~4025869179" />
+
         <activity android:name=".Reclam"
                 android:screenOrientation="userLandscape"/>
 
@@ -39,9 +43,7 @@
                 android:name=".games.lampsGame.LampsGame"
                 android:screenOrientation="userLandscape" />
 
-        <meta-data
-                android:name="com.google.android.gms.ads.APPLICATION_ID"
-                android:value="ca-app-pub-9050823804847454~4025869179" />
+
 
         <activity
                 android:name=".PremShow"
