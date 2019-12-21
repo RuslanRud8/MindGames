@@ -2,7 +2,6 @@ package com.developer.rrd_projects.mindgames
 
 import android.content.Intent
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -13,12 +12,15 @@ import com.developer.rrd_projects.mindgames.animators.animateGear
 import com.developer.rrd_projects.mindgames.games_statistics.Statistics
 import com.developer.rrd_projects.mindgames.games_statistics.readStatistics
 import com.github.mikephil.charting.charts.LineChart
-import com.github.mikephil.charting.components.Description
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 
 class StatisticsController : MyGameActivity() {
+
+    private var statOpened = false
+    private lateinit var menuBtn:Button
+    private lateinit var gamesBtn:Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,32 +46,26 @@ class StatisticsController : MyGameActivity() {
         val anagramGameImg: ImageView = findViewById(R.id.anagram)
         anagramGameImg.setOnClickListener { openStat("anagramgame") }
 
-        val menuBtn: Button = findViewById(R.id.menu_btn)
+        menuBtn = findViewById(R.id.menu_btn)
         menuBtn.setOnClickListener {goToMainMenu()}
 
-        val chooseBtn: Button = findViewById(R.id.choose_game_btn)
-        chooseBtn.setOnClickListener {chooseGame()}
-
-        val gamesBtn: Button = findViewById(R.id.go_to_games_btn)
+        gamesBtn = findViewById(R.id.go_to_games_btn)
         gamesBtn.setOnClickListener {goToGames()}
-
-        startGears()
     }
 
     private fun goToGames() {
-        playSound(this,R.raw.menu_button_sound)
-        startActivity(Intent(this, Games::class.java))
-        finish()
-    }
-
-    private fun chooseGame() {
-        playSound(this,R.raw.menu_button_sound)
-        hideStatChart()
-        showGamesView()
-        val gamesBtn: Button = findViewById(R.id.choose_game_btn)
-        gamesBtn.isEnabled = false
-        val alert: TextView = findViewById(R.id.alert_text)
-        alert.visibility = View.GONE
+        playSound(this, R.raw.menu_button_sound)
+        if(!statOpened) {
+            startActivity(Intent(this, Games::class.java))
+            finish()
+        }else {
+            statOpened = false
+            gamesBtn.text = getString(R.string.games_str)
+            hideStatChart()
+            showGamesView()
+            val alert: TextView = findViewById(R.id.alert_text)
+            alert.visibility = View.GONE
+        }
     }
 
     private fun showGamesView() {
@@ -82,16 +78,6 @@ class StatisticsController : MyGameActivity() {
         chart.visibility = View.GONE
     }
 
-    private fun startGears(){
-        animateGear(findViewById(R.id.left_blue_gear))
-        animateGear(findViewById(R.id.left_green_gear))
-        animateGear(findViewById(R.id.left_orange_gear))
-        animateGear(findViewById(R.id.right_blue_gear))
-        animateGear(findViewById(R.id.right_green_gear))
-        animateGear(findViewById(R.id.right_orange_gear))
-    }
-
-
     private fun goToMainMenu() {
         playSound(this,R.raw.menu_button_sound)
         startActivity(Intent(this, MainActivity::class.java))
@@ -103,8 +89,9 @@ class StatisticsController : MyGameActivity() {
         playSound(this,R.raw.menu_button_sound)
         hideGamesView()
         openStatChart()
-        val chooseBtn : Button = findViewById(R.id.choose_game_btn)
-        chooseBtn.isEnabled = true
+
+        gamesBtn.text = getString(R.string.back_btn_str)
+        statOpened = true
 
         val stat: Statistics = readStatistics(applicationContext, filename)
 

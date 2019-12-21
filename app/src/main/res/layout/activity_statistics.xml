@@ -8,87 +8,12 @@
         tools:context=".StatisticsController"
         android:background="@drawable/main_background_gradient">
 
-    <ImageView android:layout_width="@dimen/gear_size_b" android:layout_height="@dimen/gear_size_b"
-               android:src="@drawable/gear4"
-               android:layout_alignParentStart="true"
-               android:layout_alignParentTop="true"
-               android:layout_marginTop="@dimen/margin_st_lr_b"
-               android:layout_marginStart="@dimen/margin_st_lr_b"
-               android:id="@+id/left_orange_gear"
-               android:rotation="15"
-               android:contentDescription="@string/gear_descrip"
-    />
-
-    <ImageView android:layout_width="@dimen/gear_size_s" android:layout_height="@dimen/gear_size_s"
-               android:src="@drawable/setting"
-               android:layout_toEndOf="@+id/left_orange_gear"
-               android:layout_marginStart="@dimen/margin_lr_st_green"
-               android:layout_marginTop="@dimen/margin_lr_top_green"
-               android:rotation="40"
-               android:contentDescription="@string/gear_descrip"
-               android:id="@+id/left_green_gear"
-
-    />
-
-    <ImageView android:layout_width="@dimen/gear_size_b" android:layout_height="@dimen/gear_size_b"
-               android:src="@drawable/gear2"
-               android:layout_below="@+id/left_orange_gear"
-               android:layout_marginStart="@dimen/margin_lr_st_blue"
-               android:contentDescription="@string/gear_descrip"
-               android:id="@+id/left_blue_gear"
-
-    />
-
-
-    <ImageView android:layout_width="@dimen/gear_size_b" android:layout_height="@dimen/gear_size_b"
-               android:layout_alignParentEnd="true"
-               android:src="@drawable/gear3"
-               android:layout_marginTop="@dimen/margin_top_r_up"
-               android:layout_marginEnd="@dimen/margin_end_r_up"
-               android:id="@+id/right_blue_gear"
-               android:contentDescription="@string/gear_descrip"
-
-    />
-
-    <ImageView android:layout_width="@dimen/gear_size_b" android:layout_height="@dimen/gear_size_b"
-               android:layout_below="@+id/right_blue_gear"
-               android:src="@drawable/gear4"
-               android:layout_alignParentEnd="true"
-               android:layout_marginTop="@dimen/margin_top_r_up_orange"
-               android:rotation="19"
-               android:id="@+id/right_orange_gear"
-               android:contentDescription="@string/gear_descrip"
-
-    />
-
-    <ImageView android:layout_width="@dimen/gear_size_bgren" android:layout_height="@dimen/gear_size_bgren"
-               android:layout_alignParentTop="true"
-               android:layout_alignParentEnd="true"
-               android:src="@drawable/setting"
-               android:id="@+id/right_green_gear"
-               android:layout_marginStart="@dimen/margin_top_r_up"
-               android:layout_marginTop="@dimen/margin_top_r_up_green"
-               android:contentDescription="@string/gear_descrip"
-
-    />
-
-
-    <ImageView android:layout_width="wrap_content" android:layout_height="@dimen/heading"
-               android:src="@drawable/stat_heading"
-               android:layout_marginTop="8dp"
-               android:id="@+id/statistics_heading"
-               android:layout_centerHorizontal="true"
-               android:contentDescription="@string/main_heading_str"
-               android:layout_toEndOf="@id/left_green_gear"
-               android:layout_toStartOf="@id/right_blue_gear"
-    />
 
 
     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                  android:layout_alignParentBottom="true"
-                  android:layout_marginBottom="5dp"
-                  android:weightSum="100"
-                  android:id="@+id/buttons_layout">
+            android:orientation="horizontal"
+            android:weightSum="100"
+            android:id="@+id/statistics_heading">
 
         <Button
                 android:text="@string/games_str"
@@ -107,21 +32,17 @@
                 android:textAlignment="center"
                 android:layout_weight="25"
 
-        />
+                />
 
-        <Button android:layout_width="0dp" android:layout_height="wrap_content"
-                android:text="choose game"
-                android:id="@+id/choose_game_btn"
+
+        <ImageView android:layout_width="0dp" android:layout_height="@dimen/heading"
+                android:src="@drawable/stat_heading"
+                android:layout_marginTop="4dp"
+                android:id="@+id/statistics_heading_im"
+                android:layout_gravity="center"
+                android:contentDescription="@string/main_heading_str"
                 android:layout_weight="50"
-                android:textSize="30sp"
-                android:textColor="@color/white"
-                android:textAllCaps="false"
-                android:fontFamily="@font/autour_one"
-                android:background="@drawable/btn_name_dr"
-                android:layout_marginBottom="5dp"
-                android:layout_marginTop="5dp"
-                android:enabled="false"
-        />
+                />
 
         <Button
                 android:text="@string/menu_str"
@@ -136,12 +57,12 @@
                 android:layout_gravity="center"
                 android:layout_weight="25"
 
-        />
+                />
+
     </LinearLayout>
 
     <ScrollView android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:layout_below="@+id/statistics_heading"
-                android:layout_above="@+id/buttons_layout"
                 android:layout_marginTop="10dp"
                 android:id="@+id/games_preview_scroll_bar">
 
@@ -207,7 +128,7 @@
                 />
 
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                          android:text="find number"
+                          android:text="@string/find_number_game_str"
                           android:textSize="@dimen/level_num_sp"
                           android:id="@+id/fn_text"
                           android:layout_gravity="center"
@@ -218,7 +139,7 @@
                           android:shadowRadius="8"/>
 
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                          android:text="lamps"
+                          android:text="@string/lamps_game_str"
                           android:textSize="@dimen/level_num_sp"
                           android:id="@+id/lamp_text"
                           android:layout_gravity="center"
@@ -230,7 +151,7 @@
                           android:shadowRadius="8"/>
 
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                          android:text="sort"
+                          android:text="@string/sort_game_str"
                           android:textSize="@dimen/level_num_sp"
                           android:id="@+id/sort_text"
                           android:layout_marginStart="20dp"
@@ -244,7 +165,7 @@
                           android:focusable="true"/>
 
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                          android:text="colors"
+                          android:text="@string/colors_game_str"
                           android:textSize="@dimen/level_num_sp"
                           android:id="@+id/main_level_text"
                           android:layout_marginStart="20dp"
@@ -272,7 +193,7 @@
                            />
 
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                          android:text="anagrams"
+                          android:text="@string/anagrams_game_str"
                           android:textSize="@dimen/level_num_sp"
                           android:id="@+id/anagram_text"
                           android:layout_column="0"
@@ -291,9 +212,9 @@
     </ScrollView>
 
     <com.github.mikephil.charting.charts.LineChart android:layout_width="match_parent"
-                                                   android:layout_height="wrap_content"
+                                                   android:layout_height="match_parent"
                                                    android:layout_below="@+id/statistics_heading"
-                                                   android:layout_above="@+id/buttons_layout"
+
                                                    android:visibility="gone"
                                                    android:id="@+id/line_chart">
 

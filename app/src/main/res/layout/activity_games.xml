@@ -118,7 +118,7 @@
                 />
 
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                          android:text="find number"
+                          android:text="@string/find_number_game_str"
                           android:textSize="@dimen/level_num_sp"
                           android:id="@+id/fn_text"
                           android:layout_gravity="center"
@@ -129,7 +129,7 @@
                           android:shadowRadius="8"/>
 
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                          android:text="lamps"
+                          android:text="@string/lamps_game_str"
                           android:textSize="@dimen/level_num_sp"
                           android:id="@+id/lamp_text"
                           android:layout_gravity="center"
@@ -141,7 +141,7 @@
                           android:shadowRadius="8"/>
 
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                          android:text="sort"
+                          android:text="@string/sort_game_str"
                           android:textSize="@dimen/level_num_sp"
                           android:id="@+id/sort_text"
                           android:layout_marginStart="20dp"
@@ -155,7 +155,7 @@
                           android:focusable="true"/>
 
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                          android:text="colors"
+                          android:text="@string/colors_game_str"
                           android:textSize="@dimen/level_num_sp"
                           android:id="@+id/main_level_text"
                           android:layout_marginStart="20dp"
@@ -197,40 +197,8 @@
                            android:focusable="true"
                             android:visibility="gone"/>
 
-                <ImageView android:src="@drawable/find_item_game_prev"
-                           android:layout_height="@dimen/games_height"
-                           android:layout_width="@dimen/games_width"
-                           android:contentDescription="@string/game_descip"
-                           android:id="@+id/find_item_img"
-                           android:layout_column="2"
-                           android:layout_row="2"
-                           android:layout_gravity="center"
-                           android:layout_marginTop="10dp"
-                           android:layout_marginStart="20dp"
-                           android:elevation="10dp"
-                           android:clickable="true"
-                           android:focusable="true"
-                        android:visibility="invisible"/>
-
-                <ImageView android:src="@drawable/nums_game_prev"
-                           android:layout_height="@dimen/games_height"
-                           android:layout_width="@dimen/games_width"
-                           android:contentDescription="@string/game_descip"
-                           android:id="@+id/nums_img"
-                           android:layout_column="3"
-                           android:layout_row="2"
-                           android:layout_gravity="center"
-                           android:layout_marginTop="10dp"
-                           android:layout_marginStart="20dp"
-                           android:elevation="10dp"
-                           android:clickable="true"
-                           android:focusable="true"
-
-                android:visibility="invisible"/>
-
-
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                          android:text="anagrams"
+                          android:text="@string/anagrams_game_str"
                           android:textSize="@dimen/level_num_sp"
                           android:id="@+id/anagram_text"
                           android:layout_column="0"
@@ -243,7 +211,7 @@
                           android:focusable="true"/>
 
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                          android:text="soon"
+                          android:text="@string/soon_str"
                           android:textSize="@dimen/level_num_sp"
                           android:id="@+id/math_text"
                           android:layout_column="1"
@@ -256,36 +224,6 @@
                           android:clickable="true"
                           android:focusable="true"
                 />
-
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                          android:text="find item"
-                          android:textSize="@dimen/level_num_sp"
-                          android:id="@+id/find_item_text"
-                          android:layout_column="2"
-                          android:layout_row="3"
-                          android:layout_gravity="center"
-                          android:layout_marginStart="20dp"
-                          android:fontFamily="@font/cherry_cream_soda" android:textColor="#FFFDFD"
-                          android:shadowColor="#868383" android:shadowDx="5" android:shadowDy="5"
-                          android:shadowRadius="8"
-                          android:clickable="true"
-                          android:focusable="true"
-                android:visibility="invisible"/>
-
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                          android:text="nums"
-                          android:textSize="@dimen/level_num_sp"
-                          android:id="@+id/nums_text"
-                          android:layout_column="3"
-                          android:layout_row="3"
-                          android:layout_gravity="center"
-                          android:layout_marginStart="20dp"
-                          android:fontFamily="@font/cherry_cream_soda" android:textColor="#FFFDFD"
-                          android:shadowColor="#868383" android:shadowDx="5" android:shadowDy="5"
-                          android:shadowRadius="8"
-                          android:clickable="true"
-                          android:focusable="true"
-                android:visibility="invisible"/>
 
             </GridLayout>
 

@@ -55,6 +55,12 @@
     <string name="unlock_special_icons">* unlock special icons</string>
     <string name="price_1d">price : %1d</string>
     <string name="reclam_attention">This ad makes game free</string>
+    <string name="anagrams_game_str">anagrams</string>
+    <string name="colors_game_str">colors</string>
+    <string name="sort_game_str">sort</string>
+    <string name="lamps_game_str">lamps</string>
+    <string name="find_number_game_str">find number</string>
+    <string name="soon_str">soon</string>
 
     <string-array name="anagram_words_4_letters">
         <item>away</item>
