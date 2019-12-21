@@ -18,8 +18,11 @@ fun writeGameSet(set: GamesSet, context: Context) {
     ed.putBoolean("buttons_animations", set.buttonsAnimation)
     ed.putBoolean("alarm", set.alarmMode)
     ed.putInt("time", set.time)
+    ed.putBoolean("background_music_active", set.backgroundMusicActive)
+    ed.putBoolean("effect_sound_active", set.effectSoundActive)
+    ed.putFloat("background_music_volume", set.backgroundMusicVolume)
+    ed.putFloat("effect_sound_volume", set.effectSoundVolume)
     ed.apply()
-
 }
 
 fun readGameSet(context: Context): GamesSet {
@@ -38,6 +41,10 @@ fun readGameSet(context: Context): GamesSet {
     gamesSet.buttonsAnimation = personSave.getBoolean("buttons_animations", true)
     gamesSet.alarmMode = personSave.getBoolean("alarm", true)
     gamesSet.time = personSave.getInt("time",720)
+    gamesSet.backgroundMusicActive = personSave.getBoolean("background_music_active",true)
+    gamesSet.effectSoundActive = personSave.getBoolean("effect_sound_active",true)
+    gamesSet.backgroundMusicVolume = personSave.getFloat("background_music_volume",0.4f)
+    gamesSet.effectSoundVolume = personSave.getFloat("effect_sound_volume",0.4f)
 
     return gamesSet
 

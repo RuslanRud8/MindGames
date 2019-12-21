@@ -29,4 +29,12 @@
         <item name="android:colorForeground">@color/dark_red</item>
     </style>
 
+    <style name="MySeekBar" parent="Theme.AppCompat.Light">
+
+        <item name="android:progressBackgroundTint">#f4511e</item>
+        <item name="android:progressTint">#FF9800</item>
+        <item name="android:colorControlActivated">#FF9800</item>
+        <item name="android:thickness">4dp</item>
+    </style>
+
 </resources>

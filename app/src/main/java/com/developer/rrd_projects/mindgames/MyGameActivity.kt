@@ -5,8 +5,12 @@ import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.developer.rrd_projects.mindgames.games.GamesSet
+import com.developer.rrd_projects.mindgames.games.readGameSet
 
 open class MyGameActivity : AppCompatActivity() {
+
+    private lateinit var gamesSet: GamesSet
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
@@ -30,11 +34,19 @@ open class MyGameActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        startBackMusicPlayer(applicationContext)
+         gamesSet = readGameSet(this)
+        setEffectSoundEnabled(gamesSet.effectSoundActive)
+        setBackVolume(gamesSet.backgroundMusicVolume)
+        setEffectsVolume(gamesSet.effectSoundVolume)
+        if(gamesSet.backgroundMusicActive) {
+            startBackMusicPlayer(applicationContext)
+        }
     }
 
     override fun onPause() {
-        pauseBackMusicPlayer()
+        if(gamesSet.backgroundMusicActive) {
+            pauseBackMusicPlayer()
+        }
         super.onPause()
     }
 
@@ -43,7 +55,9 @@ open class MyGameActivity : AppCompatActivity() {
     }
 
     override fun onResume() {
-        startBackMusicPlayer(applicationContext)
+        if(gamesSet.backgroundMusicActive) {
+            startBackMusicPlayer(applicationContext)
+        }
         super.onResume()
     }
 

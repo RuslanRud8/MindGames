@@ -57,6 +57,9 @@ class MainActivity : MyGameActivity() {
 
         MobileAds.initialize(this) {}
 
+
+
+
         initUiElements()
 
         initPersonsData()

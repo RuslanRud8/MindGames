@@ -15,4 +15,8 @@ class GamesSet :Serializable {
     var buttonsAnimation:Boolean = true
     var alarmMode:Boolean = true
     var time:Int = 720
+    var backgroundMusicActive:Boolean = true
+    var effectSoundActive:Boolean = true
+    var backgroundMusicVolume: Float = 0.4f
+    var effectSoundVolume: Float = 0.4f
  }
