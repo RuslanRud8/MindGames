@@ -43,8 +43,8 @@ fun readGameSet(context: Context): GamesSet {
     gamesSet.time = personSave.getInt("time",720)
     gamesSet.backgroundMusicActive = personSave.getBoolean("background_music_active",true)
     gamesSet.effectSoundActive = personSave.getBoolean("effect_sound_active",true)
-    gamesSet.backgroundMusicVolume = personSave.getFloat("background_music_volume",0.4f)
-    gamesSet.effectSoundVolume = personSave.getFloat("effect_sound_volume",0.4f)
+    gamesSet.backgroundMusicVolume = personSave.getFloat("background_music_volume",40f)
+    gamesSet.effectSoundVolume = personSave.getFloat("effect_sound_volume",40f)
 
     return gamesSet
 

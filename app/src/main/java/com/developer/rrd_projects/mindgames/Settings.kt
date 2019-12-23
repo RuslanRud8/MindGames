@@ -53,12 +53,12 @@ class Settings : MyGameActivity() {
         effectMusicSw.setOnCheckedChangeListener {buttonView, isChecked -> changeEffectsSoundMode(isChecked) }
 
         backgroundMusicSeeker = findViewById(R.id.background_music_seek_bar)
-        backgroundMusicSeeker.progress = (gamesSet.backgroundMusicVolume*100).toInt()
+        backgroundMusicSeeker.progress = (gamesSet.backgroundMusicVolume).toInt()
         backgroundMusicSeeker.isEnabled = gamesSet.backgroundMusicActive
         backgroundMusicSeeker.setOnSeekBarChangeListener(object  : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                setBackVolume(progress.toFloat()/100f)
-                gamesSet.backgroundMusicVolume = progress.toFloat()/100f
+                setBackVolume(progress.toFloat())
+                gamesSet.backgroundMusicVolume = progress.toFloat()
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
@@ -66,25 +66,25 @@ class Settings : MyGameActivity() {
             }
 
             override fun onStopTrackingTouch(seekBar: SeekBar?) {
-
+                playSound(applicationContext, R.raw.settings_button_sound)
             }
 
         } )
 
         effectsSoundSeeker = findViewById(R.id.effects_sound_seek_bar)
-        effectsSoundSeeker.progress = (gamesSet.effectSoundVolume*100).toInt()
+        effectsSoundSeeker.progress = (gamesSet.effectSoundVolume).toInt()
         effectsSoundSeeker.isEnabled = gamesSet.effectSoundActive
         effectsSoundSeeker.setOnSeekBarChangeListener(object  : SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                setEffectsVolume(progress.toFloat()/100f)
-                gamesSet.effectSoundVolume = progress.toFloat()/100f
+                setEffectsVolume(progress.toFloat())
+                gamesSet.effectSoundVolume = progress.toFloat()
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
             }
 
             override fun onStopTrackingTouch(seekBar: SeekBar?) {
-                playSound(applicationContext, R.raw.menu_button_sound)
+                playSound(applicationContext, R.raw.settings_button_sound)
             }
 
         })
@@ -99,11 +99,13 @@ class Settings : MyGameActivity() {
     }
 
     private fun changeEffectsSoundMode(checked: Boolean) {
+        playSound(this,R.raw.settings_button_sound)
         effectsSoundSeeker.isEnabled = checked
         gamesSet.effectSoundActive = checked
     }
 
     private fun changeBackgroundMusicMode(checked: Boolean) {
+        playSound(this,R.raw.settings_button_sound)
         gamesSet.backgroundMusicActive = checked
         backgroundMusicSeeker.isEnabled = checked
     }

@@ -1,22 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
 
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:state_enabled="true">
+        <layer-list >
 
-    <item android:id="@android:id/background"  >
-        <shape android:shape="rectangle" android:state_enabled="true">
-            <solid
-                    android:color="#F7F6F6" />
-            <corners android:radius="4dp" />
-        </shape>
+            <item android:id="@android:id/background"  >
+                <shape android:shape="rectangle" android:state_enabled="true">
+                    <solid
+                            android:color="#F7F6F6" />
+                    <corners android:radius="4dp" />
+                </shape>
+            </item>
+            <item android:id="@android:id/progress" >
+                <clip>
+                    <shape android:shape="rectangle" android:state_enabled="true">
+                        <solid
+                                android:color="#FF9800" />
+                        <corners android:radius="4dp" />
+                    </shape>
+                </clip>
+            </item>
+
+        </layer-list>
     </item>
-    <item android:id="@android:id/progress" >
-        <clip>
-            <shape android:shape="rectangle" android:state_enabled="true">
-                <solid
-                        android:color="#FF9800" />
-                <corners android:radius="4dp" />
-            </shape>
-        </clip>
+
+    <item android:state_enabled="false">
+        <layer-list >
+
+            <item android:id="@android:id/background"  >
+                <shape android:shape="rectangle" android:state_enabled="true">
+                    <solid
+                            android:color="#C2C1C1" />
+                    <corners android:radius="4dp" />
+                </shape>
+            </item>
+            <item android:id="@android:id/progress" >
+                <clip>
+                    <shape android:shape="rectangle" android:state_enabled="true">
+                        <solid
+                                android:color="#BB883E" />
+                        <corners android:radius="4dp" />
+                    </shape>
+                </clip>
+            </item>
+
+        </layer-list>
     </item>
 
-</layer-list>
+</selector>

@@ -17,6 +17,6 @@ class GamesSet :Serializable {
     var time:Int = 720
     var backgroundMusicActive:Boolean = true
     var effectSoundActive:Boolean = true
-    var backgroundMusicVolume: Float = 0.4f
-    var effectSoundVolume: Float = 0.4f
+    var backgroundMusicVolume: Float = 40f
+    var effectSoundVolume: Float = 40f
  }
