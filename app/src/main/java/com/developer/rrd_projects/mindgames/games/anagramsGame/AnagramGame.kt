@@ -130,7 +130,7 @@ class AnagramGame : GamesActivity() {
     }
 
     private fun trueAnsListner() {
-        playSound(this, R.raw.menu_button_sound)
+        playSound(this, R.raw.success)
 
         val scoreText: TextView = findViewById(R.id.score_text)
         score += 50

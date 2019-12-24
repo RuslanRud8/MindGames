@@ -88,11 +88,15 @@ class LampsGame : GamesActivity() {
                     if (level < 15) {
                         level++
                     }
+                    playSound(this, R.raw.success)
 
                     score += (scoreM * arrToShow.size).toInt()
                     updateScore()
                     generateLamps()
-                } else numCurrent++
+                } else {
+                    numCurrent++
+                    playSound(this, R.raw.lamp_enabled)
+                }
 
             } else falseAns(lamp)
 
@@ -117,7 +121,7 @@ class LampsGame : GamesActivity() {
     }
 
     private fun trueAns(lamp: ImageView) {
-        playSound(this, R.raw.menu_button_sound)
+
         lamp.setImageDrawable(getDrawable(R.drawable.lamp_green))
     }
 

@@ -97,7 +97,7 @@ class FindNumGame : GamesActivity() {
             btn.btn.setOnClickListener {
 
                 if(btn.btn.text == numToFind.toString()){
-                    playSound(this,R.raw.menu_button_sound)
+                    playSound(this,R.raw.success)
 
                     if(level < 17) {
                         level++

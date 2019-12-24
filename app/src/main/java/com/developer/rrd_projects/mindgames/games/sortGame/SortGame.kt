@@ -55,7 +55,7 @@ class SortGame : GamesActivity() {
     }
 
     private fun scoreUp() {
-        playSound(this,R.raw.menu_button_sound)
+        playSound(this,R.raw.success)
         score += 25
         findViewById<TextView>(R.id.score_text).text = score.toString()
     }

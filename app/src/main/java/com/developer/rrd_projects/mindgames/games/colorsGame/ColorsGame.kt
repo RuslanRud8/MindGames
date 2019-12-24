@@ -81,7 +81,7 @@ class ColorsGame : GamesActivity() {
     }
 
     private fun addScore() {
-        playSound(this, R.raw.menu_button_sound)
+        playSound(this, R.raw.success)
         score += 50
         scoreText.text = score.toString()
     }
