@@ -15,17 +15,24 @@ import com.developer.rrd_projects.mindgames.person.Person
 import com.developer.rrd_projects.mindgames.person.getExpForLevel
 import com.developer.rrd_projects.mindgames.person.getImageId
 import com.developer.rrd_projects.mindgames.person.readPerson
+import com.google.ads.consent.*
+import com.google.ads.mediation.admob.AdMobAdapter
+import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
+import java.net.MalformedURLException
+import java.net.URL
+
 
 class MainActivity : MyGameActivity() {
 
-    private lateinit var playBtn:Button
-    private lateinit var statBtn:Button
-    private lateinit var setBtn:Button
-    private lateinit var extBtn:Button
+    private lateinit var playBtn: Button
+    private lateinit var statBtn: Button
+    private lateinit var setBtn: Button
+    private lateinit var extBtn: Button
     private lateinit var levelBar: ProgressBar
     private lateinit var userNameText: TextView
     private lateinit var userLevelText: TextView
+    private lateinit var consentForm: ConsentForm
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
@@ -55,10 +62,77 @@ class MainActivity : MyGameActivity() {
 
         setContentView(R.layout.activity_main)
 
+        val consentInformation = ConsentInformation.getInstance(applicationContext)
+        val publisherIds = arrayOf("pub-9050823804847454")
+
+        consentInformation.requestConsentInfoUpdate(
+            publisherIds,
+            object : ConsentInfoUpdateListener {
+                override fun onConsentInfoUpdated(consentStatus: ConsentStatus) { // User's consent status successfully updated.
+
+
+
+                    if(consentStatus == ConsentStatus.NON_PERSONALIZED){
+                        val extras = Bundle()
+                        extras.putString("npa", "1")
+
+                        val request: AdRequest = AdRequest.Builder()
+                            .addNetworkExtrasBundle(AdMobAdapter::class.java, extras)
+                            .build()
+
+                    }else if(consentStatus == ConsentStatus.UNKNOWN) {
+
+                        var privacyUrl: URL? = null
+                        try {
+                            privacyUrl = URL("https://google.com")
+                        } catch (e: MalformedURLException) {
+                            e.printStackTrace()
+                            // Handle error.
+                        }
+
+                         consentForm = ConsentForm.Builder(this@MainActivity, privacyUrl)
+                            .withListener(object : ConsentFormListener() {
+                                override fun onConsentFormLoaded() { // Consent form loaded successfully.
+                                    consentForm.show()
+
+
+                                }
+
+                                override fun onConsentFormOpened() { // Consent form was displayed.
+
+                                }
+
+                                override fun onConsentFormClosed(
+                                    consentStatus: ConsentStatus, userPrefersAdFree: Boolean
+                                ) { // Consent form was closed.
+                                    if(consentStatus == ConsentStatus.NON_PERSONALIZED){
+                                        val extras = Bundle()
+                                        extras.putString("npa", "1")
+
+                                        val request: AdRequest = AdRequest.Builder()
+                                            .addNetworkExtrasBundle(AdMobAdapter::class.java, extras)
+                                            .build()
+                                    }
+                                }
+
+                                override fun onConsentFormError(errorDescription: String) { // Consent form error.
+                                }
+                            })
+                            .withPersonalizedAdsOption()
+                            .withNonPersonalizedAdsOption()
+                            //.withAdFreeOption()
+                            .build()
+
+                        consentForm.load()
+                    }
+                }
+
+                override fun onFailedToUpdateConsentInfo(errorDescription: String) { // User's consent status failed to update.
+                }
+            })
+
+
         MobileAds.initialize(this) {}
-
-
-
 
         initUiElements()
 
@@ -86,7 +160,7 @@ class MainActivity : MyGameActivity() {
     }
 
     private fun initUiElements() {
-        playBtn  = findViewById(R.id.play_btn)
+        playBtn = findViewById(R.id.play_btn)
         statBtn = findViewById(R.id.stat_btn)
         setBtn = findViewById(R.id.settings_btn)
         extBtn = findViewById(R.id.exit_btn)
@@ -94,9 +168,9 @@ class MainActivity : MyGameActivity() {
         userNameText = findViewById(R.id.user_name_text)
         userLevelText = findViewById(R.id.main_level_text)
 
-        playBtn.setOnClickListener { openNewActivity(Games::class.java)}
+        playBtn.setOnClickListener { openNewActivity(Games::class.java) }
         statBtn.setOnClickListener { openNewActivity(StatisticsController::class.java) }
-        setBtn.setOnClickListener { openNewActivity(Settings::class.java)}
+        setBtn.setOnClickListener { openNewActivity(Settings::class.java) }
         extBtn.setOnClickListener { exitGame() }
 
         levelBar.setOnClickListener { goToProfile() }
@@ -162,7 +236,7 @@ class MainActivity : MyGameActivity() {
         finish()
     }
 
-    private fun openNewActivity(targetActivity:Class<*>){
+    private fun openNewActivity(targetActivity: Class<*>) {
         playSound(this, R.raw.menu_button_sound)
         val intent = Intent(this, targetActivity)
         startActivity(intent)
