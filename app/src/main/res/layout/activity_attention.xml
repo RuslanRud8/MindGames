@@ -11,7 +11,7 @@
 
     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
               android:text="@string/tutorial"
-              android:background="@drawable/f_n_game_num_dr"
+              android:background="@drawable/f_n_game_btn_dr_4"
               android:fontFamily="@font/autour_one"
               android:textColor="@color/white"
               android:gravity="center"

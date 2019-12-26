@@ -25,7 +25,7 @@ class SortGame : GamesActivity() {
 
         initGame(this, "sortGame", findViewById(R.id.start_btn), findViewById(R.id.cancel_btn), findViewById(R.id.timer))
 
-        checkAttention(readGameSet(applicationContext).sortGameAttention, "Your goal as soon as possible", "sort shapes correctly","sortGame",intent)
+        checkAttention(readGameSet(applicationContext).sortGameAttention, "You need to sort shapes", "by choosing correct one","sortGame",intent)
 
         val circleBtn: ImageView = findViewById(R.id.circle_view)
         circleBtn.setOnClickListener { chooseCircle() }

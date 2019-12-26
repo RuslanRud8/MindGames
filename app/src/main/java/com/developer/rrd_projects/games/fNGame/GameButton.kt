@@ -39,8 +39,8 @@ class GameButton(x:Float, y:Float, height: Int, width: Int, context: Context, nu
 
         btn.setTextColor(Color.WHITE)
         btn.gravity = Gravity.CENTER
-        btn.y = y
-        btn.x = x
+        btn.translationY = y
+        btn.translationX = x
         btn.isClickable = true
 
         TextViewCompat.setAutoSizeTextTypeUniformWithConfiguration(btn,10,100,1,TypedValue.COMPLEX_UNIT_DIP)

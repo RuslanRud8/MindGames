@@ -62,15 +62,23 @@ class MainActivity : MyGameActivity() {
 
         setContentView(R.layout.activity_main)
 
-        val consentInformation = ConsentInformation.getInstance(applicationContext)
+        showGDPRMessage()
+
+        MobileAds.initialize(this) {}
+
+        initUiElements()
+
+        initPersonsData()
+    }
+
+    private fun showGDPRMessage() {
+        val consentInformation = ConsentInformation.getInstance(this)
         val publisherIds = arrayOf("pub-9050823804847454")
 
         consentInformation.requestConsentInfoUpdate(
             publisherIds,
             object : ConsentInfoUpdateListener {
                 override fun onConsentInfoUpdated(consentStatus: ConsentStatus) { // User's consent status successfully updated.
-
-
 
                     if(consentStatus == ConsentStatus.NON_PERSONALIZED){
                         val extras = Bundle()
@@ -84,13 +92,13 @@ class MainActivity : MyGameActivity() {
 
                         var privacyUrl: URL? = null
                         try {
-                            privacyUrl = URL("https://google.com")
+                            privacyUrl = URL("https://rudenkord.github.io/MindGames/")
                         } catch (e: MalformedURLException) {
                             e.printStackTrace()
                             // Handle error.
                         }
 
-                         consentForm = ConsentForm.Builder(this@MainActivity, privacyUrl)
+                        consentForm = ConsentForm.Builder(this@MainActivity, privacyUrl)
                             .withListener(object : ConsentFormListener() {
                                 override fun onConsentFormLoaded() { // Consent form loaded successfully.
                                     consentForm.show()
@@ -130,13 +138,6 @@ class MainActivity : MyGameActivity() {
                 override fun onFailedToUpdateConsentInfo(errorDescription: String) { // User's consent status failed to update.
                 }
             })
-
-
-        MobileAds.initialize(this) {}
-
-        initUiElements()
-
-        initPersonsData()
     }
 
     private fun initPersonsData() {

@@ -33,7 +33,7 @@ class ColorsGame : GamesActivity() {
 
         initGame(this,"colorsGame", findViewById(R.id.start_btn), findViewById(R.id.cancel_btn), findViewById(R.id.timer))
 
-        checkAttention(readGameSet(applicationContext).fNGameAttention,"does the color name on top","match the text color on the bottom","colorsGame",intent)
+        checkAttention(readGameSet(applicationContext).fNGameAttention,"Answer the question: \" does the color name on top","matches the text color on the bottom \" \n by clicking on answer buttons","colorsGame",intent)
 
         createPreStartTimer(findViewById(R.id.dark_screen), ::generateColor)
         createGameTimer(60000,findViewById(R.id.game_timer))

@@ -58,7 +58,7 @@ class AnagramGame : GamesActivity() {
 
         initGame(this,"anagramGame", findViewById(R.id.start_btn), findViewById(R.id.cancel_btn), findViewById(R.id.timer))
 
-        checkAttention(readGameSet(applicationContext).angramsGameAttention,"Your goal as soon as possible","to find anagram of given word","anagramGame",intent)
+        checkAttention(readGameSet(applicationContext).angramsGameAttention,"You need to find","anagram of given word","anagramGame",intent)
 
         createPreStartTimer(findViewById(R.id.dark_screen), ::generateWord)
         createGameTimer(60000,findViewById(R.id.game_timer))

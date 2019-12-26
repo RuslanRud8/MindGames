@@ -1,6 +1,7 @@
 package com.developer.rrd_projects.games.fNGame
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.*
 import com.developer.rrd_projects.R
@@ -25,7 +26,7 @@ class FindNumGame : GamesActivity() {
 
         initGame(this,"fngame", findViewById(R.id.start_btn), findViewById(R.id.cancel_btn), findViewById(R.id.timer))
 
-        checkAttention(readGameSet(applicationContext).fNGameAttention,"Your goal as soon as possible","to find given numbers","fNGame",intent)
+        checkAttention(readGameSet(applicationContext).fNGameAttention,"You need to find given","numbers as soon as possible","fNGame",intent)
 
         createPreStartTimer(findViewById(R.id.dark_screen), ::generateButtons)
         createGameTimer(60000,findViewById(R.id.game_timer))
@@ -76,18 +77,40 @@ class FindNumGame : GamesActivity() {
         val scoreText :TextView = findViewById(R.id.score_text)
         var marginTop: Float = (numText.height) * 1.1.toFloat()
 
-        val totalWidth = (getScreenWidth() * 0.79).toInt()
+        val totalWidth = (getScreenWidth() * 0.8) // width of the screen without empty space between buttons
 
         val btnHeight: Int = ((getTotalHeight() / numRow) * 0.8).toInt()
-        val btnWidth = totalWidth / numColumn
 
+
+//        val btnWidth = (totalWidth / numColumn).toInt()
+
+        val btnWidth = getScreenWidth()
         val yTemp: Int = ((getTotalHeight() / numRow))
 
+//        var x1 = ((getScreenWidth() *0.2) / (numColumn+1)).toFloat()
 
-        var x1 = ((getScreenWidth() - totalWidth) / (numColumn)).toFloat()
+        var x1 = 0f
+        println("start")
+        println((getScreenWidth() *0.2) / (numColumn+1))
+        println(x1)
+        println(getScreenWidth())
+        println(getScreenWidth()*0.8)
+        println(getScreenWidth()*0.2)
+        println("end")
+
+        Log.i("AAAAAAAAAAAAAAAAAAAAAAA","start \n" +
+                "${(getScreenWidth() *0.2) / (numColumn+1)} \n" +
+                "$x1 \n" +
+                "${getScreenWidth()} \n" +
+                "${getScreenWidth()*0.8}\n" +
+                "${getScreenWidth() * 0.2}\n" +
+                "$btnWidth \n" +
+                "end")
+
+
+        //var x1 = 0f
         val xTemp = x1 + btnWidth
         val tx1 = x1
-
 
         var i = 0
         var l = 0

@@ -1,7 +1,7 @@
 package com.developer.rrd_projects.games.lampsGame
 
 import android.os.Bundle
-import android.os.CountDownTimer
+import android.os.Handler
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
@@ -11,6 +11,7 @@ import com.developer.rrd_projects.games.GamesActivity
 import com.developer.rrd_projects.games.readGameSet
 import com.developer.rrd_projects.playSound
 import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.util.*
@@ -35,7 +36,7 @@ class LampsGame : GamesActivity() {
 
         initGame(this, "lamps", findViewById(R.id.start_btn), findViewById(R.id.cancel_btn), findViewById(R.id.timer))
 
-        checkAttention(readGameSet(applicationContext).lampsGameAttention,"Your goal as soon as possible","repeat the flash order","lamps",intent)
+        checkAttention(readGameSet(applicationContext).lampsGameAttention,"You need to repeat the","flash order as soon as possible","lamps",intent)
 
         createPreStartTimer(findViewById(R.id.dark_screen), ::generateLamps)
         createGameTimer(90000,findViewById(R.id.game_timer))
@@ -111,7 +112,13 @@ class LampsGame : GamesActivity() {
         }
         lamp.setImageDrawable(getDrawable(R.drawable.lamp_red))
 
-        GlobalScope.launch { delayWrongAns() }
+//        Handler().postDelayed( {
+//            //anything you want to start after 1s
+//            wrongAns = false
+//            generateLamps()
+//        }, 1000)
+
+        MainScope().launch { delayWrongAns() }
     }
 
      private suspend fun delayWrongAns(){
@@ -157,7 +164,7 @@ class LampsGame : GamesActivity() {
             i++
         }
 
-        GlobalScope.launch { showLamps() }
+        MainScope().launch { showLamps() }
 
         Log.i("AAAAAAAAAA", "start")
     }

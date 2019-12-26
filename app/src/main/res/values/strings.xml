@@ -28,9 +28,7 @@
     <string name="menu_str">menu</string>
     <string name="game_descip">game</string>
 
-    <string name="tutorial">%1s \n %1s \n \n Warning: \n you will
-        not be able to leave the game after the start.
-    </string>
+    <string name="tutorial">\n  %1s \n %1s \n </string>
     <string name="continue_str">continue</string>
     <string name="don_t_show_again_str">Don\'t show again</string>
     <string name="timer_str">%1s</string>

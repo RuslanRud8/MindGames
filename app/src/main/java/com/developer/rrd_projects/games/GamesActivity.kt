@@ -2,14 +2,14 @@ package com.developer.rrd_projects.games
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.Point
 import android.os.CountDownTimer
-import android.view.Display
+import android.util.DisplayMetrics
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import com.developer.rrd_projects.*
+
 
 open class GamesActivity : MyGameActivity() {
 
@@ -111,17 +111,20 @@ open class GamesActivity : MyGameActivity() {
     }
 
     protected fun getScreenHeight(): Int {
-        val display: Display = windowManager.defaultDisplay
-        val size = Point()
-        display.getSize(size)
-        return size.y
+        val metrics = DisplayMetrics()
+        windowManager.defaultDisplay.getMetrics(metrics)
+
+        val height = metrics.heightPixels
+        val width = metrics.widthPixels
+        return height
     }
 
     protected fun getScreenWidth(): Int {
-        val display: Display = windowManager.defaultDisplay
-        val size = Point()
-        display.getSize(size)
-        println(size.x)
-        return size.x
+        val metrics = DisplayMetrics()
+        windowManager.defaultDisplay.getMetrics(metrics)
+
+        val height = metrics.heightPixels
+        val width = metrics.widthPixels
+        return width
     }
 }
