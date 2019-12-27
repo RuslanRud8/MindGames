@@ -34,7 +34,7 @@ class LampsGame : GamesActivity() {
 
         setContentView(R.layout.activity_lamps_game)
 
-        initGame(this, "lamps", findViewById(R.id.start_btn), findViewById(R.id.cancel_btn), findViewById(R.id.timer))
+        initGame(this, "lamps", findViewById(R.id.start_btn), findViewById(R.id.cancel_btn), findViewById(R.id.timer), findViewById(R.id.game_timer))
 
         checkAttention(readGameSet(applicationContext).lampsGameAttention,"You need to repeat the","flash order as soon as possible","lamps",intent)
 

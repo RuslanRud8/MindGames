@@ -2,11 +2,8 @@ package com.developer.rrd_projects.games
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.Point
 import android.os.CountDownTimer
-import android.util.DisplayMetrics
 import android.view.View
-import android.view.WindowManager
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -15,6 +12,7 @@ import com.developer.rrd_projects.*
 
 open class GamesActivity : MyGameActivity() {
 
+    private lateinit var gameTimerText: TextView
     private lateinit var preStartTimer:CountDownTimer
     protected lateinit var gameTimer:CountDownTimer
     private lateinit var timerTextView:TextView
@@ -26,13 +24,34 @@ open class GamesActivity : MyGameActivity() {
     private lateinit var startBtn: Button
     private lateinit var leaveBtn: Button
     protected var gameStarted:Boolean = false
+    private var isPausedTimer = false
 
-    protected fun initGame(context: Context, gameName: String, startBtn:Button, leaveBtn:Button, timerTextView:TextView){
+    override fun onResume() {
+        super.onResume()
+        if(isPausedTimer) {
+            createGameTimer(gameTimerText.text.toString().toInt() * 1000L, gameTimerText)
+            gameTimer.start()
+            isPausedTimer = false
+        }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        if(!isPausedTimer) {
+            gameTimer.cancel()
+            isPausedTimer = true
+        }
+    }
+
+    protected fun initGame(context: Context, gameName: String, startBtn:Button, leaveBtn:Button, timerTextView:TextView, gameTimerText: TextView){
         this.context = context
         this.gameName = gameName
         this.timerTextView = timerTextView
         this.startBtn = startBtn
         this.leaveBtn = leaveBtn
+        this.gameTimerText = gameTimerText
+
+
 
         startBtn.setOnClickListener { startGame() }
         leaveBtn.setOnClickListener { leaveFromStart() }
@@ -50,13 +69,13 @@ open class GamesActivity : MyGameActivity() {
         }
     }
 
-    protected fun createPreStartTimer(
-        darkScreenView: ImageView, startGameVoid: () -> Unit){
+    protected fun createPreStartTimer(darkScreenView: ImageView, startGameVoid: () -> Unit){
 
         preStartTimer = object : CountDownTimer(3000, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 timerTextView.text =
                     getString(R.string.timer_str, (millisUntilFinished / 1000 + 1).toString())
+
             }
 
             override fun onFinish() {
@@ -83,7 +102,7 @@ open class GamesActivity : MyGameActivity() {
             }
 
             override fun onFinish() {
-               leaveGame()
+                leaveGame()
             }
         }
     }

@@ -68,4 +68,8 @@ open class MyGameActivity : AppCompatActivity() {
     override fun onStop() {
         super.onStop()
     }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+    }
 }

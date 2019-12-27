@@ -24,7 +24,7 @@ class FindNumGame : GamesActivity() {
 
         setContentView(R.layout.activity_find_num_game)
 
-        initGame(this,"fngame", findViewById(R.id.start_btn), findViewById(R.id.cancel_btn), findViewById(R.id.timer))
+        initGame(this,"fngame", findViewById(R.id.start_btn), findViewById(R.id.cancel_btn), findViewById(R.id.timer), findViewById(R.id.game_timer))
 
         checkAttention(readGameSet(applicationContext).fNGameAttention,"You need to find given","numbers as soon as possible","fNGame",intent)
 

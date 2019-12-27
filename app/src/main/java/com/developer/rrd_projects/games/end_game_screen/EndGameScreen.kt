@@ -92,8 +92,8 @@ class EndGameScreen : MyGameActivity() {
         var maxScore = 0
         var dayAvar = 0
         var exp = 0
-        var maxFlag: Boolean = true
-        var dayFlag: Boolean = true
+        var maxFlag = true
+        var dayFlag = true
         person.gamesPlayed++
 
         when (intent.getStringExtra("game_ended")) {
@@ -218,11 +218,12 @@ class EndGameScreen : MyGameActivity() {
 
 
                 when {
-
-                    s > 5000 -> exp = 125
-                    s > 3000 -> exp = 100
-                    s > 3000 -> exp = 50
-                    s < 3000 -> exp = 25
+                    s > 3000 -> exp = 125
+                    s > 2500 -> exp = 100
+                    s > 2000 -> exp = 60
+                    s > 1000 -> exp = 40
+                    s > 500 -> exp = 25
+                    s < 500 -> exp = 5
                 }
 
                 person.timeInGame += 1

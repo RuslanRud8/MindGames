@@ -23,7 +23,7 @@ class SortGame : GamesActivity() {
 
         setContentView(R.layout.activity_sort_game)
 
-        initGame(this, "sortGame", findViewById(R.id.start_btn), findViewById(R.id.cancel_btn), findViewById(R.id.timer))
+        initGame(this, "sortGame", findViewById(R.id.start_btn), findViewById(R.id.cancel_btn), findViewById(R.id.timer), findViewById(R.id.game_timer))
 
         checkAttention(readGameSet(applicationContext).sortGameAttention, "You need to sort shapes", "by choosing correct one","sortGame",intent)
 

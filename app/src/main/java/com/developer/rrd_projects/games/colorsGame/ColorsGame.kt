@@ -31,7 +31,7 @@ class ColorsGame : GamesActivity() {
 
         setContentView(R.layout.activity_colors_game)
 
-        initGame(this,"colorsGame", findViewById(R.id.start_btn), findViewById(R.id.cancel_btn), findViewById(R.id.timer))
+        initGame(this,"colorsGame", findViewById(R.id.start_btn), findViewById(R.id.cancel_btn), findViewById(R.id.timer), findViewById(R.id.game_timer))
 
         checkAttention(readGameSet(applicationContext).fNGameAttention,"Answer the question: \" does the color name on top","matches the text color on the bottom \" \n by clicking on answer buttons","colorsGame",intent)
 

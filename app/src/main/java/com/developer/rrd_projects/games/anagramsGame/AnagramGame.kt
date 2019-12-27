@@ -56,7 +56,7 @@ class AnagramGame : GamesActivity() {
 
         setContentView(R.layout.activity_find_num_game)
 
-        initGame(this,"anagramGame", findViewById(R.id.start_btn), findViewById(R.id.cancel_btn), findViewById(R.id.timer))
+        initGame(this,"anagramGame", findViewById(R.id.start_btn), findViewById(R.id.cancel_btn), findViewById(R.id.timer), findViewById(R.id.game_timer))
 
         checkAttention(readGameSet(applicationContext).angramsGameAttention,"You need to find","anagram of given word","anagramGame",intent)
 
