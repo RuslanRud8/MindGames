@@ -112,12 +112,12 @@ class SortGame : GamesActivity() {
         img.layoutParams.width = width
         img.layoutParams.height = width
 
-        img.translationX = ((getScreenWidth() / 2)-(width/3)).toFloat()
+        img.translationX = ((getScreenWidth() / 2)-(width/2)).toFloat()
         img.translationY = (-1 * width).toFloat()
 
         animateShapeToSort(
             img,
-            ((getScreenWidth() / 2.0f)-(width/3)),
+            ((getScreenWidth() / 2.0f)-(width/2)),
             resources.getDimension(R.dimen.fngame_height_main) + 5,
             500
         )

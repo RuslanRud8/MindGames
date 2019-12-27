@@ -3,10 +3,9 @@ package com.developer.rrd_projects.games.fNGame
 import android.content.Context
 import android.graphics.Color
 import android.os.CountDownTimer
-import android.util.TypedValue
 import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import android.view.Gravity
-import android.widget.TextView
+import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.widget.TextViewCompat
 import com.developer.rrd_projects.R
 import com.developer.rrd_projects.animators.rotateAnimationRight
@@ -15,7 +14,7 @@ import java.util.*
 
 class GameButton(x:Float, y:Float, height: Int, width: Int, context: Context, num:String, textSize:Float) {
     var text = ""
-    var btn: TextView = TextView(context)
+    var btn: AppCompatTextView = AppCompatTextView(context)
     val con = context
     var scaleAnim:Boolean = false
     var rotateAnim:Boolean = false
@@ -43,7 +42,7 @@ class GameButton(x:Float, y:Float, height: Int, width: Int, context: Context, nu
         btn.translationX = x
         btn.isClickable = true
 
-        TextViewCompat.setAutoSizeTextTypeUniformWithConfiguration(btn,10,100,1,TypedValue.COMPLEX_UNIT_DIP)
+        TextViewCompat.setAutoSizeTextTypeUniformWithConfiguration(btn,10,100,1,TextViewCompat.AUTO_SIZE_TEXT_TYPE_UNIFORM)
 
         gameTimer.start()
     }

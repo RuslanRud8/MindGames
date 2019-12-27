@@ -8,13 +8,17 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import com.developer.rrd_projects.*
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 
 open class GamesActivity : MyGameActivity() {
 
     private lateinit var gameTimerText: TextView
-    private lateinit var preStartTimer:CountDownTimer
-    protected lateinit var gameTimer:CountDownTimer
+    private lateinit var darkScreenView: ImageView
+    private lateinit var startGameVoid: () -> Unit
+    private lateinit var gameTimer:CountDownTimer
     private lateinit var timerTextView:TextView
     protected var level:Int = 1
     protected var score:Int = 0
@@ -70,23 +74,9 @@ open class GamesActivity : MyGameActivity() {
     }
 
     protected fun createPreStartTimer(darkScreenView: ImageView, startGameVoid: () -> Unit){
+        this.darkScreenView = darkScreenView
+        this.startGameVoid = startGameVoid
 
-        preStartTimer = object : CountDownTimer(3000, 1000) {
-            override fun onTick(millisUntilFinished: Long) {
-                timerTextView.text =
-                    getString(R.string.timer_str, (millisUntilFinished / 1000 + 1).toString())
-
-            }
-
-            override fun onFinish() {
-                playSound(applicationContext,R.raw.startlevel_sound)
-                timerTextView.visibility = View.GONE
-                darkScreenView.visibility = View.GONE
-                gameTimer.start()
-                startGameVoid()
-                gameStarted = true
-            }
-        }
     }
 
     protected fun createGameTimer(time:Long, gameTimerText: TextView){
@@ -107,6 +97,20 @@ open class GamesActivity : MyGameActivity() {
         }
     }
 
+    private suspend fun preStartTimer(){
+        for (i in 3 downTo 1){
+            timerTextView.text = i.toString()
+            delay(1000L)
+        }
+
+        playSound(applicationContext,R.raw.startlevel_sound)
+        timerTextView.visibility = View.GONE
+        darkScreenView.visibility = View.GONE
+        gameTimer.start()
+        startGameVoid()
+        gameStarted = true
+    }
+
     private fun startGame() {
         playSound(this,R.raw.menu_button_sound)
         playSound(this,R.raw.timer_sound)
@@ -115,7 +119,7 @@ open class GamesActivity : MyGameActivity() {
         leaveBtn.visibility = View.GONE
 
         timerTextView.visibility = View.VISIBLE
-        preStartTimer.start()
+        MainScope().launch { preStartTimer() }
         gameStarted = true
     }
 
