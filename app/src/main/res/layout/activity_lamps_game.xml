@@ -30,7 +30,7 @@
               android:layout_marginStart="20dp"
     />
     <TextView android:layout_width="@dimen/fngame_width" android:layout_height="@dimen/fngame_height"
-              android:text="@string/timer_str"
+              android:text="00"
               android:background="@drawable/time_and_score_dr"
               android:fontFamily="@font/autour_one"
               android:textColor="@color/dark_blue"
@@ -251,13 +251,13 @@
     />
 
 
-    <TextView android:layout_width="100dp" android:layout_height="100dp"
+    <TextView android:layout_width="@dimen/preStartTimerSize" android:layout_height="@dimen/preStartTimerSize"
               android:text="@string/timer_str"
               android:background="@drawable/start_timer_dr"
               android:fontFamily="@font/autour_one"
               android:textColor="@color/green"
               android:gravity="center"
-              android:textSize="50sp"
+              android:textSize="@dimen/preStartTimerTextSize"
               android:layout_centerHorizontal="true"
               android:layout_centerVertical="true"
               android:visibility="invisible"

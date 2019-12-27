@@ -30,8 +30,8 @@
     <dimen name="end_game_sp">75sp</dimen>
     <dimen name="end_game_bar">80sp</dimen>
 
-    <dimen name="fngame_height">170</dimen>
-    <dimen name="fngame_width">300</dimen>
+    <dimen name="fngame_height">170dp</dimen>
+    <dimen name="fngame_width">300dp</dimen>
 
     <dimen name="fngame_height_main">190dp</dimen>
     <dimen name="fngame_width_main">320dp</dimen>
@@ -55,5 +55,7 @@
     <dimen name="margin_rect_1">-30dp</dimen>
     <dimen name="margin_rect_2">-20dp</dimen>
 
+    <dimen name="preStartTimerSize">200dp</dimen>
+    <dimen name="preStartTimerTextSize">80sp</dimen>
 
 </resources>

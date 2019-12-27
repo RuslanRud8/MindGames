@@ -24,10 +24,7 @@
                 android:shadowRadius="8"
                 android:layout_gravity="center"
                 android:layout_weight="25"
-                app:autoSizeTextType="uniform"
-                app:autoSizeMinTextSize="12sp"
-                app:autoSizeMaxTextSize="100sp"
-                app:autoSizeStepGranularity="1sp"
+                android:textSize="@dimen/main_btn_sp"
                 android:textAlignment="center"
                 android:onClick="goToGames"
         />
@@ -54,10 +51,7 @@
                 android:shadowRadius="8"
                 android:layout_gravity="center"
                 android:layout_weight="25"
-                app:autoSizeTextType="uniform"
-                app:autoSizeMinTextSize="12sp"
-                app:autoSizeMaxTextSize="100sp"
-                app:autoSizeStepGranularity="2sp"
+                android:textSize="@dimen/main_btn_sp"
                 android:textAlignment="center"
                 android:onClick="restartGame"
         />

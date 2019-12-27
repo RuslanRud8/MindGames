@@ -55,4 +55,7 @@
     <dimen name="margin_rect_1">-30dp</dimen>
     <dimen name="margin_rect_2">-20dp</dimen>
 
+    <dimen name="preStartTimerSize">150dp</dimen>
+    <dimen name="preStartTimerTextSize">60sp</dimen>
+
 </resources>
