@@ -100,7 +100,7 @@ class AnagramGame : GamesActivity() {
         val yTemp: Int = ((getTotalHeight() / rowCount))
 
 
-        var x1 = ((getScreenWidth() - totalWidth) / (columnCount)).toFloat()
+        var x1 = ((getScreenWidth() - totalWidth) / (columnCount+1)).toFloat()
         val xTemp = x1 + btnWidth
         val tx1 = x1
 

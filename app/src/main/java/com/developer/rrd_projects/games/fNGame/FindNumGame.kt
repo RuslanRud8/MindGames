@@ -81,34 +81,12 @@ class FindNumGame : GamesActivity() {
 
         val btnHeight: Int = ((getTotalHeight() / numRow) * 0.8).toInt()
 
+       val btnWidth = (totalWidth / numColumn).toInt()
 
-//        val btnWidth = (totalWidth / numColumn).toInt()
-
-        val btnWidth = getScreenWidth()
         val yTemp: Int = ((getTotalHeight() / numRow))
 
-//        var x1 = ((getScreenWidth() *0.2) / (numColumn+1)).toFloat()
+        var x1 = ((getScreenWidth() *0.2) / (numColumn+1)).toFloat()
 
-        var x1 = 0f
-        println("start")
-        println((getScreenWidth() *0.2) / (numColumn+1))
-        println(x1)
-        println(getScreenWidth())
-        println(getScreenWidth()*0.8)
-        println(getScreenWidth()*0.2)
-        println("end")
-
-        Log.i("AAAAAAAAAAAAAAAAAAAAAAA","start \n" +
-                "${(getScreenWidth() *0.2) / (numColumn+1)} \n" +
-                "$x1 \n" +
-                "${getScreenWidth()} \n" +
-                "${getScreenWidth()*0.8}\n" +
-                "${getScreenWidth() * 0.2}\n" +
-                "$btnWidth \n" +
-                "end")
-
-
-        //var x1 = 0f
         val xTemp = x1 + btnWidth
         val tx1 = x1
 
