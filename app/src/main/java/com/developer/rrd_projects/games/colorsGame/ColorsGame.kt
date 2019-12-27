@@ -1,6 +1,8 @@
 package com.developer.rrd_projects.games.colorsGame
 
+import android.graphics.Point
 import android.os.Bundle
+import android.view.Display
 import android.view.View
 import android.widget.TextView
 import com.developer.rrd_projects.R
@@ -50,6 +52,19 @@ class ColorsGame : GamesActivity() {
         correctBtn = findViewById(R.id.correct_btn)
         correctBtn.setOnClickListener { ansTrue() }
 
+        val buttonWidth = getHeight()/3
+        wrongBtn.layoutParams.height = buttonWidth
+        wrongBtn.layoutParams.width = buttonWidth
+
+        correctBtn.layoutParams.height = buttonWidth
+        correctBtn.layoutParams.width = buttonWidth
+    }
+
+    private fun getHeight():Int{
+        val display: Display = windowManager.defaultDisplay
+        val size = Point()
+        display.getSize(size)
+        return  size.y;
     }
 
     @Suppress("DEPRECATION")
