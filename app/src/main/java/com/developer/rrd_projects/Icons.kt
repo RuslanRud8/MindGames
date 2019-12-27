@@ -167,7 +167,7 @@ class Icons : MyGameActivity() {
     }
 
     private fun setWidthForImages() {
-        val totalWidth = getScreenWidth() * 0.69
+        val totalWidth = getScreenWidth() * 0.65
         val width: Int = (totalWidth / 5).toInt()
 
         var i = 0

@@ -84,9 +84,8 @@
                   android:orientation="horizontal"
                   android:weightSum="100"
                   android:baselineAligned="false"
-
-
     >
+
         <RelativeLayout android:layout_width="0dp" android:layout_height="match_parent"
                         android:layout_weight="35">
 

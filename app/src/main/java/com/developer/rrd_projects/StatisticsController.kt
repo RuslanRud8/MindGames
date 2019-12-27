@@ -2,7 +2,9 @@ package com.developer.rrd_projects
 
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.Point
 import android.os.Bundle
+import android.view.Display
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
@@ -21,6 +23,7 @@ class StatisticsController : MyGameActivity() {
     private var statOpened = false
     private lateinit var menuBtn:Button
     private lateinit var gamesBtn:Button
+    var previews: ArrayList<ImageView> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,24 +36,44 @@ class StatisticsController : MyGameActivity() {
 
         val fNGameImg: ImageView = findViewById(R.id.findNumGamePr)
         fNGameImg.setOnClickListener { openStat("fngame") }
+        previews.add(fNGameImg)
 
         val lampsGameImg: ImageView = findViewById(R.id.pr_1)
         lampsGameImg.setOnClickListener { openStat("lampsgame") }
+        previews.add(lampsGameImg)
 
         val sortGameImg: ImageView = findViewById(R.id.pr_2)
         sortGameImg.setOnClickListener { openStat("sortgame") }
+        previews.add(sortGameImg)
 
         val colorsGameImg: ImageView = findViewById(R.id.pr_3)
         colorsGameImg.setOnClickListener { openStat("colorsgame") }
+        previews.add(colorsGameImg)
 
         val anagramGameImg: ImageView = findViewById(R.id.anagram)
         anagramGameImg.setOnClickListener { openStat("anagramgame") }
+        previews.add(anagramGameImg)
+
+        setWidthForImages()
 
         menuBtn = findViewById(R.id.menu_btn)
         menuBtn.setOnClickListener {goToMainMenu()}
 
         gamesBtn = findViewById(R.id.go_to_games_btn)
         gamesBtn.setOnClickListener {goToGames()}
+    }
+
+    private fun setWidthForImages() {
+        val totalWidth = getScreenWidth()*0.9
+        val width:Int = (totalWidth / 4).toInt()
+
+        var i = 0
+        while (i <5){
+            previews[i].layoutParams.width = width
+            previews[i].layoutParams.height = (width*0.63).toInt()
+            i++
+        }
+
     }
 
     private fun goToGames() {
@@ -141,5 +164,12 @@ class StatisticsController : MyGameActivity() {
     private fun hideGamesView() {
         val games: ScrollView = findViewById(R.id.games_preview_scroll_bar)
         games.visibility = View.GONE
+    }
+
+    private fun getScreenWidth(): Int {
+        val display: Display = windowManager.defaultDisplay
+        val size = Point()
+        display.getSize(size)
+        return size.x
     }
 }
