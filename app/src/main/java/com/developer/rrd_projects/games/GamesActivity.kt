@@ -92,6 +92,10 @@ open class GamesActivity : MyGameActivity() {
             if(timeForGame == 0){
                 leaveGame()
             }else {
+                if(timeForGame == 3){
+                    playSound(this, R.raw.timer_sound)
+                }
+
                 gameTimerText.text = timeForGame.toString()
                 gameTimerHandler.postDelayed(gameTimerRunnable,1000)
             }

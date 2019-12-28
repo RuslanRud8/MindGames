@@ -1,6 +1,8 @@
 package com.developer.rrd_projects.games.sortGame
 
+import android.graphics.Point
 import android.os.Bundle
+import android.view.Display
 import android.view.View
 import android.widget.*
 import com.developer.rrd_projects.R
@@ -35,6 +37,16 @@ class SortGame : GamesActivity() {
 
         val rectangleBtn: ImageView = findViewById(R.id.rectangle_view)
         rectangleBtn.setOnClickListener { chooseRectangle() }
+
+        val btnSize = (getHeight()/2.3).toInt()
+        circleBtn.layoutParams.width = btnSize
+        circleBtn.layoutParams.height = btnSize
+
+        triangleBtn.layoutParams.width = btnSize
+        triangleBtn.layoutParams.height = btnSize
+
+        rectangleBtn.layoutParams.width = btnSize
+        rectangleBtn.layoutParams.height = btnSize
 
         createPreStartTimer(findViewById(R.id.dark_screen), ::generateShapeToSort)
         createGameTimer(60)
@@ -82,6 +94,13 @@ class SortGame : GamesActivity() {
         }else scoreDown()
         animateShapeToSort(img, (-1 * img.width*1.5.toFloat()), (getScreenHeight()-img.translationY + (img.width*1.3)).toFloat(), 800)
         generateShapeToSort()
+    }
+
+    private fun getHeight():Int{
+        val display: Display = windowManager.defaultDisplay
+        val size = Point()
+        display.getSize(size)
+        return  size.y
     }
 
     private fun generateShapeToSort() {

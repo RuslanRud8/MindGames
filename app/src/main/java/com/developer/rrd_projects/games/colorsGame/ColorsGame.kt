@@ -64,7 +64,7 @@ class ColorsGame : GamesActivity() {
         val display: Display = windowManager.defaultDisplay
         val size = Point()
         display.getSize(size)
-        return  size.y;
+        return  size.y
     }
 
     @Suppress("DEPRECATION")
