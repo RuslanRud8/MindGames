@@ -40,7 +40,6 @@ class NameChooser : MyGameActivity() {
 
 
         if(n != ""){
-            val person = readPerson(applicationContext)
             person.userName = n
             writePerson(person, applicationContext)
         }

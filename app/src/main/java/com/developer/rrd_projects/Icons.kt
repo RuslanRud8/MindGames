@@ -1,6 +1,5 @@
 package com.developer.rrd_projects
 
-import android.content.Context
 import android.content.Intent
 import android.graphics.Point
 import android.os.Bundle
@@ -11,9 +10,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.developer.rrd_projects.animators.animateGear
 import com.developer.rrd_projects.person.*
-import io.reactivex.Single
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
 
 
 class Icons : MyGameActivity() {
@@ -26,7 +22,6 @@ class Icons : MyGameActivity() {
 
     var prevIcon: Int = -1
     var iconLast: Int = -1
-    private lateinit var person:Person
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -108,8 +103,6 @@ class Icons : MyGameActivity() {
 
         setWidthForImages()
 
-        person = readPerson(this)
-
         unlockIcons(person.level)
 
         Log.i("My","${person.level}")
@@ -122,12 +115,6 @@ class Icons : MyGameActivity() {
         iconsSet[prevIcon].background = getDrawable(getImageId(24))
 
         startGears()
-    }
-
-    private fun getPerson(context: Context): Single<Person> {
-        return Single.create { s ->
-            s.onSuccess(readPerson(context))
-        }
     }
 
     private fun startGears() {

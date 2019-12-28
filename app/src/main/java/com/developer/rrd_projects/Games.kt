@@ -29,8 +29,6 @@ class Games : MyGameActivity() {
         setContentView(R.layout.activity_games)
 
         GlobalScope.launch { setUpButtons() }
-
-
     }
 
     private suspend fun setUpButtons(){

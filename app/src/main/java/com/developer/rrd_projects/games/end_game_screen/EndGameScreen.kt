@@ -26,8 +26,6 @@ import com.developer.rrd_projects.playSound
 
 class EndGameScreen : MyGameActivity() {
 
-    var person = Person(0, "-", 0, 0, 1, 0, 0, "-1")
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
@@ -43,8 +41,6 @@ class EndGameScreen : MyGameActivity() {
         val score: Int = intent.getIntExtra("game_score", 0)
 
         findViewById<TextView>(R.id.score).text = getString(R.string.score_str, score)
-
-        person = readPerson(applicationContext)
 
         val level = person.level
 
@@ -120,7 +116,6 @@ class EndGameScreen : MyGameActivity() {
                     s < 2000 -> exp = 5
                 }
 
-                person.timeInGame += 1
                 writeStatistics(stat, applicationContext, "fngame")
             }
 
@@ -147,7 +142,6 @@ class EndGameScreen : MyGameActivity() {
                     s < 500 -> exp = 5
                 }
 
-                person.timeInGame += 1
                 writeStatistics(stat, applicationContext, "sortgame")
 
             }
@@ -174,7 +168,6 @@ class EndGameScreen : MyGameActivity() {
                     s < 1000 -> exp = 5
                 }
 
-                person.timeInGame += 1
                 writeStatistics(stat, applicationContext, "lampsgame")
             }
 
@@ -200,7 +193,6 @@ class EndGameScreen : MyGameActivity() {
                     s < 500 -> exp = 5
                 }
 
-                person.timeInGame += 1
                 writeStatistics(stat, applicationContext, "colorsgame")
             }
 
@@ -226,7 +218,6 @@ class EndGameScreen : MyGameActivity() {
                     s < 500 -> exp = 5
                 }
 
-                person.timeInGame += 1
                 writeStatistics(stat, applicationContext, "anagramgame")
             }
         }

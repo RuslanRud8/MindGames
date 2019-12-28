@@ -1,16 +1,24 @@
 package com.developer.rrd_projects
 
-import android.app.ActivityManager
-import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.developer.rrd_projects.games.GamesSet
 import com.developer.rrd_projects.games.readGameSet
+import com.developer.rrd_projects.person.Person
+import com.developer.rrd_projects.person.readPerson
+import com.developer.rrd_projects.person.writePerson
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 open class MyGameActivity : AppCompatActivity() {
 
     private lateinit var gamesSet: GamesSet
+    private var timeInGame: Int = 0
+    lateinit var person: Person
+    private var isGameActive:Boolean = true
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
@@ -33,18 +41,43 @@ open class MyGameActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-         gamesSet = readGameSet(this)
+        gamesSet = readGameSet(this)
         setEffectSoundEnabled(gamesSet.effectSoundActive)
         setBackVolume(gamesSet.backgroundMusicVolume)
         setEffectsVolume(gamesSet.effectSoundVolume)
-        if(gamesSet.backgroundMusicActive) {
+        if (gamesSet.backgroundMusicActive) {
             startBackMusicPlayer(applicationContext)
+        }
+
+        readPersonStats()
+
+        GlobalScope.launch { countTimeInGame() }
+        Log.i("TIME","launched")
+
+    }
+
+    private fun readPersonStats() {
+        person = readPerson(this)
+        timeInGame = person.timeInGame
+    }
+
+    private suspend fun countTimeInGame(){
+        while (true){
+            if(isGameActive){
+                timeInGame++
+                Log.i("TIME",timeInGame.toString())
+                delay(10000L)
+            }else break
         }
     }
 
     override fun onPause() {
-        if(gamesSet.backgroundMusicActive) {
+        isGameActive = false
+        Log.i("TIME","saved")
+
+        person.timeInGame = timeInGame
+        writePerson(person,this)
+        if (gamesSet.backgroundMusicActive) {
             pauseBackMusicPlayer()
         }
         super.onPause()
@@ -55,7 +88,8 @@ open class MyGameActivity : AppCompatActivity() {
     }
 
     override fun onResume() {
-        if(gamesSet.backgroundMusicActive) {
+        isGameActive = true
+        if (gamesSet.backgroundMusicActive) {
             startBackMusicPlayer(applicationContext)
         }
         super.onResume()

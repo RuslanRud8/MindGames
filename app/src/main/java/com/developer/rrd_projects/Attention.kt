@@ -36,7 +36,7 @@ class Attention : MyGameActivity() {
         playSound(this,R.raw.menu_button_sound)
 
         val chek: CheckBox = findViewById(R.id.checkbox)
-        val game: String = intent.getStringExtra("game")
+        val game: String = intent.getStringExtra("game")!!
 
         if(chek.isChecked){
             val g = readGameSet(applicationContext)

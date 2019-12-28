@@ -52,7 +52,6 @@ class ProfileActivity : MyGameActivity() {
     }
 
     private fun setUpProfileScreen() {
-        val person = readPerson(applicationContext)
 
         findViewById<ImageView>(R.id.profile_icon_view).setImageDrawable(getDrawable(getImageId(person.icon)))
         findViewById<TextView>(R.id.user_name_text).text = person.userName
@@ -61,7 +60,7 @@ class ProfileActivity : MyGameActivity() {
         findViewById<TextView>(R.id.games_played_label).text = getString(R.string.games_played_str, person.gamesPlayed)
         findViewById<TextView>(R.id.fav_game_label).text = getString(R.string.favourite_game_str, person.favGame)
         findViewById<TextView>(R.id.max_exp_label).text = getString(R.string.max_exp_str, person.maxExp)
-        findViewById<TextView>(R.id.time_in_game_label).text = getString(R.string.time_play_str, person.timeInGame/60, person.timeInGame%60)
+        findViewById<TextView>(R.id.time_in_game_label).text = getString(R.string.time_play_str, (person.timeInGame/6)/60, (person.timeInGame)/6%60)
         findViewById<TextView>(R.id.profile_exp_text).text = getString(R.string.profile_level_progress, person.exp , getExpForLevel(person.level))
 
         val levelBar : ProgressBar = findViewById(R.id.profile_level_bar)
