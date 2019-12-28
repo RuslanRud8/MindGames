@@ -9,6 +9,8 @@ import android.view.View
 import android.widget.Button
 import android.widget.SeekBar
 import android.widget.TextView
+import androidx.annotation.FontRes
+import androidx.core.content.res.ResourcesCompat
 import com.developer.rrd_projects.animators.animateGear
 import com.developer.rrd_projects.games.GamesSet
 import com.developer.rrd_projects.games.readGameSet
@@ -28,7 +30,6 @@ class Settings : MyGameActivity() {
                 or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                 or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN)
 
-
         setContentView(R.layout.activity_settings)
 
         gamesSet = readGameSet(applicationContext)
@@ -36,21 +37,28 @@ class Settings : MyGameActivity() {
         val btnAnimSw : SwitchCompat = findViewById(R.id.buttons_animation_sw)
         btnAnimSw.isChecked = gamesSet.buttonsAnimation
         btnAnimSw.setOnClickListener { playSound(this,R.raw.settings_button_sound) }
+        btnAnimSw.typeface = ResourcesCompat.getFont(this,R.font.autour_one)
 
         val alertSw : SwitchCompat = findViewById(R.id.alert_sw)
         alertSw.setOnCheckedChangeListener { buttonView, isChecked -> changeMode(isChecked) }
         alertSw.isChecked = gamesSet.alarmMode
         alertSw.setOnClickListener {  playSound(this,R.raw.settings_button_sound) }
+        alertSw.typeface = ResourcesCompat.getFont(this,R.font.autour_one)
+
 
         setTime(gamesSet.time/60, gamesSet.time%60)
 
         val backgroundMusicSw : SwitchCompat = findViewById(R.id.background_music_switch)
         backgroundMusicSw.isChecked = gamesSet.backgroundMusicActive
         backgroundMusicSw.setOnCheckedChangeListener {buttonView, isChecked -> changeBackgroundMusicMode(isChecked) }
+        backgroundMusicSw.typeface = ResourcesCompat.getFont(this,R.font.autour_one)
+
 
         val effectMusicSw : SwitchCompat = findViewById(R.id.effects_sound_switch)
         effectMusicSw.isChecked = gamesSet.effectSoundActive
         effectMusicSw.setOnCheckedChangeListener {buttonView, isChecked -> changeEffectsSoundMode(isChecked) }
+        effectMusicSw.typeface = ResourcesCompat.getFont(this,R.font.autour_one)
+
 
         backgroundMusicSeeker = findViewById(R.id.background_music_seek_bar)
         backgroundMusicSeeker.progress = (gamesSet.backgroundMusicVolume).toInt()

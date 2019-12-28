@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:background="@drawable/main_background_gradient"
         android:orientation="horizontal"
         tools:context=".Settings">
+
+
 
 
     <ImageView
@@ -124,7 +128,7 @@
                     android:shadowRadius="8"
                     android:text="@string/buttons_animations_str"
                     android:textColor="@color/white"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/stats_sp"
                     android:theme="@style/MySwitch" />
 
             <androidx.appcompat.widget.SwitchCompat
@@ -139,7 +143,7 @@
                     android:shadowRadius="8"
                     android:text="@string/every_day_training_alert_str"
                     android:textColor="@color/white"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/stats_sp"
                     android:theme="@style/MySwitch" />
 
             <LinearLayout
@@ -163,7 +167,7 @@
                         android:text="@string/select_time_str"
                         android:textAllCaps="false"
                         android:textColor="@color/gray"
-                        android:textSize="20sp" />
+                        android:textSize="@dimen/stats_sp" />
 
                 <TextView
                         android:id="@+id/time_str"
@@ -179,7 +183,7 @@
                         android:text="19:50"
                         android:textAllCaps="false"
                         android:textColor="@color/gray"
-                        android:textSize="20sp" />
+                        android:textSize="@dimen/stats_sp" />
             </LinearLayout>
 
             <Button
@@ -197,7 +201,7 @@
                     android:text="@string/change_user_name"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
-                    android:textSize="20sp" />
+                    android:textSize="@dimen/stats_sp" />
 
         </LinearLayout>
 
@@ -227,7 +231,7 @@
                         android:shadowRadius="8"
                         android:text="backround music"
                         android:textColor="@color/white"
-                        android:textSize="20sp"
+                        android:textSize="@dimen/stats_sp"
                         android:theme="@style/MySwitch" />
 
                 <SeekBar
@@ -235,8 +239,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="20dp"
                         android:layout_marginBottom="15dp"
-                        android:maxHeight="5dp"
-                        android:minHeight="5dp"
+                        android:maxHeight="@dimen/settingsSeekBarMaxHeight"
+                        android:minHeight="@dimen/settingsSeekBarMaxHeight"
                         android:progressDrawable="@drawable/seek_bar"
                         android:thumb="@drawable/seek_bar_thumb"
                         android:progress="20"/>
@@ -254,7 +258,7 @@
                         android:shadowRadius="8"
                         android:text="effects sound"
                         android:textColor="@color/white"
-                        android:textSize="20sp"
+                        android:textSize="@dimen/stats_sp"
                         android:theme="@style/MySwitch" />
 
                 <SeekBar
@@ -262,8 +266,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="20dp"
                         android:layout_marginBottom="15dp"
-                        android:maxHeight="5dp"
-                        android:minHeight="5dp"
+                        android:maxHeight="@dimen/settingsSeekBarMaxHeight"
+                        android:minHeight="@dimen/settingsSeekBarMaxHeight"
                         android:progressDrawable="@drawable/seek_bar"
                         android:thumb="@drawable/seek_bar_thumb"
                         android:progress="20"/>

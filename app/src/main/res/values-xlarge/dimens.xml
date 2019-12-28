@@ -58,4 +58,6 @@
     <dimen name="preStartTimerSize">200dp</dimen>
     <dimen name="preStartTimerTextSize">80sp</dimen>
 
+    <dimen name="settingsSeekBarMaxHeight">15dp</dimen>
+
 </resources>
