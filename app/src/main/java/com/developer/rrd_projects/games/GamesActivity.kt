@@ -2,7 +2,7 @@ package com.developer.rrd_projects.games
 
 import android.content.Context
 import android.content.Intent
-import android.os.CountDownTimer
+import android.os.Handler
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
@@ -18,7 +18,6 @@ open class GamesActivity : MyGameActivity() {
     private lateinit var gameTimerText: TextView
     private lateinit var darkScreenView: ImageView
     private lateinit var startGameVoid: () -> Unit
-    private lateinit var gameTimer:CountDownTimer
     private lateinit var timerTextView:TextView
     protected var level:Int = 1
     protected var score:Int = 0
@@ -28,22 +27,20 @@ open class GamesActivity : MyGameActivity() {
     private lateinit var startBtn: Button
     private lateinit var leaveBtn: Button
     protected var gameStarted:Boolean = false
-    private var isPausedTimer = false
+    private var isPausedGame = false
+    private var timeForGame:Int = 60
+    private lateinit var gameTimerRunnable:Runnable
+    private val gameTimerHandler:Handler = Handler()
 
     override fun onResume() {
         super.onResume()
-        if(isPausedTimer) {
-            createGameTimer(gameTimerText.text.toString().toInt() * 1000L, gameTimerText)
-            gameTimer.start()
-            isPausedTimer = false
-        }
+        isPausedGame = false
     }
 
     override fun onPause() {
         super.onPause()
-        if(!isPausedTimer) {
-            gameTimer.cancel()
-            isPausedTimer = true
+        if(!isPausedGame){
+            isPausedGame = true
         }
     }
 
@@ -54,8 +51,6 @@ open class GamesActivity : MyGameActivity() {
         this.startBtn = startBtn
         this.leaveBtn = leaveBtn
         this.gameTimerText = gameTimerText
-
-
 
         startBtn.setOnClickListener { startGame() }
         leaveBtn.setOnClickListener { leaveFromStart() }
@@ -79,22 +74,28 @@ open class GamesActivity : MyGameActivity() {
 
     }
 
-    protected fun createGameTimer(time:Long, gameTimerText: TextView){
+    protected fun createGameTimer(time:Int){
 
-        gameTimer = object : CountDownTimer(time, 1000) {
-            override fun onTick(millisUntilFinished: Long) {
-                gameTimerText.text =
-                    getString(R.string.timer_str, (millisUntilFinished / 1000 + 1).toString())
+        timeForGame = time
+        gameTimerText.text = time.toString()
 
-                if(gameTimerText.text == "3"){
-                    playSound(applicationContext,R.raw.timer_sound)
-                }
-            }
+    }
 
-            override fun onFinish() {
+    private  fun gameTimer(){
+        gameTimerRunnable = Runnable { updateTimer() }
+        gameTimerHandler.postDelayed(gameTimerRunnable,1000)
+    }
+
+    private fun updateTimer() {
+        if(!isPausedGame){
+            timeForGame--
+            if(timeForGame == 0){
                 leaveGame()
+            }else {
+                gameTimerText.text = timeForGame.toString()
+                gameTimerHandler.postDelayed(gameTimerRunnable,1000)
             }
-        }
+        }else gameTimerHandler.postDelayed(gameTimerRunnable,1000)
     }
 
     private suspend fun preStartTimer(){
@@ -106,9 +107,9 @@ open class GamesActivity : MyGameActivity() {
         playSound(applicationContext,R.raw.startlevel_sound)
         timerTextView.visibility = View.GONE
         darkScreenView.visibility = View.GONE
-        gameTimer.start()
         startGameVoid()
         gameStarted = true
+        gameTimer()
     }
 
     private fun startGame() {

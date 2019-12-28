@@ -37,7 +37,7 @@ class SortGame : GamesActivity() {
         rectangleBtn.setOnClickListener { chooseRectangle() }
 
         createPreStartTimer(findViewById(R.id.dark_screen), ::generateShapeToSort)
-        createGameTimer(60000,findViewById(R.id.game_timer))
+        createGameTimer(60)
     }
 
     private fun chooseRectangle() {

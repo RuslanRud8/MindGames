@@ -39,7 +39,7 @@ class LampsGame : GamesActivity() {
         checkAttention(readGameSet(applicationContext).lampsGameAttention,"You need to repeat the","flash order as soon as possible","lamps",intent)
 
         createPreStartTimer(findViewById(R.id.dark_screen), ::generateLamps)
-        createGameTimer(90000,findViewById(R.id.game_timer))
+        createGameTimer(90)
 
         initLamps()
     }

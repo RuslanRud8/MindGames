@@ -29,7 +29,7 @@ class FindNumGame : GamesActivity() {
         checkAttention(readGameSet(applicationContext).fNGameAttention,"You need to find given","numbers as soon as possible","fNGame",intent)
 
         createPreStartTimer(findViewById(R.id.dark_screen), ::generateButtons)
-        createGameTimer(60000,findViewById(R.id.game_timer))
+        createGameTimer(60)
     }
 
     private fun generateButtons() {

@@ -61,7 +61,7 @@ class AnagramGame : GamesActivity() {
         checkAttention(readGameSet(applicationContext).angramsGameAttention,"You need to find","anagram of given word","anagramGame",intent)
 
         createPreStartTimer(findViewById(R.id.dark_screen), ::generateWord)
-        createGameTimer(60000,findViewById(R.id.game_timer))
+        createGameTimer(60)
     }
 
     private fun generateWord() {
