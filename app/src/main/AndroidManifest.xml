@@ -85,7 +85,8 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".NotificationReceiver" />
+        <receiver android:name=".NotificationReceiver"
+                />
 
         <meta-data
                 android:name="preloaded_fonts"

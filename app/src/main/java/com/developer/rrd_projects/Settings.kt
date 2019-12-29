@@ -192,10 +192,12 @@ class Settings : MyGameActivity() {
     private fun createNotification(b:Boolean) {
         val calendar = Calendar.getInstance()
 
-        calendar.set(Calendar.HOUR_OF_DAY, totalMin/60)
-        calendar.set(Calendar.MINUTE, totalMin%60)
+        calendar.set(Calendar.HOUR_OF_DAY, (totalMin)/60)
+        calendar.set(Calendar.MINUTE, (totalMin)%60)
 
         val i = Intent(applicationContext,NotificationReceiver::class.java)
+
+        //i.action = "MIND_GAMES_NOTIFICATION_MESSAGE"
 
         val pI = PendingIntent.getBroadcast(applicationContext,100,i,PendingIntent.FLAG_UPDATE_CURRENT)
         val alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager

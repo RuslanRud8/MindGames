@@ -140,12 +140,12 @@ class StatisticsController : MyGameActivity() {
         val chart : LineChart = findViewById(R.id.line_chart)
         chart.data = lineData
         chart.background = getDrawable(R.drawable.chart_bakcground)
-        chart.xAxis.setDrawLabels(false)
+        chart.xAxis.setDrawLabels(true)
         chart.xAxis.axisLineColor = Color.GREEN
         chart.xAxis.axisLineWidth = 3f
         chart.axisLeft.axisLineColor = Color.GREEN
         chart.axisLeft.axisLineWidth = 3f
-        chart.axisRight.isEnabled = false
+        chart.axisRight.isEnabled = true
         chart.description.text = "day average results"
         chart.invalidate()
 
