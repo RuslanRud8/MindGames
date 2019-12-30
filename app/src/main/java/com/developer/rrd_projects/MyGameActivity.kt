@@ -83,27 +83,11 @@ open class MyGameActivity : AppCompatActivity() {
         super.onPause()
     }
 
-    override fun onRestart() {
-        super.onRestart()
-    }
-
     override fun onResume() {
         isGameActive = true
         if (gamesSet.backgroundMusicActive) {
             startBackMusicPlayer(applicationContext)
         }
         super.onResume()
-    }
-
-    override fun onStart() {
-        super.onStart()
-    }
-
-    override fun onStop() {
-        super.onStop()
-    }
-
-    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
-        super.onRestoreInstanceState(savedInstanceState)
     }
 }

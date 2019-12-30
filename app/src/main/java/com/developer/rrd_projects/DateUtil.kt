@@ -9,7 +9,7 @@ import java.util.Locale
 fun getCurrentDateStr() : String{
     val currentDate = Date()
 
-    val dateFormat: DateFormat = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault())
+    val dateFormat: DateFormat = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault()) as DateFormat
 
     return dateFormat.format(currentDate)
 }

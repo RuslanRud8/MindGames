@@ -1,16 +1,15 @@
 package com.developer.rrd_projects.games.lampsGame
 
 import android.os.Bundle
-import android.os.Handler
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import com.developer.rrd_projects.R
 import com.developer.rrd_projects.games.GamesActivity
 import com.developer.rrd_projects.games.readGameSet
 import com.developer.rrd_projects.playSound
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -110,7 +109,7 @@ class LampsGame : GamesActivity() {
         if (level > 1) {
             level--
         }
-        lamp.setImageDrawable(getDrawable(R.drawable.lamp_red))
+        lamp.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.lamp_red))
 
 //        Handler().postDelayed( {
 //            //anything you want to start after 1s
@@ -129,7 +128,7 @@ class LampsGame : GamesActivity() {
 
     private fun trueAns(lamp: ImageView) {
 
-        lamp.setImageDrawable(getDrawable(R.drawable.lamp_green))
+        lamp.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.lamp_green))
     }
 
     private fun updateScore() {
@@ -137,7 +136,7 @@ class LampsGame : GamesActivity() {
     }
 
     private fun updateLamp() {
-        for (i in lampsArray) i.setImageDrawable(getDrawable(R.drawable.lamp_gray))
+        for (i in lampsArray) i.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.lamp_gray))
     }
 
     private fun generateLamps() {
@@ -172,9 +171,9 @@ class LampsGame : GamesActivity() {
     private suspend fun showLamps(){
 
         for (i in  arrToShow) {
-            lampsArray[i].setImageDrawable(getDrawable(R.drawable.lamp_yellow))
+            lampsArray[i].setImageDrawable(ContextCompat.getDrawable(this,R.drawable.lamp_yellow))
             delay(1000L)
-            lampsArray[i].setImageDrawable(getDrawable(R.drawable.lamp_gray))
+            lampsArray[i].setImageDrawable(ContextCompat.getDrawable(this,R.drawable.lamp_gray))
         }
 
         showing = false

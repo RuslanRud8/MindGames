@@ -8,6 +8,7 @@ import android.view.Display
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import com.developer.rrd_projects.animators.animateGear
 import com.developer.rrd_projects.person.*
 
@@ -20,8 +21,8 @@ class Icons : MyGameActivity() {
     private var iconsViewPrem: ArrayList<ImageView> = ArrayList()
     private var iconsSetPrem: ArrayList<TextView> = ArrayList()
 
-    var prevIcon: Int = -1
-    var iconLast: Int = -1
+    private var prevIcon: Int = -1
+    private var iconLast: Int = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -110,9 +111,9 @@ class Icons : MyGameActivity() {
 
         val preview: ImageView = findViewById(R.id.icon_preview)
 
-        preview.setImageDrawable(getDrawable(getImageId(person.icon)))
+        preview.setImageDrawable(ContextCompat.getDrawable(this,getImageId(person.icon)))
 
-        iconsSet[prevIcon].background = getDrawable(getImageId(24))
+        iconsSet[prevIcon].background = ContextCompat.getDrawable(this,getImageId(24))
 
         startGears()
     }
@@ -190,7 +191,7 @@ class Icons : MyGameActivity() {
         println(ind)
         if (iconsSet[ind].background == null) {
             playSound(this,R.raw.settings_button_sound)
-            iconsSet[ind].background = getDrawable(getImageId(24))
+            iconsSet[ind].background = ContextCompat.getDrawable(this,getImageId(24))
             preview.setImageDrawable(iconsView[ind].drawable)
             iconsSet[prevIcon].background = null
             prevIcon = ind

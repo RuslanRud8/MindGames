@@ -1,7 +1,6 @@
 package com.developer.rrd_projects.games.fNGame
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.*
 import com.developer.rrd_projects.R

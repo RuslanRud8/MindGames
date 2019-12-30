@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import com.developer.rrd_projects.Games
 import com.developer.rrd_projects.MyGameActivity
 import com.developer.rrd_projects.games.lampsGame.LampsGame
@@ -20,7 +21,6 @@ import com.developer.rrd_projects.games_statistics.readStatistics
 import com.developer.rrd_projects.games_statistics.writeStatistics
 import com.developer.rrd_projects.person.Person
 import com.developer.rrd_projects.person.getExpForLevel
-import com.developer.rrd_projects.person.readPerson
 import com.developer.rrd_projects.person.writePerson
 import com.developer.rrd_projects.playSound
 
@@ -234,12 +234,12 @@ class EndGameScreen : MyGameActivity() {
         val imgDay: ImageView = findViewById(R.id.day_img_view)
 
         if (maxFlag) {
-            imgMax.setImageDrawable(getDrawable(R.drawable.stat_up_dr))
-        } else imgMax.setImageDrawable(getDrawable(R.drawable.stat_down_dr))
+            imgMax.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.stat_up_dr))
+        } else imgMax.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.stat_down_dr))
 
         if (dayFlag) {
-            imgDay.setImageDrawable(getDrawable(R.drawable.stat_up_dr))
-        } else imgDay.setImageDrawable(getDrawable(R.drawable.stat_down_dr))
+            imgDay.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.stat_up_dr))
+        } else imgDay.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.stat_down_dr))
 
         return person
     }

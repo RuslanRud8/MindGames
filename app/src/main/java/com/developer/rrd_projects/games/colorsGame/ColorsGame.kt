@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.Display
 import android.view.View
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import com.developer.rrd_projects.R
 import com.developer.rrd_projects.games.GamesActivity
 import com.developer.rrd_projects.games.readGameSet
@@ -67,16 +68,15 @@ class ColorsGame : GamesActivity() {
         return  size.y
     }
 
-    @Suppress("DEPRECATION")
     private fun initColors() {
-        arrColors.add(resources.getColor(R.color.red))
-        arrColors.add(resources.getColor(R.color.blue))
-        arrColors.add(resources.getColor(R.color.green))
-        arrColors.add(resources.getColor(R.color.yellow))
-        arrColors.add(resources.getColor(R.color.orange))
-        arrColors.add(resources.getColor(R.color.purple))
-        arrColors.add(resources.getColor(R.color.pink))
-        arrColors.add(resources.getColor(R.color.white))
+        arrColors.add(ContextCompat.getColor(this,R.color.red))
+        arrColors.add(ContextCompat.getColor(this,R.color.blue))
+        arrColors.add(ContextCompat.getColor(this,R.color.green))
+        arrColors.add(ContextCompat.getColor(this,R.color.yellow))
+        arrColors.add(ContextCompat.getColor(this,R.color.orange))
+        arrColors.add(ContextCompat.getColor(this,R.color.purple))
+        arrColors.add(ContextCompat.getColor(this,R.color.pink))
+        arrColors.add(ContextCompat.getColor(this,R.color.white))
     }
 
     private fun ansTrue() {

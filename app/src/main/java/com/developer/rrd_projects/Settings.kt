@@ -9,7 +9,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.SeekBar
 import android.widget.TextView
-import androidx.annotation.FontRes
+import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import com.developer.rrd_projects.animators.animateGear
 import com.developer.rrd_projects.games.GamesSet
@@ -151,8 +151,8 @@ class Settings : MyGameActivity() {
         val timeText: TextView = findViewById(R.id.time_str)
 
         chooseBtn.isEnabled = false
-        chooseBtn.setTextColor(resources.getColor(R.color.gray))
-        timeText.setTextColor(resources.getColor(R.color.gray))
+        chooseBtn.setTextColor(ContextCompat.getColor(this,R.color.gray))
+        timeText.setTextColor(ContextCompat.getColor(this,R.color.gray))
     }
 
 
@@ -160,9 +160,9 @@ class Settings : MyGameActivity() {
         val chooseBtn: Button = findViewById(R.id.select_time_btn)
         val timeText: TextView = findViewById(R.id.time_str)
 
-        chooseBtn.setTextColor(resources.getColor(R.color.white))
+        chooseBtn.setTextColor(ContextCompat.getColor(this,R.color.white))
         chooseBtn.isEnabled = true
-        timeText.setTextColor(resources.getColor(R.color.white))
+        timeText.setTextColor(ContextCompat.getColor(this,R.color.white))
     }
 
     fun saveSettings(view: View){

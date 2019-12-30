@@ -2,7 +2,6 @@ package com.developer.rrd_projects
 
 import android.content.Intent
 import android.graphics.Point
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Display
 import android.view.View
@@ -10,12 +9,12 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import com.developer.rrd_projects.animators.animateButtons
 import com.developer.rrd_projects.animators.animateGear
 import com.developer.rrd_projects.games.readGameSet
 import com.developer.rrd_projects.person.getExpForLevel
 import com.developer.rrd_projects.person.getImageId
-import com.developer.rrd_projects.person.readPerson
 
 class ProfileActivity : MyGameActivity() {
 
@@ -53,7 +52,7 @@ class ProfileActivity : MyGameActivity() {
 
     private fun setUpProfileScreen() {
 
-        findViewById<ImageView>(R.id.profile_icon_view).setImageDrawable(getDrawable(getImageId(person.icon)))
+        findViewById<ImageView>(R.id.profile_icon_view).setImageDrawable(ContextCompat.getDrawable(this,getImageId(person.icon)))
         findViewById<TextView>(R.id.user_name_text).text = person.userName
         findViewById<TextView>(R.id.profile_level_text).text = getString(R.string.level_text, person.level)
 

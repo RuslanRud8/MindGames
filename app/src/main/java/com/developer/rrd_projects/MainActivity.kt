@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import com.developer.rrd_projects.animators.animateButtons
 import com.developer.rrd_projects.animators.animateGear
 import com.developer.rrd_projects.games.readGameSet
@@ -184,7 +185,7 @@ class MainActivity : MyGameActivity() {
         person: Person
     ) {
 
-        levelBar.background = getDrawable(getImageId(person.icon))
+        levelBar.background = ContextCompat.getDrawable(this,getImageId(person.icon))
         userNameText.text = person.userName
         userLevelText.text = getString(R.string.level_text, person.level)
     }

@@ -10,7 +10,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.ScrollView
 import android.widget.TextView
-import com.developer.rrd_projects.animators.animateGear
+import androidx.core.content.ContextCompat
 import com.developer.rrd_projects.games_statistics.Statistics
 import com.developer.rrd_projects.games_statistics.readStatistics
 import com.github.mikephil.charting.charts.LineChart
@@ -124,7 +124,7 @@ class StatisticsController : MyGameActivity() {
         val list:ArrayList<Entry> = ArrayList()
 
         for (i in dates.indices){
-            list.add(Entry(i.toFloat(),scores[i].dayAvr.toFloat()))
+            list.add(Entry(i+1.toFloat(),scores[i].dayAvr.toFloat()))
         }
 
         val lineDataSet = LineDataSet(list, "scores")
@@ -139,13 +139,14 @@ class StatisticsController : MyGameActivity() {
 
         val chart : LineChart = findViewById(R.id.line_chart)
         chart.data = lineData
-        chart.background = getDrawable(R.drawable.chart_bakcground)
+        chart.background = ContextCompat.getDrawable(this,R.drawable.chart_bakcground)
         chart.xAxis.setDrawLabels(true)
+        chart.xAxis.labelCount = dates.size
         chart.xAxis.axisLineColor = Color.GREEN
         chart.xAxis.axisLineWidth = 3f
         chart.axisLeft.axisLineColor = Color.GREEN
         chart.axisLeft.axisLineWidth = 3f
-        chart.axisRight.isEnabled = true
+        chart.axisRight.isEnabled = false
         chart.description.text = "day average results"
         chart.invalidate()
 

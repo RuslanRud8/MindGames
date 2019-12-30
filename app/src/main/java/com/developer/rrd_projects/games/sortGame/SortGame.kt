@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.Display
 import android.view.View
 import android.widget.*
+import androidx.core.content.ContextCompat
 import com.developer.rrd_projects.R
 import com.developer.rrd_projects.animators.animateShapeToSort
 import com.developer.rrd_projects.games.GamesActivity
@@ -111,16 +112,16 @@ class SortGame : GamesActivity() {
         when (Random().nextInt(3)) {
             0 -> {
                 currentType = "circle"
-                img.setImageDrawable(getDrawable(R.drawable.circle))
+                img.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.circle))
             }
 
             1 -> {
                 currentType = "triangle"
-                img.setImageDrawable(getDrawable(R.drawable.triangle))
+                img.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.triangle))
             }
             2 -> {
                 currentType = "rectangle"
-                img.setImageDrawable(getDrawable(R.drawable.rectangle))
+                img.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.rectangle))
             }
         }
 

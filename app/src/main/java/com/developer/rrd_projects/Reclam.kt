@@ -1,7 +1,6 @@
 package com.developer.rrd_projects
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.developer.rrd_projects.games.end_game_screen.EndGameScreen
 import com.google.android.gms.ads.AdListener
