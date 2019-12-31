@@ -11,7 +11,7 @@ import com.developer.rrd_projects.R
                3 -> return R.drawable.icon_3
                4 -> return R.drawable.icon_4
                5 -> return R.drawable.icon_5
-               6 -> return R.drawable.icon_21
+               6 -> return R.drawable.icon_6
                7 -> return R.drawable.icon_7
                8 -> return R.drawable.icon_8
                9 -> return R.drawable.icon_9
@@ -26,7 +26,7 @@ import com.developer.rrd_projects.R
                18 ->return R.drawable.icon_18
                19 ->return R.drawable.icon_19
                20 ->return R.drawable.icon_20
-               21 ->return R.drawable.icon_6
+               21 ->return R.drawable.icon_21
                22 ->return R.drawable.icon_22
 
                23 ->return  R.drawable.icon_locked

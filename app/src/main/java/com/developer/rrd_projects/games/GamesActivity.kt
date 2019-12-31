@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import com.developer.rrd_projects.*
+import com.developer.rrd_projects.games.end_game_screen.EndGameScreen
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -134,10 +135,17 @@ open class GamesActivity : MyGameActivity() {
     }
 
     private fun leaveGame() {
-        val intent = Intent(context, Reclam::class.java)
-        intent.putExtra("game_ended", gameName)
-        intent.putExtra("game_score",  score)
-        startActivity(intent)
+        if(person.gamesPlayed % 3 == 0) {
+            val intent = Intent(context, Reclam::class.java)
+            intent.putExtra("game_ended", gameName)
+            intent.putExtra("game_score", score)
+            startActivity(intent)
+        }else {
+            val intent = Intent(context, EndGameScreen::class.java)
+            intent.putExtra("game_ended", gameName)
+            intent.putExtra("game_score", score)
+            startActivity(intent)
+        }
     }
 
     protected fun getScreenHeight(): Int {

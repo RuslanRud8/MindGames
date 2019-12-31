@@ -10,6 +10,7 @@ import com.developer.rrd_projects.R
 import com.developer.rrd_projects.games.GamesActivity
 import com.developer.rrd_projects.games.readGameSet
 import com.developer.rrd_projects.playSound
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -88,11 +89,10 @@ class LampsGame : GamesActivity() {
                     if (level < 15) {
                         level++
                     }
-                    playSound(this, R.raw.success)
+                    playSound(this, R.raw.lamp_enabled)
 
-                    score += (scoreM * arrToShow.size).toInt()
-                    updateScore()
-                    generateLamps()
+                    GlobalScope.launch { startNewLampsShow() }
+
                 } else {
                     numCurrent++
                     playSound(this, R.raw.lamp_enabled)
@@ -101,6 +101,15 @@ class LampsGame : GamesActivity() {
             } else falseAns(lamp)
 
         }
+    }
+
+    private suspend fun startNewLampsShow(){
+        delay(100L)
+        playSound(this, R.raw.success)
+        delay(900L)
+        score += (scoreM * arrToShow.size).toInt()
+        updateScore()
+        generateLamps()
     }
 
     private fun falseAns(lamp: ImageView) {
@@ -121,7 +130,7 @@ class LampsGame : GamesActivity() {
     }
 
      private suspend fun delayWrongAns(){
-        delay(1000L)
+        delay(1500L)
         wrongAns = false
         generateLamps()
     }

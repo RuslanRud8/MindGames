@@ -1,10 +1,14 @@
 package com.developer.rrd_projects
 
 import android.content.Intent
+import android.graphics.Point
 import android.os.Bundle
+import android.view.Display
 import android.view.View
 import android.widget.CheckBox
 import android.widget.TextView
+import androidx.appcompat.widget.AppCompatTextView
+import androidx.core.widget.TextViewCompat
 import com.developer.rrd_projects.games.anagramsGame.AnagramGame
 import com.developer.rrd_projects.games.colorsGame.ColorsGame
 import com.developer.rrd_projects.games.fNGame.FindNumGame
@@ -24,9 +28,21 @@ class Attention : MyGameActivity() {
 
         setContentView(R.layout.activity_attention)
 
-        val attention: TextView = findViewById(R.id.attention)
+        val attention: AppCompatTextView = findViewById(R.id.attention)
 
         attention.text = getString(R.string.tutorial, intent.getStringExtra("firstLine"), intent.getStringExtra("secondLine"))
+
+        val display: Display = windowManager.defaultDisplay
+        val size = Point()
+        display.getSize(size)
+
+        attention.layoutParams.height = (size.y /2.5).toInt()
+
+        TextViewCompat.setAutoSizeTextTypeUniformWithConfiguration(attention,10,100,1,
+            TextViewCompat.AUTO_SIZE_TEXT_TYPE_UNIFORM)
+
+
+
 
         val checkBox:CheckBox = findViewById(R.id.checkbox)
         checkBox.setOnClickListener { playSound(this,R.raw.settings_button_sound) }
