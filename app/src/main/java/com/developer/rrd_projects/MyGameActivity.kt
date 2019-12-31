@@ -53,7 +53,6 @@ open class MyGameActivity : AppCompatActivity() {
 
         GlobalScope.launch { countTimeInGame() }
         Log.i("TIME","launched")
-
     }
 
     private fun readPersonStats() {

@@ -12,8 +12,6 @@ import com.developer.rrd_projects.games.colorsGame.ColorsGame
 import com.developer.rrd_projects.games.fNGame.FindNumGame
 import com.developer.rrd_projects.games.lampsGame.LampsGame
 import com.developer.rrd_projects.games.sortGame.SortGame
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 
 class Games : MyGameActivity() {
 
@@ -28,10 +26,10 @@ class Games : MyGameActivity() {
 
         setContentView(R.layout.activity_games)
 
-        GlobalScope.launch { setUpButtons() }
+        setUpButtons()
     }
 
-    private suspend fun setUpButtons(){
+    private fun setUpButtons(){
         val profileBtn: Button = findViewById(R.id.profile_btn)
         profileBtn.setOnClickListener { goToProfile() }
 
@@ -58,8 +56,7 @@ class Games : MyGameActivity() {
         anagramGamePr.setOnClickListener { goToGame(AnagramGame::class.java) }
         previews.add(anagramGamePr)
 
-        setWidthForImages()
-
+        //setWidthForImages()
     }
 
     private fun goToMenu() {

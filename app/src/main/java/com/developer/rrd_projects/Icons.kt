@@ -99,9 +99,6 @@ class Icons : MyGameActivity() {
         iconsView.add(findViewById(R.id.icon_23_view))
         iconsSet.add(findViewById(R.id.icon_23_view_set))
 
-        iconsViewPrem.add(findViewById(R.id.icon_prem_1_view))
-        iconsSetPrem.add(findViewById(R.id.icon_prem_1_view_set))
-
         setWidthForImages()
 
         unlockIcons(person.level)
@@ -166,14 +163,6 @@ class Icons : MyGameActivity() {
             iconsView[i].layoutParams.height = width
             i++
         }
-
-        for (l in iconsViewPrem.indices) {
-            iconsViewPrem[l].layoutParams.width = width
-            iconsViewPrem[l].layoutParams.height = width
-            iconsSetPrem[l].layoutParams.width = width
-            iconsSetPrem[l].layoutParams.height = width
-        }
-
     }
 
     private fun getScreenWidth(): Int {
