@@ -13,6 +13,7 @@ class NotificationHelper(context: Context?) {
 
     private var mContext: Context? = context
     private val NOTIFICATION_CHANNEL_ID = "10001"
+    private lateinit var mBuilder:NotificationCompat.Builder
 
     fun createNotification(){
         val intent = Intent(mContext, MainActivity::class.java)
@@ -25,19 +26,13 @@ class NotificationHelper(context: Context?) {
             PendingIntent.FLAG_UPDATE_CURRENT
         )
 
-        val mBuilder = NotificationCompat.Builder(mContext)
-        mBuilder.setSmallIcon(R.mipmap.ic_launcher)
-        mBuilder.setContentTitle("Training")
-            .setContentText("It's time to play !!!")
-            .setAutoCancel(true)
-            .setDefaults(NotificationCompat.DEFAULT_SOUND)
-            .setContentIntent(resultPendingIntent)
+//        mBuilder = NotificationCompat.Builder(mContext!!, NOTIFICATION_CHANNEL_ID)
 
         val mNotificationManager = mContext!!.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
         Log.i("Notification", "created")
 
-        if(android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O){
+        if(android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O && mNotificationManager.getNotificationChannel(NOTIFICATION_CHANNEL_ID) == null){
             val importance = NotificationManager.IMPORTANCE_HIGH
             val notificationChannel = NotificationChannel(
                 NOTIFICATION_CHANNEL_ID,
@@ -49,9 +44,16 @@ class NotificationHelper(context: Context?) {
             notificationChannel.enableVibration(true)
 
             assert(mNotificationManager != null)
-            mBuilder.setChannelId(NOTIFICATION_CHANNEL_ID)
             mNotificationManager.createNotificationChannel(notificationChannel)
         }
+
+        mBuilder = NotificationCompat.Builder(mContext!!, NOTIFICATION_CHANNEL_ID)
+        mBuilder.setSmallIcon(R.mipmap.ic_launcher)
+        mBuilder.setContentTitle("Training")
+            .setContentText("It's time to play !!!")
+            .setAutoCancel(true)
+            .setDefaults(NotificationCompat.DEFAULT_SOUND)
+            .setContentIntent(resultPendingIntent)
 
         assert(mNotificationManager != null)
         mNotificationManager.notify(100 /* Request Code */, mBuilder.build())

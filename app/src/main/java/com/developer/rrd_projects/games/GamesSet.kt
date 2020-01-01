@@ -13,7 +13,7 @@ class GamesSet :Serializable {
     var findItemGameAttention:Boolean = true
     var numsGameAttention:Boolean = true
     var buttonsAnimation:Boolean = true
-    var alarmMode:Boolean = true
+    var alarmMode:Boolean = false
     var time:Int = 720
     var backgroundMusicActive:Boolean = true
     var effectSoundActive:Boolean = true

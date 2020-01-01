@@ -39,7 +39,7 @@ fun readGameSet(context: Context): GamesSet {
     gamesSet.findItemGameAttention = personSave.getBoolean("f_i_game", true)
     gamesSet.numsGameAttention = personSave.getBoolean("nums_game", true)
     gamesSet.buttonsAnimation = personSave.getBoolean("buttons_animations", true)
-    gamesSet.alarmMode = personSave.getBoolean("alarm", true)
+    gamesSet.alarmMode = personSave.getBoolean("alarm", false)
     gamesSet.time = personSave.getInt("time",720)
     gamesSet.backgroundMusicActive = personSave.getBoolean("background_music_active",true)
     gamesSet.effectSoundActive = personSave.getBoolean("effect_sound_active",true)
