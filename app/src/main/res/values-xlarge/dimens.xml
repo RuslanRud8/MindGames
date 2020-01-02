@@ -38,7 +38,7 @@
 
     <dimen name="fngame_sp">90sp</dimen>
 
-    <dimen name="games_height">150dp</dimen>
+    <dimen name="games_height">180dp</dimen>
     <dimen name="games_width">225dp</dimen>
 
     <dimen name="prem_view_dp">400dp</dimen>
@@ -58,6 +58,8 @@
     <dimen name="preStartTimerSize">200dp</dimen>
     <dimen name="preStartTimerTextSize">80sp</dimen>
 
-    <dimen name="settingsSeekBarMaxHeight">15dp</dimen>
+    <dimen name="settingsSeekBarMaxHeight">10dp</dimen>
+    <dimen name="settingsSeekBarThumbSize">20dp</dimen>
+
 
 </resources>

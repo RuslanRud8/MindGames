@@ -80,10 +80,12 @@ class ColorsGame : GamesActivity() {
     }
 
     private fun ansTrue() {
-        if (currentType) {
-            addScore()
-        } else minusScore()
-        generateColor()
+        if(gameStarted) {
+            if (currentType) {
+                addScore()
+            } else minusScore()
+            generateColor()
+        }
     }
 
     private fun minusScore() {
@@ -102,10 +104,12 @@ class ColorsGame : GamesActivity() {
     }
 
     private fun ansFalse() {
-        if (!currentType) {
-            addScore()
-        } else minusScore()
-        generateColor()
+        if(gameStarted) {
+            if (!currentType) {
+                addScore()
+            } else minusScore()
+            generateColor()
+        }
     }
 
     private fun generateColor() {

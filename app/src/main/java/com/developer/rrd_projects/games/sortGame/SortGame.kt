@@ -54,17 +54,18 @@ class SortGame : GamesActivity() {
     }
 
     private fun chooseRectangle() {
-
-        if (currentType == "rectangle" && gameStarted) {
-            scoreUp()
-        }else scoreDown()
-        animateShapeToSort(
-            img,
-            (getScreenWidth() + img.width*1.5).toFloat(),
-            (getScreenHeight()-img.translationY + (img.width*1.3)).toFloat(),
-            800
-        )
-        generateShapeToSort()
+        if(gameStarted) {
+            if (currentType == "rectangle" && gameStarted) {
+                scoreUp()
+            } else scoreDown()
+            animateShapeToSort(
+                img,
+                (getScreenWidth() + img.width * 1.5).toFloat(),
+                (getScreenHeight() - img.translationY + (img.width * 1.3)).toFloat(),
+                800
+            )
+            generateShapeToSort()
+        }
     }
 
     private fun scoreUp() {
@@ -74,11 +75,13 @@ class SortGame : GamesActivity() {
     }
 
     private fun chooseTriangle() {
-        if (currentType == "triangle" && gameStarted) {
-            scoreUp()
-        }else scoreDown()
-        animateShapeToSort(img, img.x, (getScreenHeight() + img.width).toFloat(), 800)
-        generateShapeToSort()
+        if(gameStarted) {
+            if (currentType == "triangle" && gameStarted) {
+                scoreUp()
+            } else scoreDown()
+            animateShapeToSort(img, img.x, (getScreenHeight() + img.width).toFloat(), 800)
+            generateShapeToSort()
+        }
     }
 
     private fun scoreDown() {
@@ -90,11 +93,18 @@ class SortGame : GamesActivity() {
     }
 
     private fun chooseCircle() {
-        if (currentType == "circle" && gameStarted) {
-            scoreUp()
-        }else scoreDown()
-        animateShapeToSort(img, (-1 * img.width*1.5.toFloat()), (getScreenHeight()-img.translationY + (img.width*1.3)).toFloat(), 800)
-        generateShapeToSort()
+        if(gameStarted) {
+            if (currentType == "circle" && gameStarted) {
+                scoreUp()
+            } else scoreDown()
+            animateShapeToSort(
+                img,
+                (-1 * img.width * 1.5.toFloat()),
+                (getScreenHeight() - img.translationY + (img.width * 1.3)).toFloat(),
+                800
+            )
+            generateShapeToSort()
+        }
     }
 
     private fun getHeight():Int{

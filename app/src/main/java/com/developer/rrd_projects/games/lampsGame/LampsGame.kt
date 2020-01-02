@@ -10,7 +10,6 @@ import com.developer.rrd_projects.R
 import com.developer.rrd_projects.games.GamesActivity
 import com.developer.rrd_projects.games.readGameSet
 import com.developer.rrd_projects.playSound
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -91,7 +90,7 @@ class LampsGame : GamesActivity() {
                     }
                     playSound(this, R.raw.lamp_enabled)
 
-                    GlobalScope.launch { startNewLampsShow() }
+                    MainScope().launch { startNewLampsShow() }
 
                 } else {
                     numCurrent++
@@ -104,6 +103,7 @@ class LampsGame : GamesActivity() {
     }
 
     private suspend fun startNewLampsShow(){
+        showing = true
         delay(100L)
         playSound(this, R.raw.success)
         delay(900L)

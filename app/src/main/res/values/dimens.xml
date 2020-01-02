@@ -60,6 +60,7 @@
     <dimen name="preStartTimerTextSize">50sp</dimen>
 
     <dimen name="settingsSeekBarMaxHeight">5dp</dimen>
+    <dimen name="settingsSeekBarThumbSize">15dp</dimen>
 
 
 

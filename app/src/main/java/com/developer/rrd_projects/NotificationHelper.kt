@@ -43,7 +43,6 @@ class NotificationHelper(context: Context?) {
             notificationChannel.lightColor = Color.RED
             notificationChannel.enableVibration(true)
 
-            assert(mNotificationManager != null)
             mNotificationManager.createNotificationChannel(notificationChannel)
         }
 
@@ -55,7 +54,6 @@ class NotificationHelper(context: Context?) {
             .setDefaults(NotificationCompat.DEFAULT_SOUND)
             .setContentIntent(resultPendingIntent)
 
-        assert(mNotificationManager != null)
         mNotificationManager.notify(100 /* Request Code */, mBuilder.build())
     }
 }

@@ -72,7 +72,6 @@ open class GamesActivity : MyGameActivity() {
     protected fun createPreStartTimer(darkScreenView: ImageView, startGameVoid: () -> Unit){
         this.darkScreenView = darkScreenView
         this.startGameVoid = startGameVoid
-
     }
 
     protected fun createGameTimer(time:Int){
@@ -126,7 +125,6 @@ open class GamesActivity : MyGameActivity() {
 
         timerTextView.visibility = View.VISIBLE
         MainScope().launch { preStartTimer() }
-        gameStarted = true
     }
 
     private fun leaveFromStart(){

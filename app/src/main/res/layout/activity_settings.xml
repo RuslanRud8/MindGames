@@ -154,7 +154,7 @@
                 <Button
                         android:id="@+id/select_time_btn"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="@dimen/height_btn_main"
                         android:layout_marginStart="8dp"
                         android:background="@drawable/f_n_game_btn_dr_4"
                         android:ems="6"
@@ -189,7 +189,7 @@
             <Button
                     android:id="@+id/change_name_btn"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/height_btn_main"
                     android:layout_marginTop="4dp"
                     android:background="@drawable/f_n_game_btn_dr_3"
                     android:ems="10"

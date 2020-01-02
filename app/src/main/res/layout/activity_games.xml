@@ -77,7 +77,6 @@
 
             <androidx.gridlayout.widget.GridLayout
                     xmlns:grid="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/choice_grid"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="4dp"
@@ -99,7 +98,7 @@
                         grid:layout_columnWeight="1"
                         grid:layout_gravity="fill_horizontal"
                         android:src="@drawable/f_n_game_prev"
-                         />
+                        />
 
                 <ImageView
                         android:id="@+id/pr_1"
@@ -163,7 +162,6 @@
                         grid:layout_columnWeight="1"
                         grid:layout_gravity="fill_horizontal"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
                         android:fontFamily="@font/cherry_cream_soda"
                         android:shadowColor="#868383"
                         android:shadowDx="5"
@@ -180,7 +178,6 @@
                         grid:layout_columnWeight="1"
                         grid:layout_gravity="fill_horizontal"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
                         android:clickable="true"
                         android:focusable="true"
                         android:fontFamily="@font/cherry_cream_soda"
@@ -199,7 +196,6 @@
                         grid:layout_columnWeight="1"
                         grid:layout_gravity="fill_horizontal"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
                         android:clickable="true"
                         android:focusable="true"
                         android:fontFamily="@font/cherry_cream_soda"
@@ -231,7 +227,6 @@
                         grid:layout_columnWeight="1"
                         grid:layout_gravity="fill"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
                         android:clickable="true"
                         android:focusable="true"
                         android:fontFamily="@font/cherry_cream_soda"
@@ -262,6 +257,7 @@
                         android:textSize="@dimen/level_num_sp"
                         grid:layout_row="3"
                         grid:layout_column="0"/>
+
 
             </androidx.gridlayout.widget.GridLayout>
 

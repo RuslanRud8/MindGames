@@ -5,14 +5,14 @@
         <shape android:shape="oval">
             <solid android:color="#FFFFFF" />
             <stroke android:width="3dp" android:color="#FF9800" />
-            <size android:width="15dp" android:height="15dp" />
+            <size android:width="@dimen/settingsSeekBarThumbSize" android:height="@dimen/settingsSeekBarThumbSize" />
         </shape>
     </item>
     <item android:state_enabled="false">
         <shape android:shape="oval">
             <solid android:color="#C2C1C1" />
             <stroke android:width="3dp" android:color="#BB883E" />
-            <size android:width="15dp" android:height="15dp" />
+            <size android:width="@dimen/settingsSeekBarThumbSize" android:height="@dimen/settingsSeekBarThumbSize" />
         </shape>
     </item>
 </selector>

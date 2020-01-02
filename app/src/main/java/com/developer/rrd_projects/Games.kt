@@ -15,8 +15,6 @@ import com.developer.rrd_projects.games.sortGame.SortGame
 
 class Games : MyGameActivity() {
 
-    var previews: ArrayList<ImageView> = ArrayList()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
@@ -38,25 +36,23 @@ class Games : MyGameActivity() {
 
         val findNumGamePr:ImageView = findViewById(R.id.findNumGamePr)
         findNumGamePr.setOnClickListener { goToGame(FindNumGame::class.java) }
-        previews.add(findNumGamePr)
+
 
         val lampsGamePr:ImageView = findViewById(R.id.pr_1)
         lampsGamePr.setOnClickListener { goToGame(LampsGame::class.java) }
-        previews.add(lampsGamePr)
+
 
         val sortGamePr:ImageView = findViewById(R.id.pr_2)
         sortGamePr.setOnClickListener { goToGame(SortGame::class.java) }
-        previews.add(sortGamePr)
+
 
         val colorsGamePr: ImageView = findViewById(R.id.pr_3)
         colorsGamePr.setOnClickListener { goToGame(ColorsGame::class.java) }
-        previews.add(colorsGamePr)
+
 
         val anagramGamePr:ImageView = findViewById(R.id.anagram)
         anagramGamePr.setOnClickListener { goToGame(AnagramGame::class.java) }
-        previews.add(anagramGamePr)
 
-        //setWidthForImages()
     }
 
     private fun goToMenu() {
@@ -80,25 +76,4 @@ class Games : MyGameActivity() {
         intent.putExtra("comesFrom", "games")
         startActivity(intent)
     }
-
-    private fun setWidthForImages() {
-        val totalWidth = getScreenWidth()*0.9
-        val width:Int = (totalWidth / 4).toInt()
-
-        var i = 0
-        while (i <5){
-            previews[i].layoutParams.width = width
-            previews[i].layoutParams.height = (width*0.63).toInt()
-            i++
-        }
-
-    }
-
-    private fun getScreenWidth(): Int {
-        val display: Display = windowManager.defaultDisplay
-        val size = Point()
-        display.getSize(size)
-        return size.x
-    }
-
 }
