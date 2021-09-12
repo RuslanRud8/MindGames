@@ -133,17 +133,10 @@ open class GamesActivity : MyGameActivity() {
     }
 
     private fun leaveGame() {
-        if(person.gamesPlayed % 3 == 0) {
-            val intent = Intent(context, Reclam::class.java)
-            intent.putExtra("game_ended", gameName)
-            intent.putExtra("game_score", score)
-            startActivity(intent)
-        }else {
-            val intent = Intent(context, EndGameScreen::class.java)
-            intent.putExtra("game_ended", gameName)
-            intent.putExtra("game_score", score)
-            startActivity(intent)
-        }
+        val intent = Intent(context, EndGameScreen::class.java)
+        intent.putExtra("game_ended", gameName)
+        intent.putExtra("game_score", score)
+        startActivity(intent)
     }
 
     protected fun getScreenHeight(): Int {

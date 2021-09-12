@@ -63,9 +63,9 @@ class MainActivity : MyGameActivity() {
 
         setContentView(R.layout.activity_main)
 
-        showGDPRMessage()
+        //showGDPRMessage()
 
-        MobileAds.initialize(this) {}
+        //MobileAds.initialize(this) {}
 
         initUiElements()
 
