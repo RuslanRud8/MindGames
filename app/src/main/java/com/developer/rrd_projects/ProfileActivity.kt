@@ -39,7 +39,7 @@ class ProfileActivity : MyGameActivity() {
 
         setUpProfileScreen()
 
-        comeFr = intent.getStringExtra("comesFrom")
+        comeFr = intent.getStringExtra("comesFrom").toString()
 
         premAkkBtn.setOnClickListener { goToPrem() }
     }
