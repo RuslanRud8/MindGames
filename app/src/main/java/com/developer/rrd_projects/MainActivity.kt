@@ -16,12 +16,12 @@ import com.developer.rrd_projects.person.Person
 import com.developer.rrd_projects.person.getExpForLevel
 import com.developer.rrd_projects.person.getImageId
 import com.developer.rrd_projects.person.readPerson
-import com.google.ads.consent.*
-import com.google.ads.mediation.admob.AdMobAdapter
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.MobileAds
-import java.net.MalformedURLException
-import java.net.URL
+//import com.google.ads.consent.*
+//import com.google.ads.mediation.admob.AdMobAdapter
+//import com.google.android.gms.ads.AdRequest
+//import com.google.android.gms.ads.MobileAds
+//import java.net.MalformedURLException
+//import java.net.URL
 
 
 class MainActivity : MyGameActivity() {
@@ -33,7 +33,7 @@ class MainActivity : MyGameActivity() {
     private lateinit var levelBar: ProgressBar
     private lateinit var userNameText: TextView
     private lateinit var userLevelText: TextView
-    private lateinit var consentForm: ConsentForm
+//    private lateinit var consentForm: ConsentForm
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
@@ -72,74 +72,74 @@ class MainActivity : MyGameActivity() {
         initPersonsData()
     }
 
-    private fun showGDPRMessage() {
-        val consentInformation = ConsentInformation.getInstance(this)
-        val publisherIds = arrayOf("pub-9050823804847454")
-
-        consentInformation.requestConsentInfoUpdate(
-            publisherIds,
-            object : ConsentInfoUpdateListener {
-                override fun onConsentInfoUpdated(consentStatus: ConsentStatus) { // User's consent status successfully updated.
-
-                    if(consentStatus == ConsentStatus.NON_PERSONALIZED){
-                        val extras = Bundle()
-                        extras.putString("npa", "1")
-
-                        val request: AdRequest = AdRequest.Builder()
-                            .addNetworkExtrasBundle(AdMobAdapter::class.java, extras)
-                            .build()
-
-                    }else if(consentStatus == ConsentStatus.UNKNOWN) {
-
-                        var privacyUrl: URL? = null
-                        try {
-                            privacyUrl = URL("https://rudenkord.github.io/MindGames/")
-                        } catch (e: MalformedURLException) {
-                            e.printStackTrace()
-                            // Handle error.
-                        }
-
-                        consentForm = ConsentForm.Builder(this@MainActivity, privacyUrl)
-                            .withListener(object : ConsentFormListener() {
-                                override fun onConsentFormLoaded() { // Consent form loaded successfully.
-                                    consentForm.show()
-
-
-                                }
-
-                                override fun onConsentFormOpened() { // Consent form was displayed.
-
-                                }
-
-                                override fun onConsentFormClosed(
-                                    consentStatus: ConsentStatus, userPrefersAdFree: Boolean
-                                ) { // Consent form was closed.
-                                    if(consentStatus == ConsentStatus.NON_PERSONALIZED){
-                                        val extras = Bundle()
-                                        extras.putString("npa", "1")
-
-                                        val request: AdRequest = AdRequest.Builder()
-                                            .addNetworkExtrasBundle(AdMobAdapter::class.java, extras)
-                                            .build()
-                                    }
-                                }
-
-                                override fun onConsentFormError(errorDescription: String) { // Consent form error.
-                                }
-                            })
-                            .withPersonalizedAdsOption()
-                            .withNonPersonalizedAdsOption()
-                            //.withAdFreeOption()
-                            .build()
-
-                        consentForm.load()
-                    }
-                }
-
-                override fun onFailedToUpdateConsentInfo(errorDescription: String) { // User's consent status failed to update.
-                }
-            })
-    }
+//    private fun showGDPRMessage() {
+//        val consentInformation = ConsentInformation.getInstance(this)
+//        val publisherIds = arrayOf("pub-9050823804847454")
+//
+//        consentInformation.requestConsentInfoUpdate(
+//            publisherIds,
+//            object : ConsentInfoUpdateListener {
+//                override fun onConsentInfoUpdated(consentStatus: ConsentStatus) { // User's consent status successfully updated.
+//
+//                    if(consentStatus == ConsentStatus.NON_PERSONALIZED){
+//                        val extras = Bundle()
+//                        extras.putString("npa", "1")
+//
+//                        val request: AdRequest = AdRequest.Builder()
+//                            .addNetworkExtrasBundle(AdMobAdapter::class.java, extras)
+//                            .build()
+//
+//                    }else if(consentStatus == ConsentStatus.UNKNOWN) {
+//
+//                        var privacyUrl: URL? = null
+//                        try {
+//                            privacyUrl = URL("https://rudenkord.github.io/MindGames/")
+//                        } catch (e: MalformedURLException) {
+//                            e.printStackTrace()
+//                            // Handle error.
+//                        }
+//
+//                        consentForm = ConsentForm.Builder(this@MainActivity, privacyUrl)
+//                            .withListener(object : ConsentFormListener() {
+//                                override fun onConsentFormLoaded() { // Consent form loaded successfully.
+//                                    consentForm.show()
+//
+//
+//                                }
+//
+//                                override fun onConsentFormOpened() { // Consent form was displayed.
+//
+//                                }
+//
+//                                override fun onConsentFormClosed(
+//                                    consentStatus: ConsentStatus, userPrefersAdFree: Boolean
+//                                ) { // Consent form was closed.
+//                                    if(consentStatus == ConsentStatus.NON_PERSONALIZED){
+//                                        val extras = Bundle()
+//                                        extras.putString("npa", "1")
+//
+//                                        val request: AdRequest = AdRequest.Builder()
+//                                            .addNetworkExtrasBundle(AdMobAdapter::class.java, extras)
+//                                            .build()
+//                                    }
+//                                }
+//
+//                                override fun onConsentFormError(errorDescription: String) { // Consent form error.
+//                                }
+//                            })
+//                            .withPersonalizedAdsOption()
+//                            .withNonPersonalizedAdsOption()
+//                            //.withAdFreeOption()
+//                            .build()
+//
+//                        consentForm.load()
+//                    }
+//                }
+//
+//                override fun onFailedToUpdateConsentInfo(errorDescription: String) { // User's consent status failed to update.
+//                }
+//            })
+//    }
 
     private fun initPersonsData() {
         val gamesSet = readGameSet(applicationContext)
