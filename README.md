@@ -2,7 +2,7 @@
 
 Games for improving your brain using Native Android with Kotlin.
 
-##ScreenShots
+## ScreenShots
 
 ![sc1](https://i2.paste.pics/85af34b05e3d6b934d37a9d549aacd1c.png)
 ![sc2](https://i2.paste.pics/a72405c997ca4b19767b46bf0462db0e.png)
